@@ -75,10 +75,10 @@ export const galleries: Gallery[] = [
     id: "claire-theo",
     title: "Claire & Théo",
     subtitle: "Yosemite Elopement · August 2024",
-    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1525772764200-be829a350797
-    coverImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Newlyweds walking hand in hand through a meadow with Yosemite Valley in the background",
-    coverCredit: "Jonathan Borba / Unsplash",
+    // Cover: Thomas AE / Unsplash  https://unsplash.com/photos/photo-1469371670807-013ccf25f16a
+    coverImage: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Bride and groom walking hand in hand down a candlelit ceremony aisle at their Yosemite elopement",
+    coverCredit: "Thomas AE / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1400&q=85&fm=webp&fit=crop",
@@ -117,10 +117,10 @@ export const galleries: Gallery[] = [
     id: "isabelle-omar",
     title: "Isabelle & Omar",
     subtitle: "Palm Springs · February 2025",
-    // Cover: Rhone / Unsplash
-    coverImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Couple dancing under festoon lights at a desert wedding reception at dusk",
-    coverCredit: "Rhone / Unsplash",
+    // Cover: Álvaro CvG / Unsplash  https://unsplash.com/photos/photo-1525772764200-be829a350797
+    coverImage: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Palm Springs reception tables adorned with desert florals and soft candlelight at dusk",
+    coverCredit: "Álvaro CvG / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",

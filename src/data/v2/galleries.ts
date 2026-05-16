@@ -24,10 +24,10 @@ export const galleries: Gallery[] = [
     id: "isabella-marco",
     title: "Isabella & Marco",
     subtitle: "The Plaza, New York · March 2025",
-    // Cover: Unsplash  https://unsplash.com/photos/1511285560929-80b456fea0bc
-    coverImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Bride and groom descending the grand staircase at The Plaza Hotel, Manhattan",
-    coverCredit: "Unsplash",
+    // Cover: Álvaro CvG / Unsplash  https://unsplash.com/photos/photo-1525772764200-be829a350797
+    coverImage: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Candlelit reception tables in a grand New York City wedding venue",
+    coverCredit: "Álvaro CvG / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
@@ -97,10 +97,10 @@ export const galleries: Gallery[] = [
     id: "vera-nikolai",
     title: "Vera & Nikolai",
     subtitle: "Chicago Skyline · July 2024",
-    // Cover: Євгенія Височина / Unsplash  https://unsplash.com/photos/1537633552985-df8429e8048b
-    coverImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Couple against the Chicago skyline at twilight, rooftop wedding",
-    coverCredit: "Євгенія Височина / Unsplash",
+    // Cover: Thomas AE / Unsplash  https://unsplash.com/photos/photo-1469371670807-013ccf25f16a
+    coverImage: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Wedding ceremony at a sophisticated Chicago venue, guests standing in solemn attention",
+    coverCredit: "Thomas AE / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1400&q=85&fm=webp&fit=crop",
@@ -118,10 +118,10 @@ export const galleries: Gallery[] = [
     id: "jade-christian",
     title: "Jade & Christian",
     subtitle: "The High Line, NYC · October 2024",
-    // Cover: Cassie Lopez / Unsplash  https://unsplash.com/photos/1591604466107-ec97de577aff
-    coverImage: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Couple embracing on The High Line with the Hudson River and Manhattan skyline behind them",
-    coverCredit: "Cassie Lopez / Unsplash",
+    // Cover: Michael Dam / Unsplash  https://unsplash.com/photos/photo-1606216794074-735e91aa2c92
+    coverImage: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Couple in sleek editorial wedding attire photographed in the city at twilight",
+    coverCredit: "Michael Dam / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1400&q=85&fm=webp&fit=crop",

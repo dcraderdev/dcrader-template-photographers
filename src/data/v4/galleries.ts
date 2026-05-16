@@ -74,10 +74,10 @@ export const galleries: Gallery[] = [
     id: "k-a-copenhagen",
     title: "K & A",
     subtitle: "Designmuseum, Copenhagen · March 2025",
-    // Cover: Álvaro CvG / Unsplash  https://unsplash.com/photos/photo-1511285560929-80b456fea0bc
-    coverImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Couple in a Scandinavian design museum with clean white walls and natural light",
-    coverCredit: "Álvaro CvG / Unsplash",
+    // Cover: Thomas AE / Unsplash  https://unsplash.com/photos/photo-1469371670807-013ccf25f16a
+    coverImage: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Minimalist ceremony in a light-filled Scandinavian museum space, guests standing in still attention",
+    coverCredit: "Thomas AE / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
@@ -126,10 +126,10 @@ export const galleries: Gallery[] = [
     id: "e-l-tuscany",
     title: "E & L",
     subtitle: "Matrimoni, Tuscany · September 2024",
-    // Cover: Євгенія Височина / Unsplash  https://unsplash.com/photos/photo-1537633552985-df8429e8048b
-    coverImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Minimalist ceremony at a Tuscan villa with olive grove backdrop",
-    coverCredit: "Євгенія Височина / Unsplash",
+    // Cover: Álvaro CvG / Unsplash  https://unsplash.com/photos/photo-1525772764200-be829a350797
+    coverImage: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Unadorned reception tables at a Tuscan villa, white linen and natural afternoon light",
+    coverCredit: "Álvaro CvG / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1400&q=85&fm=webp&fit=crop",

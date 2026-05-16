@@ -48,10 +48,10 @@ export const galleries: Gallery[] = [
     id: "zoe-luis",
     title: "Zoe & Luis",
     subtitle: "Hill Country, Texas · April 2025",
-    // Cover: Cassie Lopez / Unsplash  https://unsplash.com/photos/photo-1591604466107-ec97de577aff
-    coverImage: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Colorful wedding party throwing flower petals at a Texas hill country celebration",
-    coverCredit: "Cassie Lopez / Unsplash",
+    // Cover: Beatriz Pérez Moya / Unsplash  https://unsplash.com/photos/photo-1583939003579-730e3918a45a
+    coverImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Couple kissing as joyful guests shower them with flower petals at a Texas hill country wedding",
+    coverCredit: "Beatriz Pérez Moya / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1400&q=85&fm=webp&fit=crop",
@@ -74,10 +74,10 @@ export const galleries: Gallery[] = [
     id: "amara-devon",
     title: "Amara & Devon",
     subtitle: "East Austin Rooftop · October 2024",
-    // Cover: Євгенія Височина / Unsplash  https://unsplash.com/photos/photo-1537633552985-df8429e8048b
-    coverImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Joyful rooftop wedding in East Austin with the city skyline at sunset",
-    coverCredit: "Євгенія Височина / Unsplash",
+    // Cover: Álvaro CvG / Unsplash  https://unsplash.com/photos/photo-1525772764200-be829a350797
+    coverImage: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Vibrant reception tables on an East Austin rooftop, adorned with wildflowers and string lights",
+    coverCredit: "Álvaro CvG / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1400&q=85&fm=webp&fit=crop",
@@ -100,10 +100,10 @@ export const galleries: Gallery[] = [
     id: "cleo-raul",
     title: "Cleo & Raúl",
     subtitle: "Fiesta Colors · March 2025",
-    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1511285560929-80b456fea0bc
-    coverImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Vibrant fiesta-themed wedding with mariachi and colorful papel picado",
-    coverCredit: "Jonathan Borba / Unsplash",
+    // Cover: Thomas AE / Unsplash  https://unsplash.com/photos/photo-1469371670807-013ccf25f16a
+    coverImage: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Fiesta-themed wedding ceremony with guests lining the aisle beneath marigold and paper-flower arches",
+    coverCredit: "Thomas AE / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
@@ -152,10 +152,10 @@ export const galleries: Gallery[] = [
     id: "nia-eli",
     title: "Nia & Eli",
     subtitle: "Backyard BBQ Wedding · June 2024",
-    // Cover: Beatriz Pérez Moya / Unsplash  https://unsplash.com/photos/photo-1583939003579-730e3918a45a
-    coverImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Joyful backyard wedding with fairy lights, food trucks, and friends celebrating",
-    coverCredit: "Beatriz Pérez Moya / Unsplash",
+    // Cover: Євгенія Височина / Unsplash  https://unsplash.com/photos/photo-1537633552985-df8429e8048b
+    coverImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Couple celebrating at golden hour at their backyard wedding, surrounded by close friends and family",
+    coverCredit: "Євгенія Височина / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1400&q=85&fm=webp&fit=crop",

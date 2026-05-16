@@ -75,10 +75,10 @@ export const galleries: Gallery[] = [
     id: "lila-cove",
     title: "Lila & Cove",
     subtitle: "Crater Lake, Oregon · August 2024",
-    // Cover: Unsplash  https://unsplash.com/photos/photo-1591604466107-ec97de577aff
-    coverImage: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80&fm=webp&fit=crop",
-    coverAlt: "Couple at the rim of Crater Lake, Oregon in elopement attire",
-    coverCredit: "Unsplash",
+    // Cover: Sandy Millar / Unsplash  https://unsplash.com/photos/photo-1522413452208-996ff3f3e740
+    coverImage: "https://images.unsplash.com/photo-1522413452208-996ff3f3e740?w=800&q=80&fm=webp&fit=crop",
+    coverAlt: "Intimate elopement ceremony at Crater Lake surrounded by wildflowers and natural altar decorations",
+    coverCredit: "Sandy Millar / Unsplash",
     images: [
       {
         src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1400&q=85&fm=webp&fit=crop",
