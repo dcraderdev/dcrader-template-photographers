@@ -9,54 +9,68 @@ interface Props {
 const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
 ---
 
-<!-- V4: Swiss 50/50 split — extreme whitespace left, full-height photo right -->
+<!-- V4: Swiss typographic split — extreme whitespace left, full-height photo right, Inter Tight -->
 <section id="hero" class="relative flex min-h-screen overflow-hidden" style="background:var(--c-bg)" aria-label="Hero">
 
-  <!-- Left: radical whitespace, ultra-large type -->
-  <div class="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-10 lg:px-20 py-24 min-h-screen">
+  <!-- Left: radical whitespace, Inter Tight -->
+  <div class="relative z-10 w-full lg:w-1/2 flex flex-col justify-between px-10 lg:px-20 py-20 min-h-screen">
 
-    <!-- Top metadata line -->
-    <div class="mb-16 fade-hidden" style="transition-delay:0.1s">
-      <p class="text-[9px] uppercase tracking-[0.5em] font-light" style="color:var(--c-text-muted)">{subtagline}</p>
+    <!-- Top: metadata line -->
+    <div class="fade-hidden" style="transition-delay:0.08s">
+      <p class="text-[8px] uppercase tracking-[0.6em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">{subtagline}</p>
     </div>
 
-    <!-- The name — enormous, black, thin -->
-    <h1 class="leading-[0.9] mb-12 fade-hidden" style="font-family:var(--f-display);font-size:clamp(3rem,7vw,8.5rem);color:var(--c-text);font-weight:400;letter-spacing:-0.03em;transition-delay:0.25s">
-      {name.split(' ').map((word, i) => (
-        <span class="block">{word}</span>
-      ))}
-    </h1>
+    <!-- Center: enormous name in Inter Tight -->
+    <div>
+      <div class="w-6 h-px mb-10 fade-hidden" style="background:var(--c-text);opacity:0.3;transition-delay:0.2s" aria-hidden="true"></div>
 
-    <!-- Thin horizontal rule -->
-    <div class="w-full mb-8 fade-hidden" style="height:1px;background:var(--c-text);opacity:0.12;transition-delay:0.4s" aria-hidden="true"></div>
+      <h1 class="leading-none mb-8 fade-hidden" style="font-family:var(--f-body);font-size:clamp(3rem,7vw,8.5rem);color:var(--c-text);font-weight:300;letter-spacing:-0.05em;transition-delay:0.3s">
+        {name.split(' ').map((word) => (
+          <span class="block">{word}</span>
+        ))}
+      </h1>
 
-    <!-- Tagline -->
-    <p class="text-sm lg:text-base font-light leading-relaxed mb-16 max-w-xs fade-hidden" style="color:var(--c-text-muted);font-family:var(--f-body);transition-delay:0.5s">
-      {tagline}
-    </p>
+      <!-- Thin rule -->
+      <div class="w-full h-px mb-8 fade-hidden" style="background:var(--c-text);opacity:0.07;transition-delay:0.42s" aria-hidden="true"></div>
 
-    <!-- CTA: ultra-minimal -->
-    <div class="flex items-center gap-6 fade-hidden" style="transition-delay:0.65s">
-      <a href="#galleries" class="text-[10px] uppercase tracking-[0.3em] transition-colors" style="color:var(--c-text)">
-        View Portfolio →
-      </a>
+      <!-- Tagline in Noto Serif -->
+      <p class="text-sm lg:text-base leading-relaxed max-w-xs mb-12 fade-hidden" style="font-family:var(--f-serif);color:var(--c-text-muted);font-style:italic;transition-delay:0.52s">
+        {tagline}
+      </p>
+
+      <!-- CTA: text link, no button -->
+      <div class="flex items-center gap-5 fade-hidden" style="transition-delay:0.65s">
+        <a href="#galleries" class="text-[8px] uppercase tracking-[0.45em] transition-opacity duration-300 hover:opacity-40" style="color:var(--c-text);font-family:var(--f-body)">
+          View Portfolio
+        </a>
+        <div class="w-8 h-px" style="background:var(--c-text);opacity:0.25" aria-hidden="true"></div>
+      </div>
     </div>
 
-    <!-- Bottom: year decoration -->
-    <div class="absolute bottom-10 left-10 lg:left-20 fade-hidden" style="transition-delay:0.8s" aria-hidden="true">
-      <p class="text-[9px] uppercase tracking-[0.4em] font-light" style="color:var(--c-text-muted)">Est. 2015</p>
+    <!-- Bottom: year + location -->
+    <div class="fade-hidden" style="transition-delay:0.8s">
+      <p class="text-[7px] uppercase tracking-[0.55em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">Est. 2015 · Berlin & Copenhagen</p>
     </div>
   </div>
 
   <!-- Right: full-height photo, flush edge -->
-  <div class="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
+  <div class="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2 fade-hidden" style="transition-delay:0.12s">
     <img src={heroImage} alt={heroImageAlt}
       class="w-full h-full object-cover"
       loading="eager" fetchpriority="high" decoding="async" />
+    <!-- Subtle inner shadow left edge -->
+    <div class="absolute inset-y-0 left-0 w-12" style="background:linear-gradient(to right,var(--c-bg),transparent)" aria-hidden="true"></div>
   </div>
 
-  <!-- Mobile: overlay photo -->
+  <!-- Mobile: very subtle photo bg -->
   <div class="lg:hidden absolute inset-0 -z-10">
-    <img src={heroImage} alt={heroImageAlt} class="w-full h-full object-cover" style="opacity:0.12" loading="eager" fetchpriority="high" decoding="async" />
+    <img src={heroImage} alt={heroImageAlt} class="w-full h-full object-cover" style="opacity:0.08" loading="eager" fetchpriority="high" decoding="async" />
   </div>
 </section>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
+</script>

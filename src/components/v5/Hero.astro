@@ -9,49 +9,114 @@ interface Props {
 const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
 ---
 
-<!-- V5: Yellow left panel + rounded-corner photo, celebration energy -->
-<section id="hero" class="min-h-screen flex items-center overflow-hidden" style="background:var(--c-bg)" aria-label="Hero">
-  <div class="w-full max-w-screen-xl mx-auto px-6 lg:px-16 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<!-- V5: Fraunces + Manrope, bento layout, animated camera/heart SVGs, sticker energy -->
+<section id="hero" class="overflow-hidden" style="background:var(--c-bg);min-height:100svh;display:flex;align-items:center" aria-label="Hero">
+  <div class="w-full max-w-screen-xl mx-auto px-6 lg:px-16 py-24 lg:py-20">
 
-    <!-- Left: yellow background panel with bold text -->
-    <div class="relative">
-      <!-- Big yellow accent blob behind -->
-      <div class="absolute -inset-4 lg:-inset-8 -z-10 rounded-2xl" style="background:var(--c-accent)" aria-hidden="true"></div>
+    <!-- Bento grid layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-2 gap-4 lg:gap-5" style="min-height:580px">
 
-      <div class="relative z-10 p-8 lg:p-10">
-        <p class="text-xs uppercase tracking-[0.3em] font-semibold mb-6" style="color:rgba(26,26,26,0.6)">{subtagline}</p>
-        <h1 class="leading-tight mb-6 fade-hidden" style="font-family:var(--f-display);font-size:clamp(2.8rem,6vw,5.5rem);color:var(--c-text);font-weight:700;letter-spacing:-0.02em;transition-delay:0.2s">
-          {name}
-        </h1>
-        <p class="text-lg lg:text-xl font-medium mb-10 fade-hidden" style="color:rgba(26,26,26,0.7);transition-delay:0.35s">
-          {tagline}
-        </p>
-        <div class="flex flex-wrap gap-4 fade-hidden" style="transition-delay:0.5s">
-          <a href="#galleries"
-            class="text-sm font-semibold uppercase tracking-wide px-8 py-3.5 transition-all duration-300"
-            style="background:var(--c-text);color:white;border-radius:9999px">
-            See Our Work
-          </a>
-          <a href="#inquire"
-            class="text-sm font-semibold uppercase tracking-wide px-8 py-3.5 transition-all duration-300"
-            style="border:2px solid var(--c-text);color:var(--c-text);border-radius:9999px">
-            Book Us
-          </a>
+      <!-- TILE 1: Yellow headline block — spans 7 cols, 2 rows -->
+      <div
+        class="lg:col-span-7 lg:row-span-2 flex flex-col justify-between p-8 lg:p-12 fade-hidden"
+        style="background:var(--c-accent);border-radius:var(--radius)"
+      >
+        <!-- Top: "Hey friend!" label -->
+        <div>
+          <p class="text-sm font-semibold mb-2" style="color:rgba(26,26,26,0.55);font-family:var(--f-body)">Hey friend! 👋</p>
+          <p class="text-xs uppercase tracking-[0.3em] font-medium" style="color:rgba(26,26,26,0.45);font-family:var(--f-body)">{subtagline}</p>
+        </div>
+
+        <!-- Main name in Fraunces -->
+        <div>
+          <h1 class="leading-none mb-4 fade-hidden" style="font-family:var(--f-display);font-size:clamp(3.5rem,7vw,7rem);color:var(--c-text);font-weight:400;letter-spacing:-0.02em;transition-delay:0.2s">
+            {name}
+          </h1>
+
+          <!-- Tagline in Manrope -->
+          <p class="text-lg lg:text-xl font-medium mb-8 fade-hidden" style="color:rgba(26,26,26,0.65);font-family:var(--f-body);transition-delay:0.35s">
+            {tagline}
+          </p>
+
+          <!-- Sticker-style CTAs -->
+          <div class="flex flex-wrap gap-3 fade-hidden" style="transition-delay:0.5s">
+            <a href="#galleries"
+              class="font-semibold text-sm px-6 py-3 transition-all duration-300 hover:opacity-85"
+              style="background:var(--c-text);color:var(--c-text-inv);border-radius:9999px;font-family:var(--f-body)">
+              See Our Work ✨
+            </a>
+            <a href="#inquire"
+              class="font-semibold text-sm px-6 py-3 transition-all duration-300 hover:opacity-70"
+              style="background:white;color:var(--c-text);border-radius:9999px;font-family:var(--f-body)">
+              Book Us →
+            </a>
+          </div>
+        </div>
+
+        <!-- Animated camera SVG illustration -->
+        <div class="flex items-end justify-end mt-6" aria-hidden="true">
+          <div class="wiggle">
+            <svg width="64" height="54" viewBox="0 0 64 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Camera body -->
+              <rect x="4" y="14" width="56" height="36" rx="5" fill="rgba(26,26,26,0.12)"/>
+              <rect x="4" y="14" width="56" height="36" rx="5" stroke="rgba(26,26,26,0.3)" stroke-width="2"/>
+              <!-- Viewfinder bump -->
+              <rect x="22" y="7" width="20" height="9" rx="3" fill="rgba(26,26,26,0.12)" stroke="rgba(26,26,26,0.3)" stroke-width="2"/>
+              <!-- Lens circle -->
+              <circle cx="32" cy="32" r="12" fill="rgba(26,26,26,0.08)" stroke="rgba(26,26,26,0.3)" stroke-width="2"/>
+              <circle cx="32" cy="32" r="7" fill="rgba(26,26,26,0.06)" stroke="rgba(26,26,26,0.2)" stroke-width="1.5"/>
+              <circle cx="32" cy="32" r="3" fill="rgba(26,26,26,0.1)"/>
+              <!-- Flash dot -->
+              <circle cx="10" cy="21" r="2" fill="rgba(26,26,26,0.25)"/>
+              <!-- Shutter button -->
+              <circle cx="50" cy="20" r="3" fill="rgba(26,26,26,0.15)" stroke="rgba(26,26,26,0.3)" stroke-width="1.5"/>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Right: photo with rounded corners -->
-    <div class="relative fade-hidden" style="transition-delay:0.15s">
-      <div class="overflow-hidden" style="border-radius:1.5rem;aspect-ratio:4/5">
-        <img src={heroImage} alt={heroImageAlt}
+      <!-- TILE 2: Photo — top-right, spans 5 cols -->
+      <div
+        class="lg:col-span-5 overflow-hidden fade-hidden"
+        style="border-radius:var(--radius);min-height:280px;transition-delay:0.12s"
+      >
+        <img
+          src={heroImage}
+          alt={heroImageAlt}
           class="w-full h-full object-cover ken-burns"
-          loading="eager" fetchpriority="high" decoding="async" />
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          style="min-height:280px"
+        />
       </div>
-      <!-- Floating confetti dot decorations -->
-      <div class="absolute -top-4 -right-4 w-12 h-12 rounded-full opacity-60" style="background:#FF6B6B" aria-hidden="true"></div>
-      <div class="absolute -bottom-4 -left-4 w-8 h-8 rounded-full opacity-60" style="background:var(--c-accent)" aria-hidden="true"></div>
-      <div class="absolute top-1/3 -right-6 w-5 h-5 rounded-full opacity-50" style="background:#FF6B6B" aria-hidden="true"></div>
+
+      <!-- TILE 3: Coral stats block — bottom-right -->
+      <div
+        class="lg:col-span-5 flex items-center justify-around p-6 lg:p-8 fade-hidden"
+        style="background:var(--c-coral);border-radius:var(--radius);transition-delay:0.22s"
+      >
+        <!-- Animated heart -->
+        <div class="text-center heart-beat" aria-hidden="true">
+          <svg width="36" height="32" viewBox="0 0 36 32" fill="none">
+            <path d="M18 30 C14 26, 2 20, 2 11 C2 5.5, 6.5 2, 11 2 C13.5 2, 16 3.5, 18 5.5 C20 3.5, 22.5 2, 25 2 C29.5 2, 34 5.5, 34 11 C34 20, 22 26, 18 30Z" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+
+        {[['300+','Happy couples'],['6+','Years of joy'],['50+','Venues']].map(([n, l]) => (
+          <div class="text-center">
+            <p class="leading-none mb-1" style="font-family:var(--f-display);font-size:2rem;color:white;font-weight:400">{n}</p>
+            <p class="text-[9px] uppercase tracking-[0.2em]" style="color:rgba(255,255,255,0.75);font-family:var(--f-body)">{l}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
+</script>

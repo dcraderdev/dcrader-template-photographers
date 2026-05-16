@@ -1,14 +1,14 @@
 ---
-import { photographer } from '../data/photographer';
+import { photographer } from '../data/v1/photographer';
 ---
 
-<section id="about" class="py-24 lg:py-40 bg-[var(--color-warm-black)]" aria-label="About Emma Hayes">
+<section id="about" class="py-28 lg:py-44" style="background:var(--c-bg-alt)" aria-label="About Emma Hayes">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28 items-center">
 
-      <!-- Portrait -->
+      <!-- Portrait with soft offset border -->
       <div class="relative fade-hidden">
-        <div class="relative aspect-[3/4] overflow-hidden">
+        <div class="relative aspect-[3/4] overflow-hidden max-w-sm mx-auto lg:mx-0">
           <img
             src={photographer.portraitImage}
             alt={photographer.portraitAlt}
@@ -17,36 +17,37 @@ import { photographer } from '../data/photographer';
             decoding="async"
           />
         </div>
-        <!-- Decorative offset border -->
+        <!-- Dusty rose offset border -->
         <div
-          class="absolute -bottom-4 -right-4 w-3/4 h-3/4 border border-[var(--color-rose)]/30 -z-10"
+          class="absolute -bottom-5 -right-5 w-4/5 h-4/5 -z-10"
+          style="border:1px solid rgba(201,169,154,0.25)"
           aria-hidden="true"
         ></div>
-        <!-- Floating stat -->
-        <div class="absolute -bottom-8 -left-4 lg:-left-8 bg-[var(--color-rose)] px-7 py-5">
-          <p class="font-serif text-4xl text-[var(--color-cream)]">10+</p>
-          <p class="text-[9px] uppercase tracking-[0.25em] text-[var(--color-cream)]/80 mt-1">Years of stories told</p>
+        <!-- Floating stat badge -->
+        <div class="absolute -bottom-4 -left-4 lg:-left-6 px-6 py-4" style="background:var(--c-accent)">
+          <p class="leading-none" style="font-family:var(--f-display);font-size:2.2rem;color:var(--c-text-inv)">10+</p>
+          <p class="text-[8px] uppercase tracking-[0.3em] mt-1.5" style="color:rgba(247,243,238,0.7);font-family:var(--f-body)">Years of stories</p>
         </div>
       </div>
 
       <!-- Text -->
-      <div class="lg:pl-8 fade-hidden" style="transition-delay: 0.15s">
-        <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-rose)] mb-6">About</p>
-        <h2 class="font-serif text-4xl lg:text-6xl text-[var(--color-cream)] mb-10 leading-tight">
+      <div class="fade-hidden" style="transition-delay:0.18s">
+        <p class="text-[9px] uppercase tracking-[0.4em] mb-6" style="color:var(--c-accent);font-family:var(--f-body)">About</p>
+        <h2 class="leading-tight mb-10 fade-hidden" style="font-family:var(--f-display);font-size:clamp(2.4rem,4.5vw,4rem);color:var(--c-text-inv);font-weight:400;transition-delay:0.25s">
           The woman<br />behind the lens
         </h2>
 
-        <div class="space-y-6 text-[var(--color-cream)]/70 leading-relaxed font-light text-base lg:text-lg">
+        <div class="space-y-5 leading-relaxed text-base font-light mb-12" style="color:rgba(247,243,238,0.65);font-family:var(--f-body)">
           <p set:html={photographer.aboutParagraph1}></p>
           <p set:html={photographer.aboutParagraph2}></p>
         </div>
 
-        <!-- Philosophy quote -->
-        <figure class="mt-12 border-l-2 border-[var(--color-rose)] pl-8">
-          <blockquote class="font-serif italic text-xl lg:text-2xl text-[var(--color-cream)]/80 leading-relaxed">
+        <!-- Philosophy quote in Fraunces italic -->
+        <figure class="pl-7" style="border-left:1px solid var(--c-accent)">
+          <blockquote class="italic leading-relaxed" style="font-family:var(--f-display);font-size:clamp(1.1rem,2vw,1.35rem);color:rgba(247,243,238,0.75)">
             "{photographer.philosophyQuote}"
           </blockquote>
-          <figcaption class="mt-4 text-[9px] uppercase tracking-[0.25em] text-[var(--color-muted)]">
+          <figcaption class="mt-4 text-[9px] uppercase tracking-[0.3em]" style="color:var(--c-accent);font-family:var(--f-body)">
             — {photographer.philosophyAuthor}
           </figcaption>
         </figure>
@@ -54,3 +55,10 @@ import { photographer } from '../data/photographer';
     </div>
   </div>
 </section>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
+</script>

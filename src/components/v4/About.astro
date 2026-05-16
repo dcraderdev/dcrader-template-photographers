@@ -7,46 +7,45 @@ interface Props {
 const p = Astro.props;
 ---
 
-<!-- V4: Radical whitespace — portrait as typographic element, Bauhaus grid -->
-<section id="about" class="py-24 lg:py-40" style="background:var(--c-bg)" aria-label={`About ${p.name}`}>
+<!-- V4: Radical whitespace — Inter Tight headings, Noto Serif body, grayscale portrait -->
+<section id="about" class="py-28 lg:py-44" style="background:var(--c-bg)" aria-label={`About ${p.name}`}>
   <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
 
-    <!-- Thin horizontal rule + About label -->
-    <div class="flex items-center gap-8 mb-24 fade-hidden">
-      <span class="block w-px h-16" style="background:var(--c-text);opacity:0.15" aria-hidden="true"></span>
+    <!-- Section label -->
+    <div class="flex items-center gap-6 mb-28 fade-hidden">
+      <span class="block w-px h-12" style="background:var(--c-border)" aria-hidden="true"></span>
       <div>
-        <p class="text-[9px] uppercase tracking-[0.45em] font-light" style="color:var(--c-text-muted)">Studio</p>
-        <h2 style="font-family:var(--f-display);font-size:clamp(2rem,4vw,4rem);color:var(--c-text);font-weight:400">The Photographer</h2>
+        <p class="text-[7px] uppercase tracking-[0.6em] font-light mb-1" style="color:var(--c-text-muted);font-family:var(--f-body)">Studio</p>
+        <h2 style="font-family:var(--f-body);font-size:clamp(1.6rem,3vw,3rem);color:var(--c-text);font-weight:300;letter-spacing:-0.04em">The Photographer</h2>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-0">
 
-      <!-- Portrait: square crop, hard edges, no decoration -->
+      <!-- Portrait: square, grayscale, no decoration -->
       <div class="lg:col-span-4 fade-hidden">
         <div class="aspect-square overflow-hidden">
           <img src={p.portraitImage} alt={p.portraitAlt}
             class="w-full h-full object-cover grayscale" loading="lazy" decoding="async" />
         </div>
-        <!-- Caption under portrait: name in small caps -->
-        <p class="mt-4 text-[9px] uppercase tracking-[0.4em] font-light" style="color:var(--c-text-muted)">{p.name}</p>
+        <!-- Tiny caption: Inter Tight -->
+        <p class="mt-4 text-[7px] uppercase tracking-[0.5em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">{p.name}</p>
       </div>
 
-      <!-- Very generous right column -->
+      <!-- Text: Noto Serif body -->
       <div class="lg:col-span-7 lg:col-start-6 flex flex-col justify-center fade-hidden" style="transition-delay:0.15s">
 
-        <!-- Large drop-cap style intro -->
-        <div class="space-y-8 text-sm lg:text-base leading-loose font-light" style="color:var(--c-text-muted)">
+        <div class="space-y-7 text-sm lg:text-base leading-loose" style="color:var(--c-text-muted);font-family:var(--f-serif)">
           <p set:html={p.aboutParagraph1}></p>
           <p set:html={p.aboutParagraph2}></p>
         </div>
 
-        <!-- Quote: thin, minimal -->
-        <figure class="mt-12 pt-8" style="border-top:1px solid var(--c-border)">
-          <blockquote class="text-xl lg:text-2xl leading-snug" style="font-family:var(--f-display);color:var(--c-text);font-weight:400">
+        <!-- Philosophy: Noto Serif italic -->
+        <figure class="mt-14 pt-8 fade-hidden" style="border-top:1px solid var(--c-border);transition-delay:0.28s">
+          <blockquote class="leading-snug italic" style="font-family:var(--f-serif);font-size:clamp(1rem,1.8vw,1.3rem);color:var(--c-text)">
             "{p.philosophyQuote}"
           </blockquote>
-          <figcaption class="mt-4 text-[9px] uppercase tracking-[0.4em] font-light" style="color:var(--c-text-muted)">
+          <figcaption class="mt-4 text-[7px] uppercase tracking-[0.55em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">
             {p.philosophyAuthor}
           </figcaption>
         </figure>
@@ -54,3 +53,10 @@ const p = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
+</script>

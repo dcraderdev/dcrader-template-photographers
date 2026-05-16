@@ -6,83 +6,161 @@ const { galleries, galleriesJson } = Astro.props;
 
 <script id="galleries-data" type="application/json" set:html={galleriesJson}></script>
 
-<!-- V4: Flush square grid, no gaps, architectural precision -->
-<section id="galleries" class="py-24 lg:py-40" style="background:var(--c-bg)" aria-label="Featured galleries">
+<!-- V4: Single hero photo per section — gallery-curator vertical scroll, extreme whitespace -->
+<section id="galleries" aria-label="Featured galleries">
 
-  <!-- Header: minimal, left-aligned -->
-  <div class="max-w-screen-xl mx-auto px-6 lg:px-16 mb-16 fade-hidden">
-    <div class="flex items-end gap-8">
-      <span class="block w-px h-12" style="background:var(--c-text);opacity:0.2" aria-hidden="true"></span>
-      <div>
-        <p class="text-[9px] uppercase tracking-[0.45em] mb-2 font-light" style="color:var(--c-text-muted)">Portfolio</p>
-        <h2 style="font-family:var(--f-display);font-size:clamp(2rem,4vw,4rem);color:var(--c-text);font-weight:400">Selected Work</h2>
+  <!-- Intro header: white, minimal -->
+  <div class="py-20 lg:py-28 fade-hidden" style="background:var(--c-bg)">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+      <div class="flex items-end gap-6">
+        <div class="w-px h-10" style="background:var(--c-border)" aria-hidden="true"></div>
+        <div>
+          <p class="text-[8px] uppercase tracking-[0.55em] mb-2 font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">Portfolio</p>
+          <h2 style="font-family:var(--f-body);font-size:clamp(1.8rem,3.5vw,3rem);color:var(--c-text);font-weight:300;letter-spacing:-0.04em">
+            Selected Work
+          </h2>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Flush 3×2 square grid with no gap — the photos touch -->
-  <div class="grid grid-cols-2 lg:grid-cols-3" style="gap:2px">
-    {galleries.map((gallery, i) => (
-      <button
-        class="gallery-card group relative overflow-hidden aspect-square fade-hidden cursor-pointer"
-        style={`transition-delay:${i*0.06}s`}
-        aria-label={`Open ${gallery.title} gallery`}
-        data-gallery-id={gallery.id}
-        type="button"
-      >
-        <img src={gallery.coverImage} alt={gallery.coverAlt}
-          class="w-full h-full object-cover transition-all duration-500 group-hover:opacity-75"
-          loading="lazy" decoding="async" />
-        <!-- Minimal text reveal -->
-        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5"
-          style="background:rgba(255,255,255,0.9)">
-          <p class="text-[9px] uppercase tracking-[0.35em] mb-1" style="color:var(--c-text-muted)">{gallery.subtitle}</p>
-          <p class="text-lg" style="font-family:var(--f-display);color:var(--c-text)">{gallery.title}</p>
+  <!-- One photo per section: full-width image with side caption -->
+  {galleries.map((gallery, i) => (
+    <div
+      class="gallery-photo-section fade-hidden"
+      style={`transition-delay:${i*0.06}s;background:${i % 2 === 0 ? 'var(--c-bg)' : 'var(--c-bg-mid)'}`}
+    >
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-16 py-12 lg:py-16">
+        <div class={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+
+          <!-- Image: spans 8 or 9 columns -->
+          <div class={`relative overflow-hidden lg:col-span-9 ${i % 2 === 1 ? 'lg:col-start-4' : ''}`}>
+            <button
+              class="w-full block cursor-pointer group"
+              data-gallery-id={gallery.id}
+              type="button"
+              aria-label={`Open ${gallery.title} gallery`}
+            >
+              <img
+                src={gallery.coverImage}
+                alt={gallery.coverAlt}
+                class="w-full object-cover transition-opacity duration-500 group-hover:opacity-90"
+                style="aspect-ratio:16/10"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+
+          <!-- Caption: 3 columns, tiny Noto Serif text, extreme tracking -->
+          <div class={`lg:col-span-3 ${i % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''} pb-2`}>
+            <p class="mb-2 text-[8px] uppercase tracking-[0.55em]" style="color:var(--c-text-muted);font-family:var(--f-body)">
+              {String(i + 1).padStart(2, '0')} / {String(galleries.length).padStart(2, '0')}
+            </p>
+
+            <button
+              class="text-left cursor-pointer hover:opacity-60 transition-opacity duration-300 w-full"
+              data-gallery-id={gallery.id}
+              type="button"
+              aria-label={`Open ${gallery.title}`}
+            >
+              <h3 class="leading-tight mb-4" style="font-family:var(--f-serif);font-size:clamp(1.1rem,2vw,1.5rem);color:var(--c-text);font-weight:400;letter-spacing:-0.01em">
+                {gallery.title}
+              </h3>
+            </button>
+
+            <!-- Noto Serif tiny caption -->
+            <p style="font-family:var(--f-serif);font-size:0.6rem;letter-spacing:0.15em;color:var(--c-text-muted);line-height:1.8;text-transform:uppercase">
+              {gallery.subtitle}
+            </p>
+
+            <!-- Thin rule + view text -->
+            <div class="mt-6 pt-4" style="border-top:1px solid var(--c-border)">
+              <button
+                class="text-[8px] uppercase tracking-[0.4em] hover:opacity-50 transition-opacity duration-300"
+                style="color:var(--c-text);font-family:var(--f-body)"
+                data-gallery-id={gallery.id}
+                type="button"
+                aria-label={`View ${gallery.title} images`}
+              >
+                View images →
+              </button>
+            </div>
+          </div>
         </div>
-      </button>
-    ))}
-  </div>
+      </div>
+
+      <!-- Thin separator between sections -->
+      {i < galleries.length - 1 && (
+        <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+          <div class="w-full h-px" style="background:var(--c-border)" aria-hidden="true"></div>
+        </div>
+      )}
+    </div>
+  ))}
 </section>
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Gallery lightbox">
-  <div class="w-full max-w-5xl py-8 lg:py-16">
-    <button id="lightbox-close" class="fixed top-6 right-6 lg:top-8 lg:right-8 z-10 flex items-center gap-3 transition-colors"
+  <div class="w-full max-w-4xl py-8 lg:py-16">
+    <button id="lightbox-close" class="fixed top-6 right-6 lg:top-8 lg:right-8 z-10 flex items-center gap-3"
       style="color:white" aria-label="Close gallery" type="button">
-      <span class="text-xs uppercase tracking-widest font-light">Close</span>
+      <span class="text-[8px] uppercase tracking-[0.45em] font-light" style="font-family:var(--f-body)">Close</span>
       <span class="text-2xl leading-none" aria-hidden="true">×</span>
     </button>
-    <div class="px-6 mb-10">
-      <p id="lightbox-subtitle" class="text-[9px] uppercase tracking-[0.3em] mb-2" style="color:var(--c-accent)"></p>
-      <h3 id="lightbox-title" class="text-3xl lg:text-5xl" style="font-family:var(--f-display);color:white;font-weight:400"></h3>
+    <div class="px-6 mb-12">
+      <p id="lightbox-subtitle" class="text-[7px] uppercase tracking-[0.5em] mb-4 font-light" style="color:rgba(255,255,255,0.4);font-family:var(--f-body)"></p>
+      <h3 id="lightbox-title" class="leading-tight" style="font-family:var(--f-serif);font-size:clamp(1.8rem,4vw,3.5rem);color:white;font-weight:400"></h3>
     </div>
     <div id="lightbox-images" class="flex flex-col gap-2 px-6"></div>
   </div>
 </div>
 
 <script>
-  const galData = JSON.parse((document.getElementById('galleries-data') as HTMLScriptElement)?.text || '[]');
+  const galData: { id: string; title: string; subtitle: string; images: { src: string; alt: string }[] }[] =
+    JSON.parse((document.getElementById('galleries-data') as HTMLScriptElement)?.text || '[]');
+
   const lightbox = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');
-  const titleEl = document.getElementById('lightbox-title');
+  const titleEl  = document.getElementById('lightbox-title');
   const subtitleEl = document.getElementById('lightbox-subtitle');
   const imagesEl = document.getElementById('lightbox-images');
+
   function openGallery(id: string) {
-    const g = galData.find((x: { id: string }) => x.id === id);
+    const g = galData.find(x => x.id === id);
     if (!g || !lightbox || !titleEl || !subtitleEl || !imagesEl) return;
-    titleEl.textContent = g.title; subtitleEl.textContent = g.subtitle; imagesEl.innerHTML = '';
-    g.images.forEach((img: { src: string; alt: string }) => {
+    titleEl.textContent = g.title;
+    subtitleEl.textContent = g.subtitle;
+    imagesEl.innerHTML = '';
+    g.images.forEach(img => {
       const el = document.createElement('img');
-      el.src = img.src; el.alt = img.alt; el.className = 'w-full h-auto object-cover'; el.loading = 'lazy'; el.decoding = 'async';
+      el.src = img.src; el.alt = img.alt;
+      el.className = 'w-full h-auto object-cover'; el.loading = 'lazy'; el.decoding = 'async';
       imagesEl.appendChild(el);
     });
-    lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; closeBtn?.focus();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
   }
-  function closeLightbox() { lightbox?.classList.remove('active'); document.body.style.overflow = ''; if (imagesEl) imagesEl.innerHTML = ''; }
+
+  function closeLightbox() {
+    lightbox?.classList.remove('active');
+    document.body.style.overflow = '';
+    if (imagesEl) imagesEl.innerHTML = '';
+  }
+
   document.querySelectorAll('[data-gallery-id]').forEach(btn => {
-    btn.addEventListener('click', () => { const id = (btn as HTMLElement).dataset.galleryId; if (id) openGallery(id); });
+    btn.addEventListener('click', () => {
+      const id = (btn as HTMLElement).dataset.galleryId;
+      if (id) openGallery(id);
+    });
   });
   closeBtn?.addEventListener('click', closeLightbox);
-  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
 </script>

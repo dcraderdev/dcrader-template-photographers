@@ -2,95 +2,100 @@
 
 /* V1: Cinematic Quiet — cream + dusty rose + warm black */
 .theme-v1 {
-  --c-bg:           #f9f5f0;
-  --c-bg-alt:       #1a1714;
-  --c-bg-accent:    #f0e4df;
-  --c-bg-mid:       #f2ede8;
-  --c-text:         #1a1714;
-  --c-text-muted:   #7a7068;
-  --c-text-inv:     #f9f5f0;
+  --c-bg:           #f7f3ee;
+  --c-bg-alt:       #1c1814;
+  --c-bg-accent:    #ede3da;
+  --c-bg-mid:       #f0ebe4;
+  --c-text:         #1c1814;
+  --c-text-muted:   #7a6e66;
+  --c-text-inv:     #f7f3ee;
   --c-accent:       #c9a99a;
-  --c-accent-light: #f0e4df;
+  --c-accent-light: #ede3da;
   --c-accent-dark:  #9e7265;
-  --c-border:       rgba(201,169,154,0.3);
-  --f-display:      "Cormorant Garamond", Georgia, serif;
-  --f-body:         "Manrope", system-ui, sans-serif;
-  --hero-text-y:    end;   /* flex justify for hero text */
+  --c-border:       rgba(201,169,154,0.25);
+  --f-display:      "Fraunces", Georgia, serif;
+  --f-hand:         "Fraunces", Georgia, serif;
+  --f-body:         "Inter", system-ui, sans-serif;
+  --hero-text-y:    end;
   --radius:         0px;
 }
 
-/* V2: Bold Editorial — pure white + jet black + crimson */
+/* V2: Bold Editorial — jet black + arctic white + crimson slash */
 .theme-v2 {
-  --c-bg:           #ffffff;
-  --c-bg-alt:       #0a0a0a;
-  --c-bg-accent:    #0a0a0a;
-  --c-bg-mid:       #f5f5f5;
-  --c-text:         #0a0a0a;
-  --c-text-muted:   #555555;
-  --c-text-inv:     #ffffff;
-  --c-accent:       #d62b2b;
-  --c-accent-light: #ffe5e5;
-  --c-accent-dark:  #a01e1e;
-  --c-border:       rgba(0,0,0,0.15);
-  --f-display:      "Bebas Neue", "Arial Narrow", sans-serif;
+  --c-bg:           #f8f8f8;
+  --c-bg-alt:       #0d0d0d;
+  --c-bg-accent:    #0d0d0d;
+  --c-bg-mid:       #efefef;
+  --c-text:         #0d0d0d;
+  --c-text-muted:   #5a5a5a;
+  --c-text-inv:     #f8f8f8;
+  --c-accent:       #c8102e;
+  --c-accent-light: #fde8eb;
+  --c-accent-dark:  #96081f;
+  --c-border:       rgba(0,0,0,0.12);
+  --f-display:      "Playfair Display", "Times New Roman", serif;
   --f-body:         "Inter", system-ui, sans-serif;
   --hero-text-y:    start;
   --radius:         0px;
 }
 
-/* V3: Bohemian Warm — terracotta + sage + warm cream */
+/* V3: Bohemian Warm — terracotta + ochre + warm cream + handwriting */
 .theme-v3 {
-  --c-bg:           #faf6f0;
-  --c-bg-alt:       #2c2416;
-  --c-bg-accent:    #ede0d4;
-  --c-bg-mid:       #f5ece4;
-  --c-text:         #2c2416;
-  --c-text-muted:   #7a6552;
-  --c-text-inv:     #faf6f0;
-  --c-accent:       #c17b4a;
-  --c-accent-light: #ede0d4;
-  --c-accent-dark:  #8b5a2b;
-  --c-border:       rgba(193,123,74,0.25);
-  --f-display:      "Libre Baskerville", Georgia, serif;
-  --f-body:         "Nunito Sans", system-ui, sans-serif;
+  --c-bg:           #fdf8f2;
+  --c-bg-alt:       #2e2016;
+  --c-bg-accent:    #f0e2d0;
+  --c-bg-mid:       #f7f0e6;
+  --c-text:         #2e2016;
+  --c-text-muted:   #7a6350;
+  --c-text-inv:     #fdf8f2;
+  --c-accent:       #c4673a;
+  --c-accent2:      #d4a843;
+  --c-accent-light: #f0e2d0;
+  --c-accent-dark:  #8b4521;
+  --c-border:       rgba(196,103,58,0.2);
+  --f-display:      "Cormorant Garamond", Georgia, serif;
+  --f-hand:         "Caveat", cursive;
+  --f-body:         "Cormorant Garamond", Georgia, serif;
   --hero-text-y:    center;
-  --radius:         2px;
+  --radius:         3px;
 }
 
-/* V4: Modern Minimal — pure white + carbon + platinum */
+/* V4: Modern Minimal — pure white + carbon + platinum silence */
 .theme-v4 {
   --c-bg:           #ffffff;
-  --c-bg-alt:       #111111;
-  --c-bg-accent:    #f5f5f5;
+  --c-bg-alt:       #f5f5f5;
+  --c-bg-accent:    #f0f0f0;
   --c-bg-mid:       #fafafa;
-  --c-text:         #111111;
-  --c-text-muted:   #888888;
-  --c-text-inv:     #ffffff;
-  --c-accent:       #111111;
-  --c-accent-light: #e5e5e5;
+  --c-text:         #0f0f0f;
+  --c-text-muted:   #999999;
+  --c-text-inv:     #0f0f0f;
+  --c-accent:       #0f0f0f;
+  --c-accent-light: #e8e8e8;
   --c-accent-dark:  #000000;
-  --c-border:       rgba(0,0,0,0.1);
-  --f-display:      "DM Serif Display", Georgia, serif;
-  --f-body:         "DM Sans", system-ui, sans-serif;
+  --c-border:       rgba(0,0,0,0.08);
+  --f-display:      "Inter Tight", "Helvetica Neue", sans-serif;
+  --f-serif:        "Noto Serif", Georgia, serif;
+  --f-body:         "Inter Tight", "Helvetica Neue", sans-serif;
   --hero-text-y:    center;
   --radius:         0px;
 }
 
-/* V5: Vibrant Joyful — sunshine yellow + coral + white */
+/* V5: Vibrant Joyful — bright cream + coral + sunshine + delight */
 .theme-v5 {
-  --c-bg:           #ffffff;
+  --c-bg:           #fffef9;
   --c-bg-alt:       #1a1a1a;
-  --c-bg-accent:    #fff8e7;
-  --c-bg-mid:       #fff8e7;
+  --c-bg-accent:    #fff5e0;
+  --c-bg-mid:       #fff5e0;
   --c-text:         #1a1a1a;
   --c-text-muted:   #666666;
-  --c-text-inv:     #ffffff;
-  --c-accent:       #ffcb05;
-  --c-accent-light: #fff8e7;
-  --c-accent-dark:  #e5b500;
-  --c-border:       rgba(255,203,5,0.4);
-  --f-display:      "Poppins", system-ui, sans-serif;
-  --f-body:         "Poppins", system-ui, sans-serif;
+  --c-text-inv:     #fffef9;
+  --c-accent:       #f5c842;
+  --c-coral:        #ff6b52;
+  --c-accent-light: #fff5e0;
+  --c-accent-dark:  #e0b030;
+  --c-border:       rgba(245,200,66,0.35);
+  --f-display:      "Fraunces", Georgia, serif;
+  --f-body:         "Manrope", system-ui, sans-serif;
   --hero-text-y:    center;
-  --radius:         12px;
+  --radius:         16px;
 }

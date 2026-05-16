@@ -7,45 +7,87 @@ interface Props {
 const p = Astro.props;
 ---
 
-<!-- V5: Yellow panel + rounded photo, fun energy -->
-<section id="about" class="py-24 lg:py-32" style="background:var(--c-bg)" aria-label={`About ${p.name}`}>
+<!-- V5: Bento-style about — yellow, coral, white tiles + floating heart -->
+<section id="about" class="py-20 lg:py-32" style="background:var(--c-bg-accent)" aria-label={`About ${p.name}`}>
   <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      <!-- Left: yellow bg panel with portrait -->
-      <div class="relative fade-hidden order-2 lg:order-1">
-        <!-- Yellow background block -->
-        <div class="absolute inset-0 rounded-2xl -z-10" style="background:var(--c-accent);transform:translate(16px,16px)" aria-hidden="true"></div>
-        <div class="overflow-hidden rounded-2xl aspect-[4/5]">
+    <!-- Section sticker label -->
+    <div class="mb-10 fade-hidden">
+      <span
+        class="inline-block text-xs font-bold uppercase tracking-wider px-4 py-2 rotate-[-1.5deg]"
+        style="background:var(--c-coral);color:white;border-radius:0.5rem;font-family:var(--f-body)"
+        aria-label="About Us section"
+      >
+        About Us 🙌
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+
+      <!-- Portrait tile: tall, yellow shadow -->
+      <div class="lg:col-span-4 relative fade-hidden">
+        <div class="absolute inset-0 -z-10" style="background:var(--c-accent);border-radius:var(--radius);transform:translate(10px,10px)" aria-hidden="true"></div>
+        <div class="overflow-hidden" style="border-radius:var(--radius);aspect-ratio:4/5">
           <img src={p.portraitImage} alt={p.portraitAlt}
             class="w-full h-full object-cover" loading="lazy" decoding="async" />
         </div>
+        <!-- Floating heart badge -->
+        <div class="absolute -top-4 -right-4 heart-beat" aria-hidden="true">
+          <svg width="44" height="40" viewBox="0 0 44 40" fill="none">
+            <path d="M22 36 C17 30, 4 23, 4 12 C4 6.5, 8.5 3, 13 3 C16.5 3, 19.5 5, 22 7.5 C24.5 5, 27.5 3, 31 3 C35.5 3, 40 6.5, 40 12 C40 23, 27 30, 22 36Z" fill="var(--c-coral)"/>
+          </svg>
+        </div>
       </div>
 
-      <!-- Right: text -->
-      <div class="order-1 lg:order-2 fade-hidden" style="transition-delay:0.15s">
-        <p class="text-xs uppercase tracking-[0.3em] font-semibold mb-4" style="color:var(--c-accent-dark)">About Us</p>
-        <h2 class="font-bold leading-tight mb-8" style="font-family:var(--f-display);font-size:clamp(2rem,4vw,3.5rem);color:var(--c-text)">
-          We show up<br />for the party
-        </h2>
+      <!-- Text tile -->
+      <div class="lg:col-span-8 fade-hidden" style="transition-delay:0.12s">
+        <div class="p-8 lg:p-10 h-full" style="background:white;border-radius:var(--radius)">
+          <h2 class="font-bold leading-tight mb-6" style="font-family:var(--f-display);font-size:clamp(2rem,4vw,3rem);color:var(--c-text)">
+            We show up<br />for the party 🎉
+          </h2>
+          <div class="space-y-4 text-sm lg:text-base leading-relaxed mb-8" style="color:var(--c-text-muted);font-family:var(--f-body)">
+            <p set:html={p.aboutParagraph1}></p>
+            <p set:html={p.aboutParagraph2}></p>
+          </div>
 
-        <div class="space-y-5 text-sm lg:text-base leading-relaxed mb-10" style="color:var(--c-text-muted)">
-          <p set:html={p.aboutParagraph1}></p>
-          <p set:html={p.aboutParagraph2}></p>
+          <!-- Quote sticker bubble -->
+          <div class="p-5" style="background:var(--c-bg-accent);border-radius:1rem">
+            <figure>
+              <blockquote class="text-base font-medium leading-relaxed" style="font-family:var(--f-display);color:var(--c-text)">
+                "{p.philosophyQuote}"
+              </blockquote>
+              <figcaption class="mt-3 text-xs font-semibold uppercase tracking-wider" style="color:var(--c-coral);font-family:var(--f-body)">
+                — {p.philosophyAuthor}
+              </figcaption>
+            </figure>
+          </div>
         </div>
+      </div>
 
-        <!-- Quote bubble -->
-        <div class="p-6 rounded-2xl" style="background:var(--c-bg-accent)">
-          <figure>
-            <blockquote class="text-base lg:text-lg leading-relaxed font-medium" style="color:var(--c-text)">
-              "{p.philosophyQuote}"
-            </blockquote>
-            <figcaption class="mt-3 text-xs font-semibold uppercase tracking-widest" style="color:var(--c-accent-dark)">
-              — {p.philosophyAuthor}
-            </figcaption>
-          </figure>
+      <!-- Fun stats bento strip -->
+      <div class="lg:col-span-12 fade-hidden" style="transition-delay:0.22s">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { n: '300+', l: 'Happy couples', bg: 'var(--c-accent)', emoji: '✨' },
+            { n: '6 yrs', l: 'Of spreading joy', bg: 'var(--c-coral)', emoji: '🎊' },
+            { n: '50+', l: 'Venues & counting', bg: 'var(--c-text)', emoji: '📍' },
+            { n: '∞', l: 'Dance floor energy', bg: 'var(--c-accent)', emoji: '💃' },
+          ].map(s => (
+            <div class="p-6 text-center" style={`background:${s.bg};border-radius:var(--radius)`}>
+              <div class="text-2xl mb-2" aria-hidden="true">{s.emoji}</div>
+              <p class="leading-none mb-1" style={`font-family:var(--f-display);font-size:2rem;color:${s.bg === 'var(--c-text)' ? 'white' : 'var(--c-text)'};font-weight:400`}>{s.n}</p>
+              <p class="text-[9px] uppercase tracking-[0.2em]" style={`font-family:var(--f-body);color:${s.bg === 'var(--c-text)' ? 'rgba(255,255,255,0.6)' : 'rgba(26,26,26,0.55)'}`}>{s.l}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
+</script>

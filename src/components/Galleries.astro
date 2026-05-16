@@ -1,61 +1,115 @@
 ---
-import { galleries } from '../data/galleries';
+import { galleries } from '../data/v1/galleries';
 const galleriesJson = JSON.stringify(galleries);
 ---
 
 <script id="galleries-data" type="application/json" set:html={galleriesJson}></script>
 
-<section id="galleries" class="py-24 lg:py-40 bg-[var(--color-cream)]" aria-label="Featured galleries">
-  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+<!-- V1: Ken Burns slideshow — full-bleed auto-advancing, galleries grid below -->
+<section id="galleries" aria-label="Featured galleries">
 
-    <!-- Section header -->
-    <div class="text-center mb-16 lg:mb-24 fade-hidden">
-      <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-muted)] mb-4">Selected Work</p>
-      <h2 class="font-serif text-4xl lg:text-6xl text-[var(--color-warm-black)]">Featured Galleries</h2>
+  <!-- ── Slideshow ── -->
+  <div class="relative h-screen min-h-[500px] overflow-hidden" aria-label="Gallery slideshow">
+    <!-- Slides -->
+    {galleries.map((gallery, i) => (
+      <div
+        class="slide absolute inset-0 transition-opacity duration-1500"
+        style={`opacity:${i === 0 ? '1' : '0'}`}
+        data-slide={i}
+      >
+        <img
+          src={gallery.coverImage}
+          alt={gallery.coverAlt}
+          class="w-full h-full object-cover ken-burns"
+          loading={i === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+        <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(28,24,20,0.7) 0%, rgba(28,24,20,0.1) 50%, transparent 100%)"></div>
+
+        <!-- Caption -->
+        <div class="absolute bottom-0 left-0 right-0 px-8 lg:px-20 pb-16 lg:pb-24">
+          <p class="text-[9px] uppercase tracking-[0.4em] mb-3 fade-hidden" style="color:var(--c-accent);font-family:var(--f-body)">
+            {gallery.subtitle}
+          </p>
+          <h2 class="fade-hidden" style="font-family:var(--f-display);font-size:clamp(2.2rem,5vw,4.5rem);color:var(--c-text-inv);font-weight:400;transition-delay:0.1s">
+            {gallery.title}
+          </h2>
+        </div>
+      </div>
+    ))}
+
+    <!-- Section label (top left) -->
+    <div class="absolute top-8 left-8 lg:top-10 lg:left-16 z-10 fade-hidden">
+      <p class="text-[9px] uppercase tracking-[0.4em] font-light" style="color:rgba(247,243,238,0.5);font-family:var(--f-body)">Selected Work</p>
     </div>
 
-    <!-- Gallery grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-      {galleries.map((gallery, i) => (
+    <!-- Slide counter (top right) -->
+    <div class="absolute top-8 right-8 lg:top-10 lg:right-16 z-10 flex items-center gap-3 fade-hidden">
+      <span id="slide-current" class="text-sm" style="font-family:var(--f-display);color:rgba(247,243,238,0.6)">01</span>
+      <span class="w-8 h-px" style="background:rgba(247,243,238,0.25)" aria-hidden="true"></span>
+      <span class="text-sm" style="font-family:var(--f-display);color:rgba(247,243,238,0.3)">{String(galleries.length).padStart(2,'0')}</span>
+    </div>
+
+    <!-- Dot navigation -->
+    <div class="absolute bottom-8 right-8 lg:bottom-10 lg:right-16 z-10 flex flex-col gap-2" role="tablist" aria-label="Slide navigation">
+      {galleries.map((_, i) => (
         <button
-          class={`gallery-card group relative overflow-hidden cursor-pointer text-left ${i === 0 ? 'md:col-span-2 aspect-[16/10]' : 'aspect-[4/5]'} fade-hidden`}
-          style={`transition-delay: ${i * 0.08}s`}
-          aria-label={`Open ${gallery.title} gallery`}
-          data-gallery-id={gallery.id}
+          class="slide-dot w-1.5 rounded-full transition-all duration-300"
+          style={`height:${i === 0 ? '24px' : '6px'};background:${i === 0 ? 'var(--c-accent)' : 'rgba(247,243,238,0.3)'}`}
+          data-dot={i}
+          role="tab"
+          aria-selected={i === 0}
+          aria-label={`Go to ${galleries[i].title}`}
           type="button"
-        >
-          <!-- Cover image with Ken Burns on hover -->
-          <img
-            src={gallery.coverImage}
-            alt={gallery.coverAlt}
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            loading="lazy"
-            decoding="async"
-          />
-
-          <!-- Overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-          <!-- Label -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-400">
-            <p class="text-[9px] uppercase tracking-[0.3em] text-[var(--color-rose-light)] mb-1.5">{gallery.subtitle}</p>
-            <p class="font-serif text-2xl lg:text-3xl text-[var(--color-cream)]">{gallery.title}</p>
-          </div>
-
-          <!-- Always-visible subtle name on larger first card -->
-          {i === 0 && (
-            <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-10 group-hover:opacity-0 transition-opacity duration-300">
-              <p class="text-[9px] uppercase tracking-[0.3em] text-[var(--color-rose-light)] mb-2">{gallery.subtitle}</p>
-              <p class="font-serif text-3xl lg:text-4xl text-[var(--color-cream)]">{gallery.title}</p>
-            </div>
-          )}
-        </button>
+        ></button>
       ))}
+    </div>
+
+    <!-- Open gallery button -->
+    <button
+      id="open-current-gallery"
+      class="absolute bottom-10 left-8 lg:left-16 z-10 flex items-center gap-3 group fade-hidden"
+      style="transition-delay:0.3s"
+      type="button"
+      aria-label="Open current gallery"
+    >
+      <span class="text-[9px] uppercase tracking-[0.3em] transition-colors" style="color:rgba(247,243,238,0.55);font-family:var(--f-body)">View gallery</span>
+      <span class="w-6 h-px transition-all duration-300 group-hover:w-10" style="background:var(--c-accent)" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- ── Thumbnail Strip ── -->
+  <div class="py-16 lg:py-20 fade-hidden" style="background:var(--c-bg)">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
+        {galleries.map((gallery, i) => (
+          <button
+            class="gallery-thumb group relative aspect-square overflow-hidden cursor-pointer"
+            data-gallery-id={gallery.id}
+            data-thumb={i}
+            aria-label={`Open ${gallery.title} gallery`}
+            type="button"
+          >
+            <img
+              src={gallery.coverImage}
+              alt={gallery.coverAlt}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-3" style="background:linear-gradient(to top,rgba(28,24,20,0.8),transparent)">
+              <p class="text-[8px] uppercase tracking-[0.25em]" style="color:var(--c-accent);font-family:var(--f-body)">{gallery.title}</p>
+            </div>
+            <!-- Active indicator -->
+            <div class="thumb-active-bar absolute bottom-0 left-0 right-0 h-0.5 scale-x-0 transition-transform duration-300" style="background:var(--c-accent)" aria-hidden="true"></div>
+          </button>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── Lightbox ──────────────────────────────────────────────────────────── -->
+<!-- ── Lightbox ── -->
 <div
   id="lightbox"
   class="lightbox-overlay"
@@ -63,58 +117,101 @@ const galleriesJson = JSON.stringify(galleries);
   aria-modal="true"
   aria-label="Gallery lightbox"
 >
-  <div class="w-full max-w-5xl py-8 lg:py-16">
-    <!-- Close button -->
+  <div class="w-full max-w-4xl py-8 lg:py-16">
     <button
       id="lightbox-close"
-      class="fixed top-6 right-6 lg:top-8 lg:right-8 text-[var(--color-cream)] text-xs uppercase tracking-widest flex items-center gap-3 hover:text-[var(--color-rose)] transition-colors z-10"
+      class="fixed top-6 right-6 lg:top-8 lg:right-8 z-10 flex items-center gap-3 transition-colors"
+      style="color:var(--c-text-inv)"
       aria-label="Close gallery"
       type="button"
     >
-      <span>Close</span>
+      <span class="text-[10px] uppercase tracking-widest font-light" style="font-family:var(--f-body)">Close</span>
       <span class="text-2xl leading-none" aria-hidden="true">×</span>
     </button>
-
-    <!-- Gallery meta -->
     <div class="px-6 mb-10">
-      <p id="lightbox-subtitle" class="text-[9px] uppercase tracking-[0.3em] text-[var(--color-rose)] mb-2"></p>
-      <h3 id="lightbox-title" class="font-serif text-3xl lg:text-5xl text-[var(--color-cream)]"></h3>
+      <p id="lightbox-subtitle" class="text-[9px] uppercase tracking-[0.3em] mb-3" style="color:var(--c-accent);font-family:var(--f-body)"></p>
+      <h3 id="lightbox-title" class="leading-none" style="font-family:var(--f-display);font-size:clamp(2rem,5vw,4rem);color:var(--c-text-inv)"></h3>
     </div>
-
-    <!-- Images -->
-    <div id="lightbox-images" class="flex flex-col gap-4 px-6"></div>
+    <div id="lightbox-images" class="flex flex-col gap-3 px-6"></div>
   </div>
 </div>
 
 <script>
-  const galleriesData = JSON.parse(
-    (document.getElementById('galleries-data') as HTMLScriptElement)?.text || '[]'
-  );
+  const galData: { id: string; title: string; subtitle: string; images: { src: string; alt: string }[] }[] =
+    JSON.parse((document.getElementById('galleries-data') as HTMLScriptElement)?.text || '[]');
 
+  // ── Slideshow logic ──
+  const slides = document.querySelectorAll<HTMLElement>('.slide');
+  const dots   = document.querySelectorAll<HTMLButtonElement>('.slide-dot');
+  const thumbs = document.querySelectorAll<HTMLButtonElement>('.gallery-thumb');
+  const counter = document.getElementById('slide-current');
+  const openBtn = document.getElementById('open-current-gallery');
+  let current = 0;
+  let timer: ReturnType<typeof setInterval>;
+
+  function goTo(n: number) {
+    slides[current].style.opacity = '0';
+    dots[current].style.height = '6px';
+    dots[current].style.background = 'rgba(247,243,238,0.3)';
+    dots[current].setAttribute('aria-selected', 'false');
+    thumbs[current].querySelector('.thumb-active-bar')?.classList.remove('scale-x-100');
+
+    current = (n + slides.length) % slides.length;
+
+    slides[current].style.opacity = '1';
+    dots[current].style.height = '24px';
+    dots[current].style.background = 'var(--c-accent)';
+    dots[current].setAttribute('aria-selected', 'true');
+    if (counter) counter.textContent = String(current + 1).padStart(2, '0');
+    thumbs[current].querySelector('.thumb-active-bar')?.classList.add('scale-x-100');
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); startTimer(); });
+  });
+
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener('click', () => {
+      goTo(i); startTimer();
+      const id = thumb.dataset.galleryId;
+      if (id) openGallery(id);
+    });
+  });
+
+  openBtn?.addEventListener('click', () => {
+    const g = galData[current];
+    if (g) openGallery(g.id);
+  });
+
+  // Init first thumb bar
+  thumbs[0]?.querySelector('.thumb-active-bar')?.classList.add('scale-x-100');
+  startTimer();
+
+  // ── Lightbox logic ──
   const lightbox = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');
-  const titleEl = document.getElementById('lightbox-title');
+  const titleEl  = document.getElementById('lightbox-title');
   const subtitleEl = document.getElementById('lightbox-subtitle');
   const imagesEl = document.getElementById('lightbox-images');
 
   function openGallery(id: string) {
-    const gallery = galleriesData.find((g: { id: string }) => g.id === id);
-    if (!gallery || !lightbox || !titleEl || !subtitleEl || !imagesEl) return;
-
-    titleEl.textContent = gallery.title;
-    subtitleEl.textContent = gallery.subtitle;
+    const g = galData.find(x => x.id === id);
+    if (!g || !lightbox || !titleEl || !subtitleEl || !imagesEl) return;
+    titleEl.textContent = g.title;
+    subtitleEl.textContent = g.subtitle;
     imagesEl.innerHTML = '';
-
-    gallery.images.forEach((img: { src: string; alt: string }) => {
+    g.images.forEach(img => {
       const el = document.createElement('img');
-      el.src = img.src;
-      el.alt = img.alt;
+      el.src = img.src; el.alt = img.alt;
       el.className = 'w-full h-auto object-cover';
-      el.loading = 'lazy';
-      el.decoding = 'async';
+      el.loading = 'lazy'; el.decoding = 'async';
       imagesEl.appendChild(el);
     });
-
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
     closeBtn?.focus();
@@ -126,39 +223,19 @@ const galleriesJson = JSON.stringify(galleries);
     if (imagesEl) imagesEl.innerHTML = '';
   }
 
-  document.querySelectorAll('[data-gallery-id]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = (btn as HTMLElement).dataset.galleryId;
-      if (id) openGallery(id);
-    });
-  });
-
   closeBtn?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-  lightbox?.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
-  });
-
-  // Gallery card tilt on mouse move (desktop)
-  document.querySelectorAll('.gallery-card').forEach(card => {
-    card.addEventListener('mousemove', (e: Event) => {
-      const mouseEvent = e as MouseEvent;
-      const rect = (card as HTMLElement).getBoundingClientRect();
-      const x = mouseEvent.clientX - rect.left;
-      const y = mouseEvent.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -3;
-      const rotateY = ((x - centerX) / centerX) * 3;
-      (card as HTMLElement).style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      (card as HTMLElement).style.transform = '';
-    });
-  });
+  // ── Scroll observer ──
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
 </script>
+
+<style>
+  .slide { transition: opacity 1.5s ease; }
+  .thumb-active-bar { transform-origin: left; }
+  .thumb-active-bar.scale-x-100 { transform: scaleX(1); }
+</style>

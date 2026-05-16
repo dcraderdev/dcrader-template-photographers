@@ -4,54 +4,65 @@ interface Props { packages: Package[]; }
 const { packages } = Astro.props;
 ---
 
-<!-- V4: Architectural three-column with huge price numbers — extreme restraint -->
-<section id="services" class="py-24 lg:py-40" style="background:var(--c-bg-accent)" aria-label="Services and pricing">
+<!-- V4: Ultra-minimal — Inter Tight labels, Noto Serif prices, extreme negative space -->
+<section id="services" class="py-28 lg:py-44" style="background:var(--c-bg-mid)" aria-label="Services and pricing">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
 
-    <!-- Header: single thin line + label + title -->
-    <div class="mb-20 lg:mb-32 fade-hidden">
-      <div class="flex items-center gap-4 mb-6">
-        <span class="w-8 h-px" style="background:var(--c-text-muted)" aria-hidden="true"></span>
-        <p class="text-[9px] uppercase tracking-[0.5em] font-light" style="color:var(--c-text-muted)">Collections</p>
+    <!-- Header -->
+    <div class="mb-24 lg:mb-36 fade-hidden">
+      <div class="flex items-center gap-4 mb-5">
+        <span class="w-6 h-px" style="background:var(--c-text-muted)" aria-hidden="true"></span>
+        <p class="text-[7px] uppercase tracking-[0.6em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">Collections</p>
       </div>
-      <h2 class="leading-none" style="font-family:var(--f-display);font-size:clamp(2.5rem,5vw,5rem);color:var(--c-text);font-weight:400">Investment</h2>
+      <h2 class="leading-none" style="font-family:var(--f-body);font-size:clamp(2.2rem,4.5vw,5rem);color:var(--c-text);font-weight:300;letter-spacing:-0.04em">Investment</h2>
     </div>
 
-    <!-- Three-column: bare minimum styling -->
+    <!-- Three-column: vertical rules, no cards -->
     <div class="grid grid-cols-1 lg:grid-cols-3">
       {packages.map((pkg, i) => (
-        <div class={`fade-hidden p-8 lg:p-10 flex flex-col ${i < packages.length - 1 ? 'lg:border-r' : ''} ${pkg.featured ? '' : ''}`}
-          style={`border-color:rgba(0,0,0,0.08);transition-delay:${i*0.1}s;${pkg.featured ? 'background:var(--c-bg)' : ''}`}>
+        <div
+          class="fade-hidden flex flex-col py-10 lg:py-0"
+          style={`padding-left:${i > 0 ? '2.5rem' : '0'};padding-right:${i < packages.length - 1 ? '2.5rem' : '0'};border-left:${i > 0 ? '1px solid var(--c-border)' : 'none'};transition-delay:${i*0.1}s`}
+        >
+          <!-- Index -->
+          <p class="text-[7px] uppercase tracking-[0.55em] mb-8 font-light" style="color:rgba(0,0,0,0.2);font-family:var(--f-body)">0{i+1}</p>
 
-          <!-- Collection number -->
-          <p class="text-[9px] uppercase tracking-[0.4em] mb-6 font-light" style="color:var(--c-text-muted)">0{i+1}</p>
+          <!-- Name in Inter Tight -->
+          <h3 class="mb-1 leading-none" style="font-family:var(--f-body);font-size:1.6rem;color:var(--c-text);font-weight:300;letter-spacing:-0.03em">{pkg.name}</h3>
+          <p class="text-[7px] uppercase tracking-[0.5em] mb-10 font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">{pkg.hours}</p>
 
-          <!-- Name -->
-          <h3 class="mb-2" style="font-family:var(--f-display);font-size:2rem;color:var(--c-text);font-weight:400">{pkg.name}</h3>
-          <p class="text-xs uppercase tracking-widest mb-8 font-light" style="color:var(--c-text-muted)">{pkg.hours}</p>
-
-          <!-- Includes as a sparse list -->
-          <ul class="space-y-3 flex-1 mb-12" aria-label={`Includes in ${pkg.name}`}>
+          <!-- Includes: bare text, no icons -->
+          <ul class="space-y-4 flex-1 mb-10" aria-label={`Includes in ${pkg.name}`}>
             {pkg.highlights.map(item => (
-              <li class="flex items-start gap-3 text-sm font-light" style="color:var(--c-text-muted)">
-                <span class="mt-1.5 w-3 h-px flex-shrink-0" style="background:var(--c-text-muted)" aria-hidden="true"></span>
+              <li class="text-[11px] leading-relaxed font-light" style="color:var(--c-text-muted);font-family:var(--f-serif);letter-spacing:0.02em">
                 {item}
               </li>
             ))}
           </ul>
 
-          <!-- Price: enormous, prominent -->
-          <div class="border-t pt-8" style="border-color:rgba(0,0,0,0.08)">
-            <p class="text-[9px] uppercase tracking-[0.35em] mb-1 font-light" style="color:var(--c-text-muted)">Starting at</p>
-            <p class="leading-none mb-8" style="font-family:var(--f-display);font-size:3.5rem;color:var(--c-text);font-weight:400">{pkg.startingAt}</p>
+          <!-- Price: Noto Serif, large -->
+          <div class="pt-8" style="border-top:1px solid var(--c-border)">
+            <p class="text-[7px] uppercase tracking-[0.5em] mb-2 font-light" style="color:rgba(0,0,0,0.2);font-family:var(--f-body)">from</p>
+            <p class="leading-none mb-8" style="font-family:var(--f-serif);font-size:clamp(2.5rem,4vw,3.5rem);color:var(--c-text);font-weight:400">{pkg.startingAt}</p>
             <a href="#inquire"
-              class="inline-block text-[9px] uppercase tracking-[0.3em] px-6 py-3 transition-all duration-300 font-light"
-              style={`border:1px solid var(--c-text);color:var(--c-text);` + (pkg.featured ? `background:var(--c-text);color:white` : '')}>
+              class="inline-block text-[7px] uppercase tracking-[0.5em] transition-all duration-400 hover:opacity-40"
+              style="color:var(--c-text);font-family:var(--f-body);border-bottom:1px solid var(--c-text);padding-bottom:0.25rem">
               Inquire
             </a>
           </div>
         </div>
       ))}
     </div>
+
+    <p class="mt-20 text-[7px] uppercase tracking-[0.45em] font-light fade-hidden" style="color:rgba(0,0,0,0.2);font-family:var(--f-body);transition-delay:0.4s">
+      Travel included within Europe. Worldwide destination weddings quoted on request.
+    </p>
   </div>
 </section>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
+</script>

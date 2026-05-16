@@ -2,69 +2,100 @@
 import type { Package } from '../../data/v1/packages';
 interface Props { packages: Package[]; }
 const { packages } = Astro.props;
+const handNotes = ['perfect for elopements 🌲', 'our most popular! ✨', 'the full adventure 🌿'];
 ---
 
-<!-- V3: Organic bohemian cards with terracotta accents -->
+<!-- V3: Bohemian cards with Caveat handwriting annotations, terracotta accents -->
 <section id="services" class="py-24 lg:py-40" style="background:var(--c-bg)" aria-label="Services and pricing">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
 
-    <div class="text-center mb-16 lg:mb-24 fade-hidden">
-      <p class="text-[10px] uppercase tracking-[0.3em] mb-4" style="color:var(--c-accent)">Investment</p>
-      <h2 class="italic" style="font-family:var(--f-display);font-size:clamp(2.5rem,5vw,5rem);color:var(--c-text)">Your Adventure</h2>
-      <p class="mt-4 text-sm font-light max-w-md mx-auto" style="color:var(--c-text-muted)">
-        Every elopement is unique. These are starting points — let's talk about yours.
-      </p>
+    <div class="text-center mb-20 fade-hidden">
+      <!-- Wildflower mini row -->
+      <div class="flex items-center justify-center gap-2 mb-5" aria-hidden="true">
+        {[28, 20, 32, 20, 28].map(h => (
+          <svg width={h * 0.6} height={h} viewBox={`0 0 ${h * 0.6} ${h}`} fill="none">
+            <path d={`M${h*0.3} ${h} C${h*0.3} ${h*0.7}, ${h*0.28} ${h*0.35}, ${h*0.3} 4`} stroke="var(--c-accent)" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx={h*0.3} cy="4" r="3" fill="var(--c-accent)" opacity="0.7"/>
+          </svg>
+        ))}
+      </div>
+      <p class="text-[9px] uppercase tracking-[0.35em] mb-4" style="color:var(--c-accent);font-family:var(--f-display)">Investment</p>
+      <h2 class="italic mb-3" style="font-family:var(--f-display);font-size:clamp(2.5rem,5vw,5rem);color:var(--c-text);font-weight:300">Your Adventure</h2>
+      <p class="text-xl" style="font-family:var(--f-hand);color:var(--c-text-muted)">every elopement deserves its own story</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8 items-start">
       {packages.map((pkg, i) => (
-        <div class={`relative p-8 lg:p-10 fade-hidden ${pkg.featured ? 'lg:-mt-6 lg:mb-6' : ''}`}
-          style={`background:${pkg.featured ? 'var(--c-bg-alt)' : 'var(--c-bg-accent)'};border-radius:4px;transition-delay:${i*0.1}s`}>
+        <div
+          class={`relative fade-hidden ${pkg.featured ? 'lg:-mt-8' : ''}`}
+          style={`transition-delay:${i*0.1}s`}
+        >
+          <!-- Caveat handwriting note above card -->
+          <p class="text-center mb-3 opacity-70" style="font-family:var(--f-hand);font-size:1rem;color:var(--c-accent)">
+            {handNotes[i]}
+          </p>
 
-          {pkg.featured && (
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1.5 text-[9px] uppercase tracking-wider"
-              style="background:var(--c-accent);color:white;border-radius:9999px">
-              Most Loved
-            </div>
-          )}
+          <!-- Card -->
+          <div
+            class="p-8 lg:p-10 relative"
+            style={`background:${pkg.featured ? 'var(--c-bg-alt)' : 'var(--c-bg-accent)'};transform:rotate(${pkg.featured ? '0' : i === 0 ? '-0.5deg' : '0.5deg'})`}
+          >
+            {pkg.featured && (
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <span style="background:var(--c-accent);color:white;font-family:var(--f-hand);font-size:0.9rem;padding:0.3rem 1.2rem;display:inline-block">
+                  Most Loved
+                </span>
+              </div>
+            )}
 
-          <!-- Terracotta leaf decoration on featured -->
-          <div class="mb-6">
-            <p class="text-[10px] uppercase tracking-[0.3em] mb-2" style={`color:${pkg.featured ? 'var(--c-accent)' : 'var(--c-text-muted)'}`}>Adventure</p>
-            <h3 class="italic text-3xl lg:text-4xl" style={`font-family:var(--f-display);color:${pkg.featured ? 'var(--c-text-inv)' : 'var(--c-text)'}`}>
+            <p class="text-[9px] uppercase tracking-[0.3em] mb-2" style={`color:${pkg.featured ? 'var(--c-accent)' : 'var(--c-text-muted)'};font-family:var(--f-display)`}>
+              Adventure Package
+            </p>
+            <h3 class="italic mb-3" style={`font-family:var(--f-display);font-size:2rem;color:${pkg.featured ? 'var(--c-text-inv)' : 'var(--c-text)'};font-weight:300`}>
               {pkg.name}
             </h3>
-          </div>
+            <p class="text-sm leading-relaxed mb-5 font-light" style={`color:${pkg.featured ? 'rgba(253,248,242,0.65)' : 'var(--c-text-muted)'};font-family:var(--f-display)`}>
+              {pkg.description}
+            </p>
 
-          <p class="text-sm leading-relaxed mb-6 font-light" style={`color:${pkg.featured ? 'rgba(250,246,240,0.65)' : 'var(--c-text-muted)'}`}>
-            {pkg.description}
-          </p>
+            <p class="text-[9px] uppercase tracking-[0.3em] mb-5" style={`color:${pkg.featured ? 'var(--c-accent)' : 'var(--c-accent-dark)'};font-family:var(--f-display)`}>
+              {pkg.hours}
+            </p>
 
-          <p class="text-xs uppercase tracking-widest mb-6" style={`color:${pkg.featured ? 'var(--c-accent)' : 'var(--c-accent-dark)'}`}>
-            {pkg.hours}
-          </p>
+            <ul class="space-y-3 mb-8" aria-label={`Included in ${pkg.name}`}>
+              {pkg.highlights.map(item => (
+                <li class="flex items-start gap-3 text-sm font-light" style={`color:${pkg.featured ? 'rgba(253,248,242,0.75)' : 'var(--c-text)'};font-family:var(--f-display)`}>
+                  <span style="color:var(--c-accent);flex-shrink:0" aria-hidden="true">✦</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
 
-          <ul class="space-y-3 mb-8 flex-1" aria-label={`Included in ${pkg.name}`}>
-            {pkg.highlights.map(item => (
-              <li class="flex items-start gap-3 text-sm font-light"
-                style={`color:${pkg.featured ? 'rgba(250,246,240,0.75)' : 'var(--c-text)'}`}>
-                <span style={`color:var(--c-accent);flex-shrink:0;margin-top:2px`} aria-hidden="true">✦</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <div class="pt-6" style={`border-top:1px solid ${pkg.featured ? 'rgba(250,246,240,0.15)' : 'var(--c-accent);opacity:0.3'}`}>
-            <p class="text-[10px] uppercase tracking-[0.25em] mb-1" style={`color:${pkg.featured ? 'rgba(250,246,240,0.4)' : 'var(--c-text-muted)'}`}>Starting at</p>
-            <p class="text-4xl mb-6 italic" style={`font-family:var(--f-display);color:${pkg.featured ? 'var(--c-text-inv)' : 'var(--c-text)'}`}>{pkg.startingAt}</p>
-            <a href="#inquire"
-              class="block text-center text-xs uppercase tracking-[0.2em] py-3.5 transition-all duration-300"
-              style={`background:${pkg.featured ? 'var(--c-accent)' : 'transparent'};color:${pkg.featured ? 'white' : 'var(--c-text)'};border:1px solid ${pkg.featured ? 'transparent' : 'var(--c-accent)'};border-radius:2px`}>
-              Let's Talk
-            </a>
+            <div class="pt-6" style={`border-top:1px solid ${pkg.featured ? 'rgba(253,248,242,0.15)' : 'rgba(196,103,58,0.25)'}`}>
+              <p class="text-[9px] uppercase tracking-[0.25em] mb-1.5" style={`color:${pkg.featured ? 'rgba(253,248,242,0.4)' : 'var(--c-text-muted)'};font-family:var(--f-display)`}>Starting at</p>
+              <p class="italic mb-6" style={`font-family:var(--f-display);font-size:2.2rem;color:${pkg.featured ? 'var(--c-text-inv)' : 'var(--c-text)'};font-weight:300`}>
+                {pkg.startingAt}
+              </p>
+              <a href="#inquire"
+                class="block text-center transition-all duration-300 hover:opacity-80"
+                style={`font-family:var(--f-hand);font-size:1rem;padding:0.75rem;background:${pkg.featured ? 'var(--c-accent)' : 'transparent'};color:${pkg.featured ? 'white' : 'var(--c-text)'};border:1px solid ${pkg.featured ? 'transparent' : 'var(--c-accent)'}`}>
+                let's plan it ✦
+              </a>
+            </div>
           </div>
         </div>
       ))}
     </div>
+
+    <p class="text-center mt-14 fade-hidden" style="font-family:var(--f-hand);font-size:1rem;color:var(--c-text-muted);transition-delay:0.4s">
+      travel is included anywhere you want to elope 🌍
+    </p>
   </div>
 </section>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
+</script>
