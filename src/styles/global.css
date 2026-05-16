@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "./themes.css";
+
+/* V1 fonts */
 @import "@fontsource/cormorant-garamond/400.css";
 @import "@fontsource/cormorant-garamond/400-italic.css";
 @import "@fontsource/cormorant-garamond/600.css";
@@ -7,6 +10,31 @@
 @import "@fontsource/manrope/400.css";
 @import "@fontsource/manrope/500.css";
 @import "@fontsource/manrope/700.css";
+
+/* V2 fonts */
+@import "@fontsource/bebas-neue/400.css";
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+
+/* V3 fonts */
+@import "@fontsource/libre-baskerville/400.css";
+@import "@fontsource/libre-baskerville/400-italic.css";
+@import "@fontsource/nunito-sans/300.css";
+@import "@fontsource/nunito-sans/400.css";
+@import "@fontsource/nunito-sans/600.css";
+
+/* V4 fonts */
+@import "@fontsource/dm-serif-display/400.css";
+@import "@fontsource/dm-sans/300.css";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+
+/* V5 fonts */
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/300.css";
 
 @theme {
   --color-cream: #f9f5f0;

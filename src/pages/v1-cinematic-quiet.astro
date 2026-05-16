@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SharedNav from '../components/shared/SharedNav.astro';
+import Hero from '../components/Hero.astro';
+import Galleries from '../components/Galleries.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
+import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
+import SharedProcess from '../components/shared/SharedProcess.astro';
+import SharedInquiryForm from '../components/shared/SharedInquiryForm.astro';
+import SharedFooter from '../components/shared/SharedFooter.astro';
+
+import { photographer } from '../data/v1/photographer';
+import { galleries } from '../data/v1/galleries';
+import { packages, investmentGuide } from '../data/v1/packages';
+import { testimonials } from '../data/v1/testimonials';
+
+const instagramPosts = [
+  { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80&fm=webp&fit=crop', alt: 'Bride and groom walking through a vineyard at golden hour' },
+  { src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&fm=webp&fit=crop', alt: 'Couple walking hand in hand in a sunlit meadow on their wedding day' },
+  { src: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80&fm=webp&fit=crop', alt: 'Newlyweds embracing on a cliff overlooking the ocean' },
+  { src: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop', alt: 'Bride laughing with bridesmaids on a sunny terrace' },
+  { src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80&fm=webp&fit=crop', alt: 'Bride and groom sharing a first look in a vineyard' },
+  { src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80&fm=webp&fit=crop', alt: 'Bride in lace gown standing in a cottage garden' },
+];
+---
+<BaseLayout
+  title={`${photographer.business} | ${photographer.subtagline}`}
+  description={`${photographer.tagline} ${photographer.subtagline}.`}
+  ogImage={photographer.heroImage}
+  themeClass="theme-v1"
+  heroPreload={photographer.heroImage}
+>
+  <SharedNav name={photographer.name} variant="v1" />
+  <main id="main-content">
+    <Hero />
+    <Galleries />
+    <About />
+    <Services />
+    <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
+    <SharedTestimonials testimonials={testimonials} />
+    <SharedProcess steps={photographer.process} />
+    <SharedInquiryForm
+      name={photographer.name} email={photographer.email}
+      location={photographer.location} instagramUrl={photographer.instagramUrl}
+      instagram={photographer.instagram}
+    />
+  </main>
+  <SharedFooter
+    name={photographer.name} business={photographer.business}
+    subtagline={photographer.subtagline} instagram={photographer.instagram}
+    instagramUrl={photographer.instagramUrl} instagramPosts={instagramPosts}
+  />
+</BaseLayout>

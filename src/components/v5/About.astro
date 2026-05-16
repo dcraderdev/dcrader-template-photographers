@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: string; portraitImage: string; portraitAlt: string;
+  aboutParagraph1: string; aboutParagraph2: string;
+  philosophyQuote: string; philosophyAuthor: string;
+}
+const p = Astro.props;
+---
+
+<!-- V5: Yellow panel + rounded photo, fun energy -->
+<section id="about" class="py-24 lg:py-32" style="background:var(--c-bg)" aria-label={`About ${p.name}`}>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: yellow bg panel with portrait -->
+      <div class="relative fade-hidden order-2 lg:order-1">
+        <!-- Yellow background block -->
+        <div class="absolute inset-0 rounded-2xl -z-10" style="background:var(--c-accent);transform:translate(16px,16px)" aria-hidden="true"></div>
+        <div class="overflow-hidden rounded-2xl aspect-[4/5]">
+          <img src={p.portraitImage} alt={p.portraitAlt}
+            class="w-full h-full object-cover" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- Right: text -->
+      <div class="order-1 lg:order-2 fade-hidden" style="transition-delay:0.15s">
+        <p class="text-xs uppercase tracking-[0.3em] font-semibold mb-4" style="color:var(--c-accent-dark)">About Us</p>
+        <h2 class="font-bold leading-tight mb-8" style="font-family:var(--f-display);font-size:clamp(2rem,4vw,3.5rem);color:var(--c-text)">
+          We show up<br />for the party
+        </h2>
+
+        <div class="space-y-5 text-sm lg:text-base leading-relaxed mb-10" style="color:var(--c-text-muted)">
+          <p set:html={p.aboutParagraph1}></p>
+          <p set:html={p.aboutParagraph2}></p>
+        </div>
+
+        <!-- Quote bubble -->
+        <div class="p-6 rounded-2xl" style="background:var(--c-bg-accent)">
+          <figure>
+            <blockquote class="text-base lg:text-lg leading-relaxed font-medium" style="color:var(--c-text)">
+              "{p.philosophyQuote}"
+            </blockquote>
+            <figcaption class="mt-3 text-xs font-semibold uppercase tracking-widest" style="color:var(--c-accent-dark)">
+              — {p.philosophyAuthor}
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

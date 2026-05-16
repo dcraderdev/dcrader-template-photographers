@@ -1,0 +1,56 @@
+---
+interface Props {
+  name: string; portraitImage: string; portraitAlt: string;
+  aboutParagraph1: string; aboutParagraph2: string;
+  philosophyQuote: string; philosophyAuthor: string;
+}
+const p = Astro.props;
+---
+
+<!-- V4: Radical whitespace — portrait as typographic element, Bauhaus grid -->
+<section id="about" class="py-24 lg:py-40" style="background:var(--c-bg)" aria-label={`About ${p.name}`}>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Thin horizontal rule + About label -->
+    <div class="flex items-center gap-8 mb-24 fade-hidden">
+      <span class="block w-px h-16" style="background:var(--c-text);opacity:0.15" aria-hidden="true"></span>
+      <div>
+        <p class="text-[9px] uppercase tracking-[0.45em] font-light" style="color:var(--c-text-muted)">Studio</p>
+        <h2 style="font-family:var(--f-display);font-size:clamp(2rem,4vw,4rem);color:var(--c-text);font-weight:400">The Photographer</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0">
+
+      <!-- Portrait: square crop, hard edges, no decoration -->
+      <div class="lg:col-span-4 fade-hidden">
+        <div class="aspect-square overflow-hidden">
+          <img src={p.portraitImage} alt={p.portraitAlt}
+            class="w-full h-full object-cover grayscale" loading="lazy" decoding="async" />
+        </div>
+        <!-- Caption under portrait: name in small caps -->
+        <p class="mt-4 text-[9px] uppercase tracking-[0.4em] font-light" style="color:var(--c-text-muted)">{p.name}</p>
+      </div>
+
+      <!-- Very generous right column -->
+      <div class="lg:col-span-7 lg:col-start-6 flex flex-col justify-center fade-hidden" style="transition-delay:0.15s">
+
+        <!-- Large drop-cap style intro -->
+        <div class="space-y-8 text-sm lg:text-base leading-loose font-light" style="color:var(--c-text-muted)">
+          <p set:html={p.aboutParagraph1}></p>
+          <p set:html={p.aboutParagraph2}></p>
+        </div>
+
+        <!-- Quote: thin, minimal -->
+        <figure class="mt-12 pt-8" style="border-top:1px solid var(--c-border)">
+          <blockquote class="text-xl lg:text-2xl leading-snug" style="font-family:var(--f-display);color:var(--c-text);font-weight:400">
+            "{p.philosophyQuote}"
+          </blockquote>
+          <figcaption class="mt-4 text-[9px] uppercase tracking-[0.4em] font-light" style="color:var(--c-text-muted)">
+            {p.philosophyAuthor}
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

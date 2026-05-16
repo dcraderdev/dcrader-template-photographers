@@ -1,0 +1,60 @@
+---
+interface Props {
+  name: string;
+  business: string;
+  subtagline: string;
+  instagram: string;
+  instagramUrl: string;
+  instagramPosts: Array<{ src: string; alt: string; }>;
+}
+const { name, business, subtagline, instagram, instagramUrl, instagramPosts } = Astro.props;
+---
+
+<footer style="background:var(--c-bg-alt);padding-top:5rem;padding-bottom:2.5rem" aria-label="Site footer">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+    <div class="text-center mb-8 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] mb-3" style="color:var(--c-accent)">Follow Along</p>
+      <a href={instagramUrl} target="_blank" rel="noopener noreferrer"
+        class="transition-colors"
+        style="font-family:var(--f-display);font-size:1.75rem;color:var(--c-text-inv)"
+        aria-label={`Follow ${instagram} on Instagram (opens in new tab)`}>
+        {instagram}
+      </a>
+    </div>
+
+    <div class="grid grid-cols-3 lg:grid-cols-6 gap-1.5 mb-20 fade-hidden" style="transition-delay:0.1s" role="list" aria-label="Recent Instagram posts">
+      {instagramPosts.map(post => (
+        <a href={instagramUrl} target="_blank" rel="noopener noreferrer"
+          class="group relative aspect-square overflow-hidden" role="listitem"
+          aria-label={`${post.alt} — view on Instagram (opens in new tab)`}>
+          <img src={post.src} alt={post.alt} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style="background:rgba(0,0,0,0.45)" aria-hidden="true">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="border-t pt-10 flex flex-col lg:flex-row items-center justify-between gap-6 fade-hidden" style="border-color:rgba(255,255,255,0.1);transition-delay:0.2s">
+      <div class="text-center lg:text-left">
+        <p style="font-family:var(--f-display);font-size:1.25rem;color:var(--c-text-inv)">{name}</p>
+        <p class="text-[10px] uppercase tracking-[0.25em] mt-1" style="color:var(--c-text-muted)">{subtagline}</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-wrap justify-center gap-6 lg:gap-10 text-[10px] uppercase tracking-widest" style="color:var(--c-text-muted)">
+          {['#galleries','#about','#services','#inquire'].map((href, i) => (
+            <li><a href={href} class="transition-colors hover:opacity-100" style="opacity:0.7">{['Work','About','Services','Inquire'][i]}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <p class="text-[10px] text-center lg:text-right" style="color:var(--c-text-muted)">
+        © {new Date().getFullYear()} {business}. All rights reserved.
+      </p>
+    </div>
+    <p class="text-center mt-8 text-[9px]" style="color:rgba(255,255,255,0.2)">
+      Demo photography by Unsplash contributors. Replace with your own work.
+    </p>
+  </div>
+</footer>

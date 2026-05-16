@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SharedNav from '../components/shared/SharedNav.astro';
+import Hero from '../components/v4/Hero.astro';
+import Galleries from '../components/v4/Galleries.astro';
+import About from '../components/v4/About.astro';
+import Services from '../components/v4/Services.astro';
+import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
+import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
+import SharedProcess from '../components/shared/SharedProcess.astro';
+import SharedInquiryForm from '../components/shared/SharedInquiryForm.astro';
+import SharedFooter from '../components/shared/SharedFooter.astro';
+
+import { photographer } from '../data/v4/photographer';
+import { galleries } from '../data/v4/galleries';
+import { packages, investmentGuide } from '../data/v4/packages';
+import { testimonials } from '../data/v4/testimonials';
+
+const galleriesJson = JSON.stringify(galleries);
+
+const instagramPosts = [
+  { src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80&fm=webp&fit=crop', alt: 'Couple at Villa d\'Este, Lake Como' },
+  { src: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80&fm=webp&fit=crop', alt: 'Newlyweds in the geometric gardens of Château de Chambord' },
+  { src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80&fm=webp&fit=crop', alt: 'Couple in a Scandinavian design museum' },
+  { src: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80&fm=webp&fit=crop', alt: 'Couple in industrial architectural space in Berlin' },
+  { src: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop', alt: 'Minimalist ceremony at a Tuscan villa' },
+  { src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&fm=webp&fit=crop', alt: 'Couple on a Mallorca clifftop at golden hour' },
+];
+---
+<BaseLayout
+  title={`${photographer.business} | ${photographer.subtagline}`}
+  description={`${photographer.tagline} ${photographer.subtagline}.`}
+  ogImage={photographer.heroImage}
+  themeClass="theme-v4"
+  heroPreload={photographer.heroImage}
+>
+  <SharedNav name={photographer.name} variant="v4" />
+  <main id="main-content">
+    <Hero
+      name={photographer.name}
+      subtagline={photographer.subtagline}
+      tagline={photographer.tagline}
+      heroImage={photographer.heroImage}
+      heroImageAlt={photographer.heroImageAlt}
+    />
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <About
+      name={photographer.name}
+      portraitImage={photographer.portraitImage}
+      portraitAlt={photographer.portraitAlt}
+      aboutParagraph1={photographer.aboutParagraph1}
+      aboutParagraph2={photographer.aboutParagraph2}
+      philosophyQuote={photographer.philosophyQuote}
+      philosophyAuthor={photographer.philosophyAuthor}
+    />
+    <Services packages={packages} />
+    <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
+    <SharedTestimonials testimonials={testimonials} label="Testimonials" heading="Client words" />
+    <SharedProcess steps={photographer.process} label="Methodology" heading="How I work" />
+    <SharedInquiryForm
+      name={photographer.name} email={photographer.email}
+      location={photographer.location} instagramUrl={photographer.instagramUrl}
+      instagram={photographer.instagram}
+      heading="Begin an enquiry"
+      subheading="All enquiries are reviewed personally. Please include your date and venue if known. I respond within 48 hours."
+      submitLabel="Send Enquiry"
+    />
+  </main>
+  <SharedFooter
+    name={photographer.name} business={photographer.business}
+    subtagline={photographer.subtagline} instagram={photographer.instagram}
+    instagramUrl={photographer.instagramUrl} instagramPosts={instagramPosts}
+  />
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import type { Testimonial } from '../../data/v1/testimonials';
+
+interface Props {
+  testimonials: Testimonial[];
+  label?: string;
+  heading?: string;
+}
+
+const { testimonials, label = 'Kind Words', heading = 'What couples say' } = Astro.props;
+---
+
+<section id="testimonials" class="shared-testimonials py-24 lg:py-40" style="background:var(--c-bg-alt)" aria-label="Client testimonials">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+    <div class="text-center mb-16 lg:mb-24 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] mb-4" style="color:var(--c-accent)">{label}</p>
+      <h2 class="text-4xl lg:text-6xl" style="font-family:var(--f-display); color:var(--c-text-inv)">{heading}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      {testimonials.map((t, i) => (
+        <figure class={`fade-hidden ${i % 2 === 1 ? 'md:mt-12' : ''}`} style={`transition-delay:${i*0.1}s`}>
+          <div class="border p-8 lg:p-10 h-full flex flex-col" style="border-color:var(--c-text-inv);border-opacity:0.1;border-color:rgba(255,255,255,0.1)">
+            <span class="text-6xl leading-none mb-4 block" style="font-family:var(--f-display);color:var(--c-accent);opacity:0.4" aria-hidden="true">"</span>
+            <blockquote class="text-lg lg:text-xl leading-relaxed flex-1 italic" style="font-family:var(--f-display);color:rgba(255,255,255,0.85)">
+              {t.quote}
+            </blockquote>
+            <figcaption class="mt-10 flex items-center gap-5">
+              <img src={t.image} alt={t.imageAlt} class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" decoding="async" />
+              <div>
+                <p class="text-lg" style="font-family:var(--f-display);color:var(--c-text-inv)">{t.name}</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] mt-1" style="color:var(--c-accent)">{t.weddingInfo}</p>
+              </div>
+            </figcaption>
+          </div>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

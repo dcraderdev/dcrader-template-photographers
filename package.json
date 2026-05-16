@@ -12,8 +12,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/bebas-neue": "^5.2.7",
     "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/dm-serif-display": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/libre-baskerville": "^5.2.10",
     "@fontsource/manrope": "^5.2.8",
+    "@fontsource/nunito-sans": "^5.2.7",
+    "@fontsource/poppins": "^5.2.7",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.3",
     "tailwindcss": "^4.3.0"

@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SharedNav from '../components/shared/SharedNav.astro';
+import Hero from '../components/v5/Hero.astro';
+import Galleries from '../components/v5/Galleries.astro';
+import About from '../components/v5/About.astro';
+import Services from '../components/v5/Services.astro';
+import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
+import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
+import SharedProcess from '../components/shared/SharedProcess.astro';
+import SharedInquiryForm from '../components/shared/SharedInquiryForm.astro';
+import SharedFooter from '../components/shared/SharedFooter.astro';
+
+import { photographer } from '../data/v5/photographer';
+import { galleries } from '../data/v5/galleries';
+import { packages, investmentGuide } from '../data/v5/packages';
+import { testimonials } from '../data/v5/testimonials';
+
+const galleriesJson = JSON.stringify(galleries);
+
+const instagramPosts = [
+  { src: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&q=80&fm=webp&fit=crop', alt: 'Couple dancing under colorful festoon lights at an Austin wedding' },
+  { src: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80&fm=webp&fit=crop', alt: 'Colorful wedding party throwing flower petals in Texas hill country' },
+  { src: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop', alt: 'Joyful rooftop wedding in East Austin' },
+  { src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&fm=webp&fit=crop', alt: 'Vibrant fiesta-themed wedding with mariachi band' },
+  { src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80&fm=webp&fit=crop', alt: 'Concert-venue wedding with electric stage lighting' },
+  { src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80&fm=webp&fit=crop', alt: 'Joyful backyard wedding with fairy lights and food trucks' },
+];
+---
+<BaseLayout
+  title={`${photographer.business} | ${photographer.subtagline}`}
+  description={`${photographer.tagline} ${photographer.subtagline}.`}
+  ogImage={photographer.heroImage}
+  themeClass="theme-v5"
+  heroPreload={photographer.heroImage}
+>
+  <SharedNav name={photographer.name} variant="v5" />
+  <main id="main-content">
+    <Hero
+      name={photographer.name}
+      subtagline={photographer.subtagline}
+      tagline={photographer.tagline}
+      heroImage={photographer.heroImage}
+      heroImageAlt={photographer.heroImageAlt}
+    />
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <About
+      name={photographer.name}
+      portraitImage={photographer.portraitImage}
+      portraitAlt={photographer.portraitAlt}
+      aboutParagraph1={photographer.aboutParagraph1}
+      aboutParagraph2={photographer.aboutParagraph2}
+      philosophyQuote={photographer.philosophyQuote}
+      philosophyAuthor={photographer.philosophyAuthor}
+    />
+    <Services packages={packages} />
+    <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
+    <SharedTestimonials testimonials={testimonials} label="Happy Couples" heading="They're talking about us 🎉" />
+    <SharedProcess steps={photographer.process} label="The Journey" heading="How We Roll" />
+    <SharedInquiryForm
+      name={photographer.name} email={photographer.email}
+      location={photographer.location} instagramUrl={photographer.instagramUrl}
+      instagram={photographer.instagram}
+      heading="Let's make magic"
+      subheading="Tell us about your celebration! The more you share, the better. We respond to every inquiry within 48 hours."
+      submitLabel="Let's Go! →"
+    />
+  </main>
+  <SharedFooter
+    name={photographer.name} business={photographer.business}
+    subtagline={photographer.subtagline} instagram={photographer.instagram}
+    instagramUrl={photographer.instagramUrl} instagramPosts={instagramPosts}
+  />
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+interface Props {
+  name: string; portraitImage: string; portraitAlt: string;
+  aboutParagraph1: string; aboutParagraph2: string;
+  philosophyQuote: string; philosophyAuthor: string;
+}
+const p = Astro.props;
+---
+
+<!-- V2: Editorial full-column — stark portrait with text overlay, magazine spread -->
+<section id="about" class="py-20 lg:py-32" style="background:var(--c-bg-alt)" aria-label={`About ${p.name}`}>
+
+  <!-- Full-bleed portrait strip at top -->
+  <div class="relative h-[60vh] lg:h-[70vh] overflow-hidden mb-0 fade-hidden">
+    <img src={p.portraitImage} alt={p.portraitAlt}
+      class="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
+    <!-- Red accent line across bottom of portrait -->
+    <div class="absolute bottom-0 left-0 right-0 h-1" style="background:var(--c-accent)" aria-hidden="true"></div>
+    <!-- Text overlay bottom-left -->
+    <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-16" style="background:linear-gradient(to top,rgba(10,10,10,0.9),transparent)">
+      <p class="text-[9px] uppercase tracking-[0.4em] mb-2" style="color:var(--c-accent)">About</p>
+      <h2 class="leading-none" style="font-family:var(--f-display);font-size:clamp(3rem,8vw,8rem);color:white">{p.name}</h2>
+    </div>
+  </div>
+
+  <!-- Content grid -->
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16 py-16 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+      <!-- Quote column -->
+      <div class="lg:col-span-4 fade-hidden">
+        <div class="border-t-2 pt-8" style="border-color:var(--c-accent)">
+          <figure>
+            <blockquote class="text-2xl lg:text-3xl leading-tight italic" style="font-family:var(--f-display);color:rgba(255,255,255,0.85)">
+              "{p.philosophyQuote}"
+            </blockquote>
+            <figcaption class="mt-6 text-[9px] uppercase tracking-[0.3em]" style="color:var(--c-accent)">— {p.philosophyAuthor}</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Bio column -->
+      <div class="lg:col-span-8 fade-hidden" style="transition-delay:0.15s">
+        <div class="space-y-6 text-base lg:text-lg font-light leading-relaxed" style="color:rgba(255,255,255,0.65)">
+          <p set:html={p.aboutParagraph1}></p>
+          <p set:html={p.aboutParagraph2}></p>
+        </div>
+
+        <!-- Editorial fact strip -->
+        <div class="mt-12 pt-8 border-t grid grid-cols-3 gap-8" style="border-color:rgba(255,255,255,0.1)">
+          {[['10+', 'Years'], ['500+', 'Weddings'], ['20+', 'Countries']].map(([num, label]) => (
+            <div>
+              <p class="leading-none mb-1" style="font-family:var(--f-display);font-size:2.5rem;color:white">{num}</p>
+              <p class="text-[9px] uppercase tracking-[0.3em]" style="color:var(--c-accent)">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

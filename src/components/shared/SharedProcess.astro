@@ -1,0 +1,32 @@
+---
+interface Step { number: string; title: string; description: string; }
+interface Props {
+  steps: Step[];
+  label?: string;
+  heading?: string;
+}
+const { steps, label = 'How It Works', heading = 'The Experience' } = Astro.props;
+---
+
+<section id="process" class="py-24 lg:py-40" style="background:var(--c-bg)" aria-label="How it works">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+    <div class="text-center mb-16 lg:mb-24 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] mb-4" style="color:var(--c-text-muted)">{label}</p>
+      <h2 class="text-4xl lg:text-6xl" style="font-family:var(--f-display);color:var(--c-text)">{heading}</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      {steps.map((step, i) => (
+        <div class="relative fade-hidden" style={`transition-delay:${i*0.1}s`}>
+          <p class="text-7xl lg:text-8xl leading-none mb-4 select-none" style={`font-family:var(--f-display);color:var(--c-accent);opacity:0.2`} aria-hidden="true">
+            {step.number}
+          </p>
+          {i < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-10 left-full w-full h-px" style="background:var(--c-accent);opacity:0.2" aria-hidden="true"></div>
+          )}
+          <h3 class="text-2xl mb-4" style="font-family:var(--f-display);color:var(--c-text)">{step.title}</h3>
+          <p class="text-sm leading-relaxed font-light" style="color:var(--c-text-muted)">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

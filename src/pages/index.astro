@@ -1,28 +1,165 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Galleries from '../components/Galleries.astro';
-import About from '../components/About.astro';
-import Services from '../components/Services.astro';
-import InvestmentGuide from '../components/InvestmentGuide.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Process from '../components/Process.astro';
-import InquiryForm from '../components/InquiryForm.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const templates = [
+  {
+    id: 'v1',
+    route: '/v1-cinematic-quiet',
+    label: 'V1 — Cinematic & Quiet',
+    photographer: 'Emma Hayes Photography',
+    tagline: 'Quiet moments, told beautifully.',
+    description: 'Cream, dusty rose, warm black. Cormorant Garamond + Manrope. Soft, romantic, film-inspired. For photographers who want elegance over flash.',
+    coverImage: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&fm=webp&fit=crop',
+    coverAlt: 'Bride and groom in golden hour light at a California vineyard wedding',
+    palette: ['#f9f5f0', '#c9a99a', '#1a1714'],
+    paletteNames: ['Cream', 'Dusty Rose', 'Warm Black'],
+  },
+  {
+    id: 'v2',
+    route: '/v2-bold-editorial',
+    label: 'V2 — Bold Editorial',
+    photographer: 'Daria Volkov — Photography',
+    tagline: 'Love as bold as the city.',
+    description: 'Pure white, jet black, crimson red. Bebas Neue + Inter. Fashion-magazine intensity. For urban, high-end, editorial wedding photographers.',
+    coverImage: 'https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=800&q=80&fm=webp&fit=crop',
+    coverAlt: 'Couple in evening wear on a Manhattan rooftop at dusk, city skyline behind them',
+    palette: ['#ffffff', '#0a0a0a', '#d62b2b'],
+    paletteNames: ['White', 'Jet Black', 'Crimson'],
+  },
+  {
+    id: 'v3',
+    route: '/v3-bohemian-warm',
+    label: 'V3 — Bohemian Warm',
+    photographer: 'Ruby & Wilder Co.',
+    tagline: 'Run away with us.',
+    description: 'Terracotta, cream, sage. Libre Baskerville + Nunito Sans. Polaroid-style galleries, botanical frames. For destination and elopement photographers.',
+    coverImage: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fm=webp&fit=crop',
+    coverAlt: 'Couple walking hand in hand through a golden wildflower meadow at sunset',
+    palette: ['#faf6f0', '#c17b4a', '#6b7c5b'],
+    paletteNames: ['Warm Cream', 'Terracotta', 'Sage'],
+  },
+  {
+    id: 'v4',
+    route: '/v4-modern-minimal',
+    label: 'V4 — Modern Minimal',
+    photographer: 'Lena Schultz Studio',
+    tagline: 'Everything essential. Nothing else.',
+    description: 'Pure white, carbon black, platinum. DM Serif Display + DM Sans. Radical whitespace, Swiss grid, gallery-curator precision. For fine art and luxury photographers.',
+    coverImage: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop',
+    coverAlt: 'Bride in a sculptural minimalist gown standing in a sun-flooded white room',
+    palette: ['#ffffff', '#111111', '#e5e5e5'],
+    paletteNames: ['White', 'Carbon', 'Platinum'],
+  },
+  {
+    id: 'v5',
+    route: '/v5-vibrant-joyful',
+    label: 'V5 — Vibrant & Joyful',
+    photographer: 'Pop & Bloom Photography',
+    tagline: 'Make it a party.',
+    description: 'Sunshine yellow, coral, white. Poppins bold. Masonry galleries with colored hover overlays, rounded corners everywhere. For celebratory, lifestyle-forward photographers.',
+    coverImage: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&q=80&fm=webp&fit=crop',
+    coverAlt: 'Newlyweds dancing under colorful festoon lights at a joyful outdoor Austin wedding',
+    palette: ['#ffcb05', '#ff6b6b', '#ffffff'],
+    paletteNames: ['Sunshine', 'Coral', 'White'],
+  },
+];
 ---
 
-<Layout>
-  <Nav />
-  <main id="main-content">
-    <Hero />
-    <Galleries />
-    <About />
-    <Services />
-    <InvestmentGuide />
-    <Testimonials />
-    <Process />
-    <InquiryForm />
-  </main>
-  <Footer />
-</Layout>
+<BaseLayout
+  title="Photographer Landing Page Templates — dcrader.dev"
+  description="5 distinct, premium landing page templates for wedding and event photographers. Built with Astro + Tailwind."
+  ogImage="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85"
+  themeClass="theme-v1"
+>
+  <div style="background:#0f0e0d;min-height:100vh;font-family:'Manrope',system-ui,sans-serif;color:#f5f0eb">
+
+    <!-- Header -->
+    <header class="max-w-screen-xl mx-auto px-6 lg:px-16 pt-16 pb-12 lg:pt-24 lg:pb-20">
+      <p class="text-[10px] uppercase tracking-[0.4em] mb-6" style="color:#c9a99a">dcrader.dev — Template Series</p>
+      <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(3rem,7vw,7rem);color:#f5f0eb;line-height:0.95;letter-spacing:-0.02em">
+        Photographer<br />Templates
+      </h1>
+      <div class="flex items-end gap-8 mt-8">
+        <div class="w-12 h-px" style="background:#c9a99a" aria-hidden="true"></div>
+        <p class="text-sm font-light" style="color:rgba(245,240,235,0.55);max-width:40ch">
+          5 distinct, production-ready landing pages. Each template = a full personalization via 3 data files.
+        </p>
+      </div>
+    </header>
+
+    <!-- Template grid -->
+    <main class="max-w-screen-xl mx-auto px-6 lg:px-16 pb-24 lg:pb-40" id="main-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+
+        {templates.map((t, i) => (
+          <a href={t.route}
+            class="group relative overflow-hidden block"
+            aria-label={`View ${t.label}`}
+          >
+            <!-- Photo -->
+            <div class="relative overflow-hidden" style={`aspect-ratio:${i === 0 ? '16/9' : '4/5'}`}>
+              <img src={t.coverImage} alt={t.coverAlt}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading={i < 2 ? 'eager' : 'lazy'} decoding="async" />
+              <!-- Dark overlay -->
+              <div class="absolute inset-0 transition-opacity duration-400" style="background:rgba(15,14,13,0.35)" aria-hidden="true"></div>
+              <!-- Hover overlay -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style="background:rgba(15,14,13,0.6)" aria-hidden="true">
+                <span class="text-xs uppercase tracking-[0.3em] border border-white/60 px-6 py-3" style="color:white">
+                  View Template →
+                </span>
+              </div>
+              <!-- Template label badge -->
+              <div class="absolute top-4 left-4">
+                <span class="text-[9px] uppercase tracking-[0.3em] px-3 py-1.5" style="background:rgba(15,14,13,0.8);color:rgba(245,240,235,0.8)">
+                  {t.id.toUpperCase()}
+                </span>
+              </div>
+            </div>
+
+            <!-- Info below photo -->
+            <div class="p-5" style="background:#1a1714;border:1px solid rgba(255,255,255,0.06)">
+              <p class="text-[9px] uppercase tracking-[0.3em] mb-1.5" style="color:#c9a99a">{t.label}</p>
+              <h2 class="text-xl mb-1" style="font-family:'Cormorant Garamond',Georgia,serif;color:#f5f0eb">{t.photographer}</h2>
+              <p class="text-sm italic mb-4" style="color:rgba(245,240,235,0.5);font-family:'Cormorant Garamond',Georgia,serif">{t.tagline}</p>
+              <p class="text-xs leading-relaxed mb-5" style="color:rgba(245,240,235,0.45)">{t.description}</p>
+
+              <!-- Color palette swatches -->
+              <div class="flex items-center gap-2">
+                {t.palette.map((color, ci) => (
+                  <div class="flex items-center gap-1.5" title={t.paletteNames[ci]}>
+                    <span class="w-4 h-4 rounded-full border" style={`background:${color};border-color:rgba(255,255,255,0.15)`} aria-label={t.paletteNames[ci]}></span>
+                    <span class="text-[9px] uppercase tracking-wide hidden lg:inline" style="color:rgba(245,240,235,0.35)">{t.paletteNames[ci]}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))}
+
+        <!-- "More coming" placeholder card -->
+        <div class="flex flex-col items-center justify-center p-12 text-center" style="background:#1a1714;border:1px dashed rgba(255,255,255,0.1);aspect-ratio:4/5">
+          <p class="text-[9px] uppercase tracking-[0.4em] mb-4" style="color:#c9a99a">Coming Soon</p>
+          <p class="text-2xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#f5f0eb">V6 — Luxury Dark</p>
+          <p class="text-xs font-light" style="color:rgba(245,240,235,0.35)">Deep navy + gold + champagne. For black-tie and ultra-luxury events.</p>
+        </div>
+      </div>
+
+      <!-- Footer note -->
+      <div class="mt-16 pt-8" style="border-top:1px solid rgba(255,255,255,0.06)">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p class="text-xs font-light" style="color:rgba(245,240,235,0.35)">
+            Built with Astro + Tailwind · Deployed on Vercel · Personalize via 3 data files
+          </p>
+          <p class="text-xs font-light" style="color:rgba(245,240,235,0.25)">
+            <a href="https://github.com/dcraderdev/dcrader-template-photographers" target="_blank" rel="noopener noreferrer"
+              class="hover:opacity-80 transition-opacity">
+              github.com/dcraderdev/dcrader-template-photographers →
+            </a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+</BaseLayout>

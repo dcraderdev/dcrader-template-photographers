@@ -1,0 +1,65 @@
+---
+import type { Package } from '../../data/v1/packages';
+interface Props { packages: Package[]; }
+const { packages } = Astro.props;
+---
+
+<!-- V2: Editorial list — large price numbers, stark horizontal rules, no cards -->
+<section id="services" class="py-20 lg:py-32" style="background:var(--c-bg)" aria-label="Services and pricing">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <div class="flex items-end justify-between mb-12 fade-hidden">
+      <h2 style="font-family:var(--f-display);font-size:clamp(3rem,7vw,8rem);color:var(--c-text)">RATES</h2>
+      <p class="hidden lg:block text-sm font-light pb-4 text-right max-w-xs" style="color:var(--c-text-muted)">
+        Clear, straightforward pricing. No guesswork.
+      </p>
+    </div>
+
+    <!-- Horizontal list: each package = a ruled row -->
+    <div class="border-t" style="border-color:rgba(0,0,0,0.1)">
+      {packages.map((pkg, i) => (
+        <div class={`fade-hidden grid grid-cols-12 gap-6 items-center py-10 border-b transition-all duration-300 group hover:bg-gray-50 ${pkg.featured ? '' : ''}`}
+          style={`border-color:rgba(0,0,0,0.1);transition-delay:${i*0.1}s`}
+          role="listitem">
+
+          <!-- Number -->
+          <div class="col-span-1 hidden lg:block">
+            <span class="text-[9px] uppercase tracking-[0.3em]" style="color:var(--c-text-muted)">0{i+1}</span>
+          </div>
+
+          <!-- Name + time -->
+          <div class="col-span-12 lg:col-span-3">
+            <p class="text-[9px] uppercase tracking-[0.3em] mb-1" style="color:var(--c-accent)">{pkg.hours}</p>
+            <h3 style="font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2.5rem);color:var(--c-text)">{pkg.name}</h3>
+          </div>
+
+          <!-- Includes: horizontal pills -->
+          <div class="col-span-12 lg:col-span-5">
+            <ul class="flex flex-wrap gap-2" aria-label={`Includes in ${pkg.name}`}>
+              {pkg.highlights.map(item => (
+                <li class="text-[10px] uppercase tracking-wider px-3 py-1.5" style="border:1px solid rgba(0,0,0,0.12);color:var(--c-text-muted)">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Price + CTA -->
+          <div class="col-span-12 lg:col-span-3 flex items-center justify-between lg:justify-end gap-6">
+            <p style="font-family:var(--f-display);font-size:2rem;color:var(--c-text)">{pkg.startingAt}</p>
+            {pkg.featured && <span class="text-[9px] px-3 py-1 uppercase tracking-wider" style="background:var(--c-accent);color:white">Popular</span>}
+            <a href="#inquire" class="hidden lg:inline-block text-[10px] uppercase tracking-[0.2em] px-6 py-3 transition-all duration-300"
+              style="background:var(--c-text);color:white">
+              Book
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Footer note -->
+    <p class="mt-10 text-xs font-light fade-hidden" style="color:var(--c-text-muted);transition-delay:0.35s">
+      All rates in USD. Travel surcharges apply outside New York metro. Destination weddings quoted separately.
+    </p>
+  </div>
+</section>
