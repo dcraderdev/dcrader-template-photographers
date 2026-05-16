@@ -1,0 +1,40 @@
+---
+import { photographer } from '../data/photographer';
+---
+
+<section id="process" class="py-24 lg:py-40 bg-[var(--color-cream)]" aria-label="How it works">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Header -->
+    <div class="text-center mb-16 lg:mb-24 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-muted)] mb-4">How It Works</p>
+      <h2 class="font-serif text-4xl lg:text-6xl text-[var(--color-warm-black)]">The Experience</h2>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      {photographer.process.map((step, i) => (
+        <div
+          class="relative fade-hidden"
+          style={`transition-delay: ${i * 0.1}s`}
+        >
+          <!-- Step number -->
+          <p class="font-serif text-7xl lg:text-8xl text-[var(--color-rose)]/20 leading-none mb-4 select-none" aria-hidden="true">
+            {step.number}
+          </p>
+
+          <!-- Connector line (hidden on last) -->
+          {i < photographer.process.length - 1 && (
+            <div
+              class="hidden lg:block absolute top-10 left-full w-full h-px bg-[var(--color-rose)]/20 -translate-y-1/2"
+              aria-hidden="true"
+            ></div>
+          )}
+
+          <h3 class="font-serif text-2xl text-[var(--color-warm-black)] mb-4">{step.title}</h3>
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed font-light">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

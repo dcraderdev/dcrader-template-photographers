@@ -1,0 +1,90 @@
+---
+import { packages } from '../data/packages';
+---
+
+<section id="services" class="py-24 lg:py-40 bg-[var(--color-cream)]" aria-label="Services and pricing">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Header -->
+    <div class="text-center mb-16 lg:mb-24 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-muted)] mb-4">Investment</p>
+      <h2 class="font-serif text-4xl lg:text-6xl text-[var(--color-warm-black)] mb-6">Collections</h2>
+      <p class="text-[var(--color-muted)] font-light max-w-lg mx-auto text-sm lg:text-base leading-relaxed">
+        Every wedding is different. These collections are a starting point — we'll talk through what makes sense for your day.
+      </p>
+    </div>
+
+    <!-- Package cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {packages.map((pkg, i) => (
+        <div
+          class={`relative flex flex-col p-8 lg:p-10 fade-hidden ${
+            pkg.featured
+              ? 'bg-[var(--color-warm-black)] text-[var(--color-cream)]'
+              : 'bg-white border border-[var(--color-rose-light)]'
+          }`}
+          style={`transition-delay: ${i * 0.1}s`}
+        >
+          {pkg.featured && (
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <span class="bg-[var(--color-rose)] text-[var(--color-cream)] text-[9px] uppercase tracking-[0.25em] px-4 py-1.5">
+                Most Popular
+              </span>
+            </div>
+          )}
+
+          <!-- Package name -->
+          <p class={`text-[10px] uppercase tracking-[0.3em] mb-3 ${pkg.featured ? 'text-[var(--color-rose)]' : 'text-[var(--color-muted)]'}`}>
+            Collection
+          </p>
+          <h3 class={`font-serif text-3xl lg:text-4xl mb-2 ${pkg.featured ? 'text-[var(--color-cream)]' : 'text-[var(--color-warm-black)]'}`}>
+            {pkg.name}
+          </h3>
+          <p class={`text-sm leading-relaxed mb-8 font-light ${pkg.featured ? 'text-[var(--color-cream)]/70' : 'text-[var(--color-muted)]'}`}>
+            {pkg.description}
+          </p>
+
+          <!-- Hours -->
+          <p class={`text-xs uppercase tracking-widest mb-6 ${pkg.featured ? 'text-[var(--color-rose-light)]' : 'text-[var(--color-rose-dark)]'}`}>
+            {pkg.hours}
+          </p>
+
+          <!-- Includes -->
+          <ul class="space-y-3 mb-10 flex-1" aria-label={`What's included in ${pkg.name}`}>
+            {pkg.highlights.map(item => (
+              <li class={`flex items-start gap-3 text-sm font-light ${pkg.featured ? 'text-[var(--color-cream)]/80' : 'text-[var(--color-warm-black)]'}`}>
+                <span class="text-[var(--color-rose)] mt-0.5 flex-shrink-0" aria-hidden="true">—</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <!-- Price + CTA -->
+          <div class={`border-t pt-8 ${pkg.featured ? 'border-[var(--color-cream)]/20' : 'border-[var(--color-rose-light)]'}`}>
+            <p class={`text-[10px] uppercase tracking-[0.25em] mb-1 ${pkg.featured ? 'text-[var(--color-cream)]/50' : 'text-[var(--color-muted)]'}`}>
+              Starting at
+            </p>
+            <p class={`font-serif text-4xl mb-8 ${pkg.featured ? 'text-[var(--color-cream)]' : 'text-[var(--color-warm-black)]'}`}>
+              {pkg.startingAt}
+            </p>
+            <a
+              href="#inquire"
+              class={`block text-center text-xs uppercase tracking-[0.2em] py-3.5 transition-all duration-300 ${
+                pkg.featured
+                  ? 'bg-[var(--color-rose)] text-[var(--color-cream)] hover:bg-[var(--color-rose-dark)]'
+                  : 'border border-[var(--color-warm-black)] text-[var(--color-warm-black)] hover:bg-[var(--color-warm-black)] hover:text-[var(--color-cream)]'
+              }`}
+            >
+              Inquire
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Fine print -->
+    <p class="text-center text-xs text-[var(--color-muted)] mt-12 fade-hidden" style="transition-delay: 0.35s">
+      All collections include travel within 100 miles of Los Angeles. Custom quotes available for destination weddings.
+    </p>
+  </div>
+</section>

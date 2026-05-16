@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import { photographer } from '../data/photographer';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = `${photographer.business} | ${photographer.subtagline}`,
+  description = `${photographer.tagline} ${photographer.subtagline}. ${photographer.location}.`,
+  ogImage = photographer.heroImage,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <!-- Preconnect for Unsplash image CDN -->
+    <link rel="preconnect" href="https://images.unsplash.com" />
+  </head>
+  <body>
+    <!-- Custom cursor (desktop only) -->
+    <div class="cursor-dot hidden lg:block" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring hidden lg:block" id="cursor-ring" aria-hidden="true"></div>
+
+    <slot />
+
+    <script>
+      // Custom cursor
+      const dot = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-ring');
+      let mouseX = 0, mouseY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (dot) {
+          dot.style.left = mouseX + 'px';
+          dot.style.top = mouseY + 'px';
+        }
+        if (ring) {
+          ring.style.left = mouseX + 'px';
+          ring.style.top = mouseY + 'px';
+        }
+      });
+
+      // Grow cursor ring on gallery cards
+      document.querySelectorAll('.gallery-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          if (ring) {
+            ring.style.width = '64px';
+            ring.style.height = '64px';
+            ring.style.opacity = '1';
+          }
+        });
+        card.addEventListener('mouseleave', () => {
+          if (ring) {
+            ring.style.width = '32px';
+            ring.style.height = '32px';
+            ring.style.opacity = '0.6';
+          }
+        });
+      });
+
+      // Scroll-reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('fade-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.fade-hidden').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>

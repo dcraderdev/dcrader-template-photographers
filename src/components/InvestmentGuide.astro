@@ -1,0 +1,69 @@
+---
+import { investmentGuide } from '../data/packages';
+---
+
+<section
+  id="investment-guide"
+  class="py-24 lg:py-32 bg-[var(--color-rose-light)]"
+  aria-label="Download investment guide"
+>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+    <div class="max-w-2xl mx-auto text-center fade-hidden">
+
+      <!-- Decorative -->
+      <span class="divider-rose mb-10" aria-hidden="true"></span>
+
+      <h2 class="font-serif text-3xl lg:text-5xl text-[var(--color-warm-black)] mb-6 leading-snug">
+        {investmentGuide.headline}
+      </h2>
+      <p class="text-[var(--color-muted)] font-light text-sm lg:text-base leading-relaxed mb-12">
+        {investmentGuide.subline}
+      </p>
+
+      <!-- Email capture form -->
+      <form
+        id="investment-guide-form"
+        class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+        aria-label="Get the investment guide"
+        novalidate
+      >
+        <label for="guide-email" class="sr-only">Your email address</label>
+        <input
+          type="email"
+          id="guide-email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+          class="flex-1 bg-white border border-[var(--color-rose)]/40 px-5 py-3.5 text-sm text-[var(--color-warm-black)] placeholder:text-[var(--color-muted)] focus:outline-none focus:border-[var(--color-rose)] transition-colors"
+        />
+        <button
+          type="submit"
+          class="bg-[var(--color-warm-black)] text-[var(--color-cream)] text-xs uppercase tracking-[0.2em] px-7 py-3.5 hover:bg-[var(--color-rose-dark)] transition-colors duration-300 whitespace-nowrap"
+        >
+          {investmentGuide.ctaLabel}
+        </button>
+      </form>
+
+      <p id="guide-success" class="hidden mt-6 text-sm text-[var(--color-rose-dark)] font-light">
+        Beautiful! Check your inbox — your guide is on its way.
+      </p>
+
+      <p class="mt-5 text-[10px] text-[var(--color-muted)] tracking-wide">
+        No spam. Unsubscribe anytime. Just good information.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('investment-guide-form') as HTMLFormElement | null;
+  const successMsg = document.getElementById('guide-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Replace this with your actual form submission (ConvertKit, Mailchimp, etc.)
+    form.style.display = 'none';
+    successMsg?.classList.remove('hidden');
+  });
+</script>

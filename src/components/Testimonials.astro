@@ -1,0 +1,49 @@
+---
+import { testimonials } from '../data/testimonials';
+---
+
+<section id="testimonials" class="py-24 lg:py-40 bg-[var(--color-warm-black)]" aria-label="Client testimonials">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Header -->
+    <div class="text-center mb-16 lg:mb-24 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-rose)] mb-4">Kind Words</p>
+      <h2 class="font-serif text-4xl lg:text-6xl text-[var(--color-cream)]">What couples say</h2>
+    </div>
+
+    <!-- Testimonial grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      {testimonials.map((t, i) => (
+        <figure
+          class={`fade-hidden ${i % 2 === 1 ? 'md:mt-12' : ''}`}
+          style={`transition-delay: ${i * 0.1}s`}
+        >
+          <div class="bg-[var(--color-warm-black)] border border-[var(--color-cream)]/10 p-8 lg:p-10 h-full flex flex-col">
+
+            <!-- Opening quote mark -->
+            <span class="quote-mark leading-none mb-4" aria-hidden="true">"</span>
+
+            <blockquote class="font-serif italic text-lg lg:text-xl text-[var(--color-cream)]/85 leading-relaxed flex-1">
+              {t.quote}
+            </blockquote>
+
+            <!-- Attribution -->
+            <figcaption class="mt-10 flex items-center gap-5">
+              <img
+                src={t.image}
+                alt={t.imageAlt}
+                class="w-14 h-14 rounded-full object-cover flex-shrink-0"
+                loading="lazy"
+                decoding="async"
+              />
+              <div>
+                <p class="font-serif text-lg text-[var(--color-cream)]">{t.name}</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-[var(--color-rose)] mt-1">{t.weddingInfo}</p>
+              </div>
+            </figcaption>
+          </div>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

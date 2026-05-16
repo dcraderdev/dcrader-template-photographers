@@ -1,0 +1,129 @@
+---
+import { photographer } from '../data/photographer';
+---
+
+<nav
+  id="main-nav"
+  class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 lg:px-16 py-6 transition-all duration-500"
+  aria-label="Main navigation"
+>
+  <!-- Logo -->
+  <a
+    href="#hero"
+    class="font-serif text-xl lg:text-2xl text-[var(--color-cream)] tracking-wide hover:text-[var(--color-rose)] transition-colors duration-300"
+    aria-label={`${photographer.business} — home`}
+  >
+    {photographer.name}
+  </a>
+
+  <!-- Desktop links -->
+  <ul class="hidden lg:flex items-center gap-10 text-xs uppercase tracking-widest text-[var(--color-cream)] font-light">
+    <li><a href="#galleries" class="hover:text-[var(--color-rose)] transition-colors duration-300">Work</a></li>
+    <li><a href="#about" class="hover:text-[var(--color-rose)] transition-colors duration-300">About</a></li>
+    <li><a href="#services" class="hover:text-[var(--color-rose)] transition-colors duration-300">Services</a></li>
+    <li><a href="#testimonials" class="hover:text-[var(--color-rose)] transition-colors duration-300">Praise</a></li>
+    <li>
+      <a
+        href="#inquire"
+        class="border border-[var(--color-cream)] px-5 py-2 hover:bg-[var(--color-cream)] hover:text-[var(--color-warm-black)] transition-all duration-300"
+      >
+        Inquire
+      </a>
+    </li>
+  </ul>
+
+  <!-- Mobile hamburger -->
+  <button
+    id="mobile-menu-btn"
+    class="lg:hidden flex flex-col gap-1.5 p-2"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <span class="block w-6 h-px bg-[var(--color-cream)] transition-all duration-300" id="bar1"></span>
+    <span class="block w-6 h-px bg-[var(--color-cream)] transition-all duration-300" id="bar2"></span>
+    <span class="block w-4 h-px bg-[var(--color-cream)] transition-all duration-300 self-end" id="bar3"></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 bg-[var(--color-warm-black)] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300"
+  aria-hidden="true"
+>
+  <ul class="flex flex-col items-center gap-8 text-2xl font-serif text-[var(--color-cream)]">
+    <li><a href="#galleries" class="mobile-link hover:text-[var(--color-rose)] transition-colors">Work</a></li>
+    <li><a href="#about" class="mobile-link hover:text-[var(--color-rose)] transition-colors">About</a></li>
+    <li><a href="#services" class="mobile-link hover:text-[var(--color-rose)] transition-colors">Services</a></li>
+    <li><a href="#testimonials" class="mobile-link hover:text-[var(--color-rose)] transition-colors">Praise</a></li>
+    <li><a href="#inquire" class="mobile-link hover:text-[var(--color-rose)] transition-colors">Inquire</a></li>
+  </ul>
+</div>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  let menuOpen = false;
+
+  // Scroll-based nav background
+  window.addEventListener('scroll', () => {
+    if (!nav) return;
+    if (window.scrollY > 80) {
+      nav.classList.add('bg-[var(--color-warm-black)]/95', 'backdrop-blur-sm', 'shadow-lg');
+      nav.classList.remove('py-6');
+      nav.classList.add('py-4');
+    } else {
+      nav.classList.remove('bg-[var(--color-warm-black)]/95', 'backdrop-blur-sm', 'shadow-lg');
+      nav.classList.remove('py-4');
+      nav.classList.add('py-6');
+    }
+  });
+
+  // Mobile menu toggle
+  btn?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menu) {
+      menu.classList.toggle('opacity-0', !menuOpen);
+      menu.classList.toggle('pointer-events-none', !menuOpen);
+      menu.setAttribute('aria-hidden', String(!menuOpen));
+    }
+    btn.setAttribute('aria-expanded', String(menuOpen));
+
+    if (bar1 && bar2 && bar3) {
+      if (menuOpen) {
+        bar1.style.transform = 'translateY(8px) rotate(45deg)';
+        bar2.style.opacity = '0';
+        bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+        bar3.style.width = '24px';
+      } else {
+        bar1.style.transform = '';
+        bar2.style.opacity = '1';
+        bar3.style.transform = '';
+        bar3.style.width = '';
+      }
+    }
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      if (menu) {
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+      btn?.setAttribute('aria-expanded', 'false');
+      if (bar1 && bar2 && bar3) {
+        bar1.style.transform = '';
+        bar2.style.opacity = '1';
+        bar3.style.transform = '';
+        bar3.style.width = '';
+      }
+    });
+  });
+</script>

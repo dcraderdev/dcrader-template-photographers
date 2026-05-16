@@ -1,0 +1,210 @@
+---
+import { photographer } from '../data/photographer';
+---
+
+<section
+  id="inquire"
+  class="py-24 lg:py-40 bg-[var(--color-warm-black)]"
+  aria-label="Inquiry form"
+>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+      <!-- Left column: warm copy -->
+      <div class="fade-hidden">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-rose)] mb-6">Let's Connect</p>
+        <h2 class="font-serif text-4xl lg:text-6xl text-[var(--color-cream)] mb-8 leading-tight">
+          Tell me about<br />your day
+        </h2>
+        <p class="text-[var(--color-cream)]/60 font-light text-sm lg:text-base leading-relaxed mb-10">
+          I read every message personally. Fill out what you can — even if you're still early in the planning. I'll get back to you within 48 hours.
+        </p>
+
+        <div class="space-y-5">
+          <div class="flex items-center gap-4">
+            <span class="w-px h-8 bg-[var(--color-rose)]" aria-hidden="true"></span>
+            <p class="text-[var(--color-cream)]/60 text-sm font-light">{photographer.email}</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-px h-8 bg-[var(--color-rose)]" aria-hidden="true"></span>
+            <p class="text-[var(--color-cream)]/60 text-sm font-light">{photographer.location}</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-px h-8 bg-[var(--color-rose)]" aria-hidden="true"></span>
+            <a
+              href={photographer.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[var(--color-cream)]/60 text-sm font-light hover:text-[var(--color-rose)] transition-colors"
+            >
+              {photographer.instagram}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: form -->
+      <form
+        id="inquiry-form"
+        class="space-y-6 fade-hidden"
+        style="transition-delay: 0.15s"
+        novalidate
+        aria-label="Wedding inquiry form"
+      >
+        <!-- Name row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="your-name" class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-2">
+              Your name <span class="text-[var(--color-rose)]" aria-label="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="your-name"
+              name="your_name"
+              required
+              autocomplete="given-name"
+              class="w-full bg-transparent border-b border-[var(--color-cream)]/20 pb-3 text-[var(--color-cream)] text-sm font-light placeholder:text-[var(--color-cream)]/25 focus:outline-none focus:border-[var(--color-rose)] transition-colors"
+              placeholder="Emma"
+            />
+          </div>
+          <div>
+            <label for="partner-name" class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-2">
+              Partner's name <span class="text-[var(--color-rose)]" aria-label="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="partner-name"
+              name="partner_name"
+              required
+              autocomplete="off"
+              class="w-full bg-transparent border-b border-[var(--color-cream)]/20 pb-3 text-[var(--color-cream)] text-sm font-light placeholder:text-[var(--color-cream)]/25 focus:outline-none focus:border-[var(--color-rose)] transition-colors"
+              placeholder="James"
+            />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="inquiry-email" class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-2">
+            Email address <span class="text-[var(--color-rose)]" aria-label="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="inquiry-email"
+            name="email"
+            required
+            autocomplete="email"
+            class="w-full bg-transparent border-b border-[var(--color-cream)]/20 pb-3 text-[var(--color-cream)] text-sm font-light placeholder:text-[var(--color-cream)]/25 focus:outline-none focus:border-[var(--color-rose)] transition-colors"
+            placeholder="hello@you.com"
+          />
+        </div>
+
+        <!-- Wedding date -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="wedding-date" class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-2">
+              Wedding date
+            </label>
+            <input
+              type="date"
+              id="wedding-date"
+              name="wedding_date"
+              autocomplete="off"
+              class="w-full bg-transparent border-b border-[var(--color-cream)]/20 pb-3 text-[var(--color-cream)] text-sm font-light focus:outline-none focus:border-[var(--color-rose)] transition-colors [color-scheme:dark]"
+            />
+          </div>
+          <div>
+            <label for="venue" class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-2">
+              Venue / location
+            </label>
+            <input
+              type="text"
+              id="venue"
+              name="venue"
+              autocomplete="off"
+              class="w-full bg-transparent border-b border-[var(--color-cream)]/20 pb-3 text-[var(--color-cream)] text-sm font-light placeholder:text-[var(--color-cream)]/25 focus:outline-none focus:border-[var(--color-rose)] transition-colors"
+              placeholder="Big Sur, CA"
+            />
+          </div>
+        </div>
+
+        <!-- Vibe -->
+        <div>
+          <label for="vibe" class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-2">
+            How would you describe your wedding's vibe?
+          </label>
+          <input
+            type="text"
+            id="vibe"
+            name="vibe"
+            autocomplete="off"
+            class="w-full bg-transparent border-b border-[var(--color-cream)]/20 pb-3 text-[var(--color-cream)] text-sm font-light placeholder:text-[var(--color-cream)]/25 focus:outline-none focus:border-[var(--color-rose)] transition-colors"
+            placeholder="Intimate garden party, moody + romantic..."
+          />
+        </div>
+
+        <!-- Budget -->
+        <div>
+          <fieldset>
+            <legend class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-4">
+              Budget range (photography)
+            </legend>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {['Under $3k', '$3k–$4k', '$4k–$6k', '$6k+'].map(range => (
+                <label class="cursor-pointer">
+                  <input type="radio" name="budget" value={range} class="sr-only peer" />
+                  <span class="block text-center text-[10px] uppercase tracking-wide border border-[var(--color-cream)]/20 py-2.5 text-[var(--color-cream)]/50 peer-checked:border-[var(--color-rose)] peer-checked:text-[var(--color-rose)] hover:border-[var(--color-cream)]/40 transition-all cursor-pointer">
+                    {range}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Anything else -->
+        <div>
+          <label for="message" class="block text-[10px] uppercase tracking-[0.25em] text-[var(--color-cream)]/50 mb-2">
+            Anything you'd like me to know about you?
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            class="w-full bg-transparent border-b border-[var(--color-cream)]/20 pb-3 text-[var(--color-cream)] text-sm font-light placeholder:text-[var(--color-cream)]/25 focus:outline-none focus:border-[var(--color-rose)] transition-colors resize-none"
+            placeholder="We met at a farmer's market in 2019, we're getting married in the backyard where we had our first picnic..."
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-4">
+          <button
+            type="submit"
+            class="w-full sm:w-auto bg-[var(--color-rose)] text-[var(--color-cream)] text-xs uppercase tracking-[0.25em] px-10 py-4 hover:bg-[var(--color-rose-dark)] transition-colors duration-300"
+          >
+            Send My Inquiry
+          </button>
+        </div>
+
+        <!-- Success -->
+        <p id="inquiry-success" class="hidden text-sm text-[var(--color-rose)] font-light pt-2">
+          Your message is on its way. I'll be in touch within 48 hours — can't wait to hear more about your day.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('inquiry-form') as HTMLFormElement | null;
+  const success = document.getElementById('inquiry-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Replace with your real form handler (Netlify forms, Formspree, etc.)
+    form.style.opacity = '0.5';
+    form.style.pointerEvents = 'none';
+    success?.classList.remove('hidden');
+    form.style.opacity = '1';
+  });
+</script>

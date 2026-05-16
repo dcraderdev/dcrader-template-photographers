@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/400-italic.css";
+@import "@fontsource/cormorant-garamond/600.css";
+@import "@fontsource/cormorant-garamond/600-italic.css";
+@import "@fontsource/manrope/300.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/700.css";
+
+@theme {
+  --color-cream: #f9f5f0;
+  --color-warm-black: #1a1714;
+  --color-rose: #c9a99a;
+  --color-rose-light: #f0e4df;
+  --color-rose-dark: #9e7265;
+  --color-muted: #7a7068;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-cream);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-warm-black);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom cursor */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-rose);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--color-rose);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease, width 0.3s ease, height 0.3s ease, opacity 0.2s ease;
+  opacity: 0.6;
+}
+
+/* Ken Burns animation */
+@keyframes kenburns {
+  0%   { transform: scale(1) translate(0, 0); }
+  50%  { transform: scale(1.06) translate(-1.5%, -0.8%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+.ken-burns {
+  animation: kenburns 12s ease-in-out infinite;
+}
+
+/* Fade in scroll animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 23, 20, 0.97);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* Decorative */
+.divider-rose {
+  width: 48px;
+  height: 1px;
+  background: var(--color-rose);
+  display: block;
+  margin: 0 auto;
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  line-height: 0;
+  color: var(--color-rose);
+  opacity: 0.35;
+  vertical-align: -2rem;
+  display: inline-block;
+}
+
+/* Gallery card tilt */
+.gallery-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+}

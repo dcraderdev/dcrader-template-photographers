@@ -1,0 +1,164 @@
+---
+import { galleries } from '../data/galleries';
+const galleriesJson = JSON.stringify(galleries);
+---
+
+<script id="galleries-data" type="application/json" set:html={galleriesJson}></script>
+
+<section id="galleries" class="py-24 lg:py-40 bg-[var(--color-cream)]" aria-label="Featured galleries">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Section header -->
+    <div class="text-center mb-16 lg:mb-24 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-muted)] mb-4">Selected Work</p>
+      <h2 class="font-serif text-4xl lg:text-6xl text-[var(--color-warm-black)]">Featured Galleries</h2>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      {galleries.map((gallery, i) => (
+        <button
+          class={`gallery-card group relative overflow-hidden cursor-pointer text-left ${i === 0 ? 'md:col-span-2 aspect-[16/10]' : 'aspect-[4/5]'} fade-hidden`}
+          style={`transition-delay: ${i * 0.08}s`}
+          aria-label={`Open ${gallery.title} gallery`}
+          data-gallery-id={gallery.id}
+          type="button"
+        >
+          <!-- Cover image with Ken Burns on hover -->
+          <img
+            src={gallery.coverImage}
+            alt={gallery.coverAlt}
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <!-- Label -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-400">
+            <p class="text-[9px] uppercase tracking-[0.3em] text-[var(--color-rose-light)] mb-1.5">{gallery.subtitle}</p>
+            <p class="font-serif text-2xl lg:text-3xl text-[var(--color-cream)]">{gallery.title}</p>
+          </div>
+
+          <!-- Always-visible subtle name on larger first card -->
+          {i === 0 && (
+            <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-10 group-hover:opacity-0 transition-opacity duration-300">
+              <p class="text-[9px] uppercase tracking-[0.3em] text-[var(--color-rose-light)] mb-2">{gallery.subtitle}</p>
+              <p class="font-serif text-3xl lg:text-4xl text-[var(--color-cream)]">{gallery.title}</p>
+            </div>
+          )}
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ─── Lightbox ──────────────────────────────────────────────────────────── -->
+<div
+  id="lightbox"
+  class="lightbox-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Gallery lightbox"
+>
+  <div class="w-full max-w-5xl py-8 lg:py-16">
+    <!-- Close button -->
+    <button
+      id="lightbox-close"
+      class="fixed top-6 right-6 lg:top-8 lg:right-8 text-[var(--color-cream)] text-xs uppercase tracking-widest flex items-center gap-3 hover:text-[var(--color-rose)] transition-colors z-10"
+      aria-label="Close gallery"
+      type="button"
+    >
+      <span>Close</span>
+      <span class="text-2xl leading-none" aria-hidden="true">×</span>
+    </button>
+
+    <!-- Gallery meta -->
+    <div class="px-6 mb-10">
+      <p id="lightbox-subtitle" class="text-[9px] uppercase tracking-[0.3em] text-[var(--color-rose)] mb-2"></p>
+      <h3 id="lightbox-title" class="font-serif text-3xl lg:text-5xl text-[var(--color-cream)]"></h3>
+    </div>
+
+    <!-- Images -->
+    <div id="lightbox-images" class="flex flex-col gap-4 px-6"></div>
+  </div>
+</div>
+
+<script>
+  const galleriesData = JSON.parse(
+    (document.getElementById('galleries-data') as HTMLScriptElement)?.text || '[]'
+  );
+
+  const lightbox = document.getElementById('lightbox');
+  const closeBtn = document.getElementById('lightbox-close');
+  const titleEl = document.getElementById('lightbox-title');
+  const subtitleEl = document.getElementById('lightbox-subtitle');
+  const imagesEl = document.getElementById('lightbox-images');
+
+  function openGallery(id: string) {
+    const gallery = galleriesData.find((g: { id: string }) => g.id === id);
+    if (!gallery || !lightbox || !titleEl || !subtitleEl || !imagesEl) return;
+
+    titleEl.textContent = gallery.title;
+    subtitleEl.textContent = gallery.subtitle;
+    imagesEl.innerHTML = '';
+
+    gallery.images.forEach((img: { src: string; alt: string }) => {
+      const el = document.createElement('img');
+      el.src = img.src;
+      el.alt = img.alt;
+      el.className = 'w-full h-auto object-cover';
+      el.loading = 'lazy';
+      el.decoding = 'async';
+      imagesEl.appendChild(el);
+    });
+
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
+  }
+
+  function closeLightbox() {
+    lightbox?.classList.remove('active');
+    document.body.style.overflow = '';
+    if (imagesEl) imagesEl.innerHTML = '';
+  }
+
+  document.querySelectorAll('[data-gallery-id]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = (btn as HTMLElement).dataset.galleryId;
+      if (id) openGallery(id);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeLightbox);
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Gallery card tilt on mouse move (desktop)
+  document.querySelectorAll('.gallery-card').forEach(card => {
+    card.addEventListener('mousemove', (e: Event) => {
+      const mouseEvent = e as MouseEvent;
+      const rect = (card as HTMLElement).getBoundingClientRect();
+      const x = mouseEvent.clientX - rect.left;
+      const y = mouseEvent.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -3;
+      const rotateY = ((x - centerX) / centerX) * 3;
+      (card as HTMLElement).style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      (card as HTMLElement).style.transform = '';
+    });
+  });
+</script>

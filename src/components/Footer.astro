@@ -1,0 +1,125 @@
+---
+import { photographer } from '../data/photographer';
+
+// Instagram grid: 6 demo images from Unsplash (wedding/photography aesthetic)
+// In production, replace with real Instagram embed or API.
+// Photo credits below.
+const instagramPosts = [
+  {
+    // Álvaro CvG / Unsplash
+    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80&fm=webp&fit=crop",
+    alt: "Bride and groom walking through a vineyard at golden hour",
+    credit: "Álvaro CvG / Unsplash",
+  },
+  {
+    // Jonathan Borba / Unsplash
+    src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&fm=webp&fit=crop",
+    alt: "Couple walking hand in hand in a sunlit meadow on their wedding day",
+    credit: "Jonathan Borba / Unsplash",
+  },
+  {
+    // Cassie Lopez / Unsplash
+    src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80&fm=webp&fit=crop",
+    alt: "Newlyweds embracing on a cliff overlooking the ocean",
+    credit: "Cassie Lopez / Unsplash",
+  },
+  {
+    // Євгенія Височина / Unsplash
+    src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop",
+    alt: "Bride laughing with bridesmaids on a sunny terrace",
+    credit: "Євгенія Височина / Unsplash",
+  },
+  {
+    // Nathan Dumlao / Unsplash
+    src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80&fm=webp&fit=crop",
+    alt: "Bride and groom sharing a first look in a vineyard",
+    credit: "Nathan Dumlao / Unsplash",
+  },
+  {
+    // Beatriz Pérez Moya / Unsplash
+    src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80&fm=webp&fit=crop",
+    alt: "Bride in lace gown standing in a cottage garden",
+    credit: "Beatriz Pérez Moya / Unsplash",
+  },
+];
+---
+
+<footer class="bg-[var(--color-warm-black)] pt-20 pb-10" aria-label="Site footer">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Instagram grid header -->
+    <div class="text-center mb-8 fade-hidden">
+      <p class="text-[10px] uppercase tracking-[0.3em] text-[var(--color-rose)] mb-3">Follow Along</p>
+      <a
+        href={photographer.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-serif text-2xl lg:text-3xl text-[var(--color-cream)] hover:text-[var(--color-rose)] transition-colors"
+        aria-label={`Follow ${photographer.instagram} on Instagram (opens in new tab)`}
+      >
+        {photographer.instagram}
+      </a>
+    </div>
+
+    <!-- Instagram-style 6-photo grid -->
+    <div class="grid grid-cols-3 lg:grid-cols-6 gap-1.5 mb-20 fade-hidden" style="transition-delay: 0.1s" role="list" aria-label="Recent Instagram posts">
+      {instagramPosts.map(post => (
+        <a
+          href={photographer.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative aspect-square overflow-hidden"
+          role="listitem"
+          aria-label={`${post.alt} — view on Instagram (opens in new tab)`}
+        >
+          <img
+            src={post.src}
+            alt={post.alt}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- Instagram icon overlay on hover -->
+          <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" aria-hidden="true">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="border-t border-[var(--color-cream)]/10 pt-10 flex flex-col lg:flex-row items-center justify-between gap-6 fade-hidden" style="transition-delay: 0.2s">
+
+      <!-- Name / tagline -->
+      <div class="text-center lg:text-left">
+        <p class="font-serif text-xl text-[var(--color-cream)]">{photographer.name}</p>
+        <p class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)] mt-1">{photographer.subtagline}</p>
+      </div>
+
+      <!-- Navigation links -->
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-wrap justify-center gap-6 lg:gap-10 text-[10px] uppercase tracking-widest text-[var(--color-muted)]">
+          <li><a href="#galleries" class="hover:text-[var(--color-rose)] transition-colors">Work</a></li>
+          <li><a href="#about" class="hover:text-[var(--color-rose)] transition-colors">About</a></li>
+          <li><a href="#services" class="hover:text-[var(--color-rose)] transition-colors">Services</a></li>
+          <li><a href="#inquire" class="hover:text-[var(--color-rose)] transition-colors">Inquire</a></li>
+        </ul>
+      </nav>
+
+      <!-- Copyright -->
+      <p class="text-[10px] text-[var(--color-muted)] text-center lg:text-right">
+        © {new Date().getFullYear()} {photographer.business}.<br class="lg:hidden" />
+        <span class="hidden lg:inline"> </span>All rights reserved.
+      </p>
+    </div>
+
+    <!-- Photo attribution note (required for Unsplash) -->
+    <p class="text-center text-[9px] text-[var(--color-muted)]/50 mt-8">
+      Demo photography by various Unsplash contributors. Replace with your own work.
+    </p>
+  </div>
+</footer>
