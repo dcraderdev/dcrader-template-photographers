@@ -12,10 +12,10 @@ export const photographer = {
   instagram: "@ruby.and.wilder",
   instagramUrl: "https://instagram.com/ruby.and.wilder",
 
-  // Hero: couple walking through wildflower meadow at sunset
-  // Photo: Unsplash  https://unsplash.com/photos/1530103862676-de8c9debad1d
-  heroImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=2000&q=85&fm=webp&fit=crop",
-  heroImageAlt: "Couple walking hand in hand through a golden wildflower meadow at sunset",
+  // Hero: couple on a rocky Pacific coast beach with flowing cathedral veil
+  // Photo: Unsplash  https://unsplash.com/photos/1537633552985-df8429e8048b
+  heroImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=2000&q=85&fm=webp&fit=crop",
+  heroImageAlt: "Couple embracing on a rocky Pacific coast beach, bride's cathedral veil sweeping in the ocean wind",
 
   // About section
   // Portrait photo: Charles Deluvio / Unsplash  https://unsplash.com/photos/pjAH2Ax4uWk

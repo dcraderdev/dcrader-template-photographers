@@ -12,10 +12,10 @@ export const photographer = {
   instagram: "@dariavolkov.photo",
   instagramUrl: "https://instagram.com/dariavolkov.photo",
 
-  // Hero: elegant NYC rooftop wedding
-  // Photo: Unsplash  https://unsplash.com/photos/1587271407850-8d438ca9fdf2
-  heroImage: "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=2000&q=85&fm=webp&fit=crop",
-  heroImageAlt: "Couple in evening wear on a Manhattan rooftop at dusk, city skyline glowing behind them",
+  // Hero: dark editorial couple at dusk under palm trees
+  // Photo: Unsplash  https://unsplash.com/photos/1606216794074-735e91aa2c92
+  heroImage: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=2000&q=85&fm=webp&fit=crop",
+  heroImageAlt: "Couple in sleek wedding attire at twilight, moody editorial lighting",
 
   // About section
   // Portrait photo: Unsplash  https://unsplash.com/photos/1508214751196-bcfd4ca60f91

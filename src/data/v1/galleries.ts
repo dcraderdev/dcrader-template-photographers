@@ -34,12 +34,12 @@ export const galleries: Gallery[] = [
         credit: "Cassie Lopez / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1400&q=85&fm=webp&fit=crop",
         alt: "Wedding ceremony arch decorated with fresh flowers",
         credit: "Thomas AE / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1520854221256-17d7dc783f06?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=1400&q=85&fm=webp&fit=crop",
         alt: "Bride holding a lush white-and-greenery bouquet",
         credit: "Álvaro CvG / Unsplash",
       },
@@ -65,7 +65,7 @@ export const galleries: Gallery[] = [
         credit: "Amy Shamblen / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1400&q=85&fm=webp&fit=crop",
         alt: "Groom looking at the camera before the ceremony",
         credit: "Michael Dam / Unsplash",
       },
@@ -75,13 +75,13 @@ export const galleries: Gallery[] = [
     id: "claire-theo",
     title: "Claire & Théo",
     subtitle: "Yosemite Elopement · August 2024",
-    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1520854221256-17d7dc783f06
-    coverImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fm=webp&fit=crop",
+    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1525772764200-be829a350797
+    coverImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80&fm=webp&fit=crop",
     coverAlt: "Newlyweds walking hand in hand through a meadow with Yosemite Valley in the background",
     coverCredit: "Jonathan Borba / Unsplash",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1400&q=85&fm=webp&fit=crop",
         alt: "Newlyweds walking hand in hand through a meadow with Yosemite Valley behind them",
         credit: "Jonathan Borba / Unsplash",
       },
@@ -118,17 +118,17 @@ export const galleries: Gallery[] = [
     title: "Isabelle & Omar",
     subtitle: "Palm Springs · February 2025",
     // Cover: Rhone / Unsplash
-    coverImage: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&q=80&fm=webp&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop",
     coverAlt: "Couple dancing under festoon lights at a desert wedding reception at dusk",
     coverCredit: "Rhone / Unsplash",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Couple dancing under festoon lights at a desert wedding reception at dusk",
         credit: "Rhone / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1400&q=85&fm=webp&fit=crop",
         alt: "Wedding ceremony arch with palm trees silhouetted against a sunset sky",
         credit: "Thomas AE / Unsplash",
       },

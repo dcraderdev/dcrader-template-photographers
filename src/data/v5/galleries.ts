@@ -22,13 +22,13 @@ export const galleries: Gallery[] = [
     id: "priya-marcus",
     title: "Priya & Marcus",
     subtitle: "Barton Springs, Austin · May 2025",
-    // Cover: Rhone / Unsplash  https://unsplash.com/photos/photo-1556656793-08538906a9f8
-    coverImage: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&q=80&fm=webp&fit=crop",
+    // Cover: Rhone / Unsplash  https://unsplash.com/photos/photo-1511285560929-80b456fea0bc
+    coverImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop",
     coverAlt: "Couple dancing barefoot at an outdoor Austin summer wedding with string lights",
     coverCredit: "Rhone / Unsplash",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Couple dancing barefoot at an outdoor Austin summer wedding with string lights",
         credit: "Rhone / Unsplash",
       },
@@ -59,12 +59,12 @@ export const galleries: Gallery[] = [
         credit: "Cassie Lopez / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "The whole wedding party jumping in unison in the Texas bluebonnets",
         credit: "Rhone / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1400&q=85&fm=webp&fit=crop",
         alt: "Wild-flower ceremony arch bursting with yellow and orange blooms in hill country",
         credit: "Thomas AE / Unsplash",
       },
@@ -90,7 +90,7 @@ export const galleries: Gallery[] = [
         credit: "Cassie Lopez / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Dance floor overflowing with guests under globe lights on the rooftop",
         credit: "Rhone / Unsplash",
       },
@@ -100,13 +100,13 @@ export const galleries: Gallery[] = [
     id: "cleo-raul",
     title: "Cleo & Raúl",
     subtitle: "Fiesta Colors · March 2025",
-    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1530103862676-de8c9debad1d
-    coverImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fm=webp&fit=crop",
+    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1511285560929-80b456fea0bc
+    coverImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80&fm=webp&fit=crop",
     coverAlt: "Vibrant fiesta-themed wedding with mariachi and colorful papel picado",
     coverCredit: "Jonathan Borba / Unsplash",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Vibrant fiesta-themed wedding with mariachi and colorful papel picado",
         credit: "Jonathan Borba / Unsplash",
       },
@@ -137,7 +137,7 @@ export const galleries: Gallery[] = [
         credit: "Álvaro CvG / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Couple on stage at The Parish, confetti falling, crowd cheering below",
         credit: "Rhone / Unsplash",
       },
@@ -163,7 +163,7 @@ export const galleries: Gallery[] = [
         credit: "Beatriz Pérez Moya / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Kids chasing fireflies in the yard while adults share a toast under the lights",
         credit: "Jonathan Borba / Unsplash",
       },

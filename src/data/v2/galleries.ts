@@ -35,7 +35,7 @@ export const galleries: Gallery[] = [
         credit: "Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1400&q=85&fm=webp&fit=crop",
         alt: "Ceremony arch framed against Midtown Manhattan architecture",
         credit: "Thomas AE / Unsplash",
       },
@@ -61,12 +61,12 @@ export const galleries: Gallery[] = [
         credit: "Shea Rouda / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Reception candlelight against exposed brick walls at a Brooklyn loft",
         credit: "Rhone / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1520854221256-17d7dc783f06?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=1400&q=85&fm=webp&fit=crop",
         alt: "Bridal bouquet of white roses and eucalyptus against a dark loft wall",
         credit: "Álvaro CvG / Unsplash",
       },
@@ -87,7 +87,7 @@ export const galleries: Gallery[] = [
         credit: "Nathan Dumlao / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=1400&q=85&fm=webp&fit=crop",
         alt: "Couple walking along the Seine at golden hour, Paris",
         credit: "Jonathan Borba / Unsplash",
       },
@@ -134,7 +134,7 @@ export const galleries: Gallery[] = [
         credit: "Amy Shamblen / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1400&q=85&fm=webp&fit=crop",
         alt: "Groom in a tailored black tuxedo before the ceremony",
         credit: "Michael Dam / Unsplash",
       },
@@ -155,7 +155,7 @@ export const galleries: Gallery[] = [
         credit: "Beatriz Pérez Moya / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1400&q=85&fm=webp&fit=crop",
         alt: "Couple dancing under string lights at an outdoor Art Deco reception in Miami",
         credit: "Rhone / Unsplash",
       },

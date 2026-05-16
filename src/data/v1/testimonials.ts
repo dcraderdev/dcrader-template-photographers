@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     name: "Claire & Théo",
     weddingInfo: "Yosemite Elopement, August 2024",
     // Photo: Drew Coffman / Unsplash
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&fm=webp&fit=crop",
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
     imageAlt: "Claire and Théo, couple standing in a Yosemite meadow on their wedding day",
     imageCredit: "Drew Coffman / Unsplash",
   },

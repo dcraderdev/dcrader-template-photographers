@@ -38,7 +38,7 @@ export const galleries: Gallery[] = [
         credit: "Álvaro CvG / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1400&q=85&fm=webp&fit=crop",
         alt: "Ceremony arch framing the still surface of Lake Como at midday",
         credit: "Thomas AE / Unsplash",
       },
@@ -64,7 +64,7 @@ export const galleries: Gallery[] = [
         credit: "Shea Rouda / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1520854221256-17d7dc783f06?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1525772764200-be829a350797?w=1400&q=85&fm=webp&fit=crop",
         alt: "Bride holding a single white peony against the limestone façade",
         credit: "Jonathan Borba / Unsplash",
       },
@@ -142,7 +142,7 @@ export const galleries: Gallery[] = [
         credit: "Nathan Dumlao / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1400&q=85&fm=webp&fit=crop",
         alt: "Unadorned stone altar framed by terracotta urns and afternoon light",
         credit: "Thomas AE / Unsplash",
       },
@@ -152,13 +152,13 @@ export const galleries: Gallery[] = [
     id: "j-n-mallorca",
     title: "J & N",
     subtitle: "Mallorca Clifftop · August 2024",
-    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1530103862676-de8c9debad1d
-    coverImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fm=webp&fit=crop",
+    // Cover: Jonathan Borba / Unsplash  https://unsplash.com/photos/photo-1606216794074-735e91aa2c92
+    coverImage: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80&fm=webp&fit=crop",
     coverAlt: "Couple on a Mallorca clifftop at golden hour, Mediterranean below",
     coverCredit: "Jonathan Borba / Unsplash",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1400&q=85&fm=webp&fit=crop",
         alt: "Couple on a Mallorca clifftop at golden hour, Mediterranean below",
         credit: "Jonathan Borba / Unsplash",
       },

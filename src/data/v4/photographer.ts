@@ -11,10 +11,10 @@ export const photographer = {
   instagram: "@lenaschultz.studio",
   instagramUrl: "https://instagram.com/lenaschultz.studio",
 
-  // Hero: sculptural minimalist bridal image
-  // Photo: Álvaro CvG / Unsplash  https://unsplash.com/photos/photo-1511285560929-80b456fea0bc
-  heroImage: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=2000&q=85&fm=webp&fit=crop",
-  heroImageAlt: "Bride in a sculptural minimalist gown standing alone in a sun-flooded white room",
+  // Hero: couple in golden forest by lake, fine art elegance
+  // Photo: Cassie Lopez / Unsplash  https://unsplash.com/photos/photo-1591604466107-ec97de577aff
+  heroImage: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=2000&q=85&fm=webp&fit=crop",
+  heroImageAlt: "Couple in elegant wedding attire standing in a sunlit forest beside a still lake",
 
   // About section
   // Portrait photo: Amy Shamblen / Unsplash  https://unsplash.com/photos/photo-1508214751196-bcfd4ca60f91

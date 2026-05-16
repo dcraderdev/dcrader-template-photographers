@@ -11,10 +11,10 @@ export const photographer = {
   instagram: "@popandbloom.co",
   instagramUrl: "https://instagram.com/popandbloom.co",
 
-  // Hero: festoon-lit outdoor reception
-  // Photo: Rhone / Unsplash  https://unsplash.com/photos/photo-1556656793-08538906a9f8
-  heroImage: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=2000&q=85&fm=webp&fit=crop",
-  heroImageAlt: "Newlyweds dancing under colorful festoon lights at a joyful outdoor Austin wedding reception",
+  // Hero: joyful couple kissing as guests shower them with flower petals
+  // Photo: Beatriz Pérez Moya / Unsplash  https://unsplash.com/photos/photo-1583939003579-730e3918a45a
+  heroImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=2000&q=85&fm=webp&fit=crop",
+  heroImageAlt: "Newlyweds kissing as joyful wedding guests shower them with flower petals at an outdoor celebration",
 
   // About section
   // Portrait photo: Євгенія Височина / Unsplash  https://unsplash.com/photos/photo-1537633552985-df8429e8048b

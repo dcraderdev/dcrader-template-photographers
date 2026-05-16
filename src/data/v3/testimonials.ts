@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     name: "Lila & Cove",
     weddingInfo: "Crater Lake, Oregon · August 2024",
     // Photo: Unsplash
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&fm=webp&fit=crop",
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
     imageAlt: "Lila and Cove at the rim of Crater Lake on their elopement day",
     imageCredit: "Unsplash",
   },

@@ -34,7 +34,7 @@ export const galleries: Gallery[] = [
         credit: "Álvaro CvG / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1400&q=85&fm=webp&fit=crop",
         alt: "Newlyweds walking barefoot through shallow tide pools on the Olympic coast",
         credit: "Unsplash",
       },
@@ -75,13 +75,13 @@ export const galleries: Gallery[] = [
     id: "lila-cove",
     title: "Lila & Cove",
     subtitle: "Crater Lake, Oregon · August 2024",
-    // Cover: Unsplash  https://unsplash.com/photos/photo-1530103862676-de8c9debad1d
-    coverImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&fm=webp&fit=crop",
+    // Cover: Unsplash  https://unsplash.com/photos/photo-1591604466107-ec97de577aff
+    coverImage: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80&fm=webp&fit=crop",
     coverAlt: "Couple at the rim of Crater Lake, Oregon in elopement attire",
     coverCredit: "Unsplash",
     images: [
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1400&q=85&fm=webp&fit=crop",
         alt: "Couple at the rim of Crater Lake, Oregon in elopement attire with the caldera behind them",
         credit: "Unsplash",
       },
@@ -133,7 +133,7 @@ export const galleries: Gallery[] = [
         credit: "Євгенія Височина / Unsplash",
       },
       {
-        src: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1400&q=85&fm=webp&fit=crop",
+        src: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1400&q=85&fm=webp&fit=crop",
         alt: "Newlyweds lying in a field of lupine and paintbrush wildflowers, laughing up at the sky",
         credit: "Unsplash",
       },

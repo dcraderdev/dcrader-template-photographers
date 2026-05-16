@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     name: "Priya & Marcus",
     weddingInfo: "Barton Springs, Austin · May 2025",
     // Photo: Rhone / Unsplash
-    image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&q=80&fm=webp&fit=crop",
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
     imageAlt: "Priya and Marcus dancing at their outdoor Austin wedding at Barton Springs",
     imageCredit: "Rhone / Unsplash",
   },
@@ -47,7 +47,7 @@ export const testimonials: Testimonial[] = [
     name: "Nia & Eli",
     weddingInfo: "Backyard BBQ Wedding, Austin · June 2024",
     // Photo: Jonathan Borba / Unsplash
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80&fm=webp&fit=crop",
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
     imageAlt: "Nia and Eli celebrating at their joyful backyard wedding with friends and family",
     imageCredit: "Jonathan Borba / Unsplash",
   },
