@@ -27,7 +27,7 @@ import { packages } from '../data/v1/packages';
         >
           {pkg.featured && (
             <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <span class="text-[8px] uppercase tracking-[0.3em] px-5 py-1.5" style="background:var(--c-accent);color:var(--c-text-inv);font-family:var(--f-body)">
+              <span class="text-[8px] uppercase tracking-[0.3em] px-5 py-1.5" style="background:var(--c-accent-dark);color:var(--c-text-inv);font-family:var(--f-body)">
                 Most Popular
               </span>
             </div>
@@ -57,7 +57,7 @@ import { packages } from '../data/v1/packages';
           </ul>
 
           <div class="pt-8" style={`border-top:1px solid ${pkg.featured ? 'rgba(247,243,238,0.1)' : 'rgba(201,169,154,0.2)'}`}>
-            <p class="text-[9px] uppercase tracking-[0.25em] mb-1.5" style={`color:${pkg.featured ? 'rgba(247,243,238,0.4)' : 'var(--c-text-muted)'};font-family:var(--f-body)`}>
+            <p class="text-[9px] uppercase tracking-[0.25em] mb-1.5" style={`color:${pkg.featured ? 'rgba(247,243,238,0.78)' : 'var(--c-text-muted)'};font-family:var(--f-body)`}>
               Starting at
             </p>
             <p class="mb-8" style={`font-family:var(--f-display);font-size:2.5rem;color:${pkg.featured ? 'var(--c-text-inv)' : 'var(--c-text)'};font-weight:400`}>
@@ -66,7 +66,7 @@ import { packages } from '../data/v1/packages';
             <a
               href="#inquire"
               class="block text-center text-[9px] uppercase tracking-[0.25em] py-3.5 transition-all duration-400 hover:opacity-80"
-              style={`font-family:var(--f-body);background:${pkg.featured ? 'var(--c-accent)' : 'transparent'};color:${pkg.featured ? 'var(--c-text-inv)' : 'var(--c-text)'};border:1px solid ${pkg.featured ? 'transparent' : 'var(--c-text)'}`}
+              style={`font-family:var(--f-body);background:${pkg.featured ? 'var(--c-accent-dark)' : 'transparent'};color:${pkg.featured ? 'var(--c-text-inv)' : 'var(--c-text)'};border:1px solid ${pkg.featured ? 'transparent' : 'var(--c-text)'}`}
             >
               Inquire
             </a>

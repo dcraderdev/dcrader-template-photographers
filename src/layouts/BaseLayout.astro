@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SkipToContent from '../components/a11y/SkipToContent.astro';
 
 interface Props {
   title: string;
@@ -28,6 +29,8 @@ const { title, description, ogImage, themeClass, heroPreload } = Astro.props;
     <title>{title}</title>
   </head>
   <body style={`font-family: var(--f-body); background-color: var(--c-bg); color: var(--c-text);`}>
+    <SkipToContent />
+
     <!-- Custom cursor dot/ring (v1 only — others use default cursor) -->
     <div class="cursor-dot hidden lg:block" id="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-ring hidden lg:block" id="cursor-ring" aria-hidden="true"></div>

@@ -25,7 +25,7 @@ const { packages } = Astro.props;
           style={`padding-left:${i > 0 ? '2.5rem' : '0'};padding-right:${i < packages.length - 1 ? '2.5rem' : '0'};border-left:${i > 0 ? '1px solid var(--c-border)' : 'none'};transition-delay:${i*0.1}s`}
         >
           <!-- Index -->
-          <p class="text-[7px] uppercase tracking-[0.55em] mb-8 font-light" style="color:rgba(0,0,0,0.2);font-family:var(--f-body)">0{i+1}</p>
+          <p class="text-[7px] uppercase tracking-[0.55em] mb-8 font-light" style="color:#595959;font-family:var(--f-body)">0{i+1}</p>
 
           <!-- Name in Inter Tight -->
           <h3 class="mb-1 leading-none" style="font-family:var(--f-body);font-size:1.6rem;color:var(--c-text);font-weight:300;letter-spacing:-0.03em">{pkg.name}</h3>
@@ -42,7 +42,7 @@ const { packages } = Astro.props;
 
           <!-- Price: Noto Serif, large -->
           <div class="pt-8" style="border-top:1px solid var(--c-border)">
-            <p class="text-[7px] uppercase tracking-[0.5em] mb-2 font-light" style="color:rgba(0,0,0,0.2);font-family:var(--f-body)">from</p>
+            <p class="text-[7px] uppercase tracking-[0.5em] mb-2 font-light" style="color:#595959;font-family:var(--f-body)">from</p>
             <p class="leading-none mb-8" style="font-family:var(--f-serif);font-size:clamp(2.5rem,4vw,3.5rem);color:var(--c-text);font-weight:400">{pkg.startingAt}</p>
             <a href="#inquire"
               class="inline-block text-[7px] uppercase tracking-[0.5em] transition-all duration-400 hover:opacity-40"
@@ -54,7 +54,7 @@ const { packages } = Astro.props;
       ))}
     </div>
 
-    <p class="mt-20 text-[7px] uppercase tracking-[0.45em] font-light fade-hidden" style="color:rgba(0,0,0,0.2);font-family:var(--f-body);transition-delay:0.4s">
+    <p class="mt-20 text-[7px] uppercase tracking-[0.45em] font-light fade-hidden" style="color:#595959;font-family:var(--f-body);transition-delay:0.4s">
       Travel included within Europe. Worldwide destination weddings quoted on request.
     </p>
   </div>

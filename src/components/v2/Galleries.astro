@@ -59,7 +59,7 @@ const { galleries, galleriesJson } = Astro.props;
 
           <!-- Top: index -->
           <div class="flex items-center gap-4">
-            <span class="text-[8px] uppercase tracking-[0.5em] font-light" style="color:rgba(248,248,248,0.3);font-family:var(--f-body)">
+            <span class="text-[8px] uppercase tracking-[0.5em] font-light" style="color:rgba(248,248,248,0.85);font-family:var(--f-body)">
               {String(i + 1).padStart(2,'0')} / {String(galleries.length).padStart(2,'0')}
             </span>
             <span class="w-5 h-px" style="background:var(--c-accent)" aria-hidden="true"></span>
@@ -80,7 +80,7 @@ const { galleries, galleriesJson } = Astro.props;
               type="button"
               aria-label={`Open ${gallery.title} gallery`}
             >
-              <span class="text-[9px] uppercase tracking-[0.4em] transition-colors" style="color:rgba(248,248,248,0.55);font-family:var(--f-body)">
+              <span class="text-[9px] uppercase tracking-[0.4em] transition-colors" style="color:rgba(248,248,248,0.95);font-family:var(--f-body)">
                 Open gallery
               </span>
               <span class="w-6 h-px transition-all duration-400 group-hover:w-12" style="background:var(--c-accent)" aria-hidden="true"></span>

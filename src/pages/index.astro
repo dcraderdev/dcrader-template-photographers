@@ -88,7 +88,7 @@ const templates = [
     </header>
 
     <!-- Template grid -->
-    <main class="max-w-screen-xl mx-auto px-6 lg:px-16 pb-24 lg:pb-40" id="main-content">
+    <main class="max-w-screen-xl mx-auto px-6 lg:px-16 pb-24 lg:pb-40" id="main-content" tabindex="-1">
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
 
         {templates.map((t, i) => (
@@ -123,14 +123,14 @@ const templates = [
               <p class="text-[9px] uppercase tracking-[0.3em] mb-1.5" style="color:#c9a99a">{t.label}</p>
               <h2 class="text-xl mb-1" style="font-family:'Cormorant Garamond',Georgia,serif;color:#f5f0eb">{t.photographer}</h2>
               <p class="text-sm italic mb-4" style="color:rgba(245,240,235,0.5);font-family:'Cormorant Garamond',Georgia,serif">{t.tagline}</p>
-              <p class="text-xs leading-relaxed mb-5" style="color:rgba(245,240,235,0.45)">{t.description}</p>
+              <p class="text-xs leading-relaxed mb-5" style="color:rgba(245,240,235,0.72)">{t.description}</p>
 
               <!-- Color palette swatches -->
               <div class="flex items-center gap-2">
                 {t.palette.map((color, ci) => (
                   <div class="flex items-center gap-1.5" title={t.paletteNames[ci]}>
                     <span class="w-4 h-4 rounded-full border" style={`background:${color};border-color:rgba(255,255,255,0.15)`} aria-label={t.paletteNames[ci]}></span>
-                    <span class="text-[9px] uppercase tracking-wide hidden lg:inline" style="color:rgba(245,240,235,0.35)">{t.paletteNames[ci]}</span>
+                    <span class="text-[9px] uppercase tracking-wide hidden lg:inline" style="color:rgba(245,240,235,0.78)">{t.paletteNames[ci]}</span>
                   </div>
                 ))}
               </div>
@@ -142,14 +142,14 @@ const templates = [
         <div class="flex flex-col items-center justify-center p-12 text-center" style="background:#1a1714;border:1px dashed rgba(255,255,255,0.1);aspect-ratio:4/5">
           <p class="text-[9px] uppercase tracking-[0.4em] mb-4" style="color:#c9a99a">Coming Soon</p>
           <p class="text-2xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#f5f0eb">V6 — Luxury Dark</p>
-          <p class="text-xs font-light" style="color:rgba(245,240,235,0.35)">Deep navy + gold + champagne. For black-tie and ultra-luxury events.</p>
+          <p class="text-xs font-light" style="color:rgba(245,240,235,0.78)">Deep navy + gold + champagne. For black-tie and ultra-luxury events.</p>
         </div>
       </div>
 
       <!-- Footer note -->
       <div class="mt-16 pt-8" style="border-top:1px solid rgba(255,255,255,0.06)">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p class="text-xs font-light" style="color:rgba(245,240,235,0.35)">
+          <p class="text-xs font-light" style="color:rgba(245,240,235,0.78)">
             Built with Astro + Tailwind · Deployed on Vercel · Personalize via 3 data files
           </p>
         </div>

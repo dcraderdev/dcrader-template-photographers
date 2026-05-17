@@ -23,8 +23,8 @@ const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
       >
         <!-- Top: "Hey friend!" label -->
         <div>
-          <p class="text-sm font-semibold mb-2" style="color:rgba(26,26,26,0.55);font-family:var(--f-body)">Hey friend! 👋</p>
-          <p class="text-xs uppercase tracking-[0.3em] font-medium" style="color:rgba(26,26,26,0.45);font-family:var(--f-body)">{subtagline}</p>
+          <p class="text-sm font-semibold mb-2" style="color:#1a1a1a;font-family:var(--f-body)">Hey friend! 👋</p>
+          <p class="text-xs uppercase tracking-[0.3em] font-medium" style="color:#1a1a1a;font-family:var(--f-body)">{subtagline}</p>
         </div>
 
         <!-- Main name in Fraunces -->
@@ -34,7 +34,7 @@ const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
           </h1>
 
           <!-- Tagline in Manrope -->
-          <p class="text-lg lg:text-xl font-medium mb-8 fade-hidden" style="color:rgba(26,26,26,0.65);font-family:var(--f-body);transition-delay:0.35s">
+          <p class="text-lg lg:text-xl font-medium mb-8 fade-hidden" style="color:#1a1a1a;font-family:var(--f-body);transition-delay:0.35s">
             {tagline}
           </p>
 
@@ -106,7 +106,7 @@ const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
         {[['300+','Happy couples'],['6+','Years of joy'],['50+','Venues']].map(([n, l]) => (
           <div class="text-center">
             <p class="leading-none mb-1" style="font-family:var(--f-display);font-size:2rem;color:white;font-weight:400">{n}</p>
-            <p class="text-[9px] uppercase tracking-[0.2em]" style="color:rgba(255,255,255,0.75);font-family:var(--f-body)">{l}</p>
+            <p class="text-[9px] uppercase tracking-[0.2em]" style="color:#ffffff;font-family:var(--f-body)">{l}</p>
           </div>
         ))}
       </div>

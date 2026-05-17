@@ -13,7 +13,7 @@ const p = Astro.props;
   <!-- Pull-quote bar (dark) -->
   <div class="py-16 lg:py-24 fade-hidden" style="background:var(--c-bg-alt)">
     <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
-      <p class="text-[8px] uppercase tracking-[0.5em] mb-8" style="color:var(--c-accent);font-family:var(--f-body)">— Profile</p>
+      <p class="text-[8px] uppercase tracking-[0.5em] mb-8" style="color:var(--c-accent-on-dark);font-family:var(--f-body)">— Profile</p>
       <blockquote
         class="leading-tight italic fade-hidden"
         style="font-family:var(--f-display);font-size:clamp(1.8rem,4vw,3.8rem);color:white;font-weight:400;max-width:900px;transition-delay:0.1s"
@@ -22,7 +22,7 @@ const p = Astro.props;
       </blockquote>
       <div class="flex items-center gap-4 mt-6 fade-hidden" style="transition-delay:0.2s">
         <div class="w-8 h-px" style="background:var(--c-accent)" aria-hidden="true"></div>
-        <cite class="not-italic text-[8px] uppercase tracking-[0.5em]" style="color:rgba(248,248,248,0.35);font-family:var(--f-body)">{p.philosophyAuthor}</cite>
+        <cite class="not-italic text-[8px] uppercase tracking-[0.5em]" style="color:var(--c-text-inv-muted);font-family:var(--f-body)">{p.philosophyAuthor}</cite>
       </div>
     </div>
   </div>

@@ -37,11 +37,12 @@ const links = [
 </nav>
 
 <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300"
-  style="background:var(--c-bg-alt)" aria-hidden="true">
-  <ul class="flex flex-col items-center gap-8 text-2xl" style="font-family:var(--f-display);color:var(--c-text-inv)">
+  style="background:var(--c-bg-alt)" inert>
+  <ul class="flex flex-col items-center gap-8 text-2xl list-none p-0" style="font-family:var(--f-display);color:var(--c-text-inv)">
     {[...links, { href:'#inquire', label:'Inquire' }].map(l => (
-      <li><a href={l.href} class="mobile-link transition-colors hover:opacity-70">{l.label}</a></li>
+      <li><a href={l.href} class="mobile-link transition-colors hover:opacity-70" style="color:var(--c-text-inv)">{l.label}</a></li>
     ))}
+    <li><a href="/accessibility/" class="mobile-link transition-colors hover:opacity-70" style="color:var(--c-text-inv)">Accessibility</a></li>
   </ul>
 </div>
 
@@ -111,7 +112,7 @@ const links = [
     if (menu) {
       menu.classList.toggle('opacity-0', !open);
       menu.classList.toggle('pointer-events-none', !open);
-      menu.setAttribute('aria-hidden', String(!open));
+      if (open) menu.removeAttribute('inert'); else menu.setAttribute('inert', '');
     }
     btn.setAttribute('aria-expanded', String(open));
     if (bar1 && bar2 && bar3) {
@@ -133,7 +134,7 @@ const links = [
     link.addEventListener('click', () => {
       open = false;
       menu?.classList.add('opacity-0', 'pointer-events-none');
-      menu?.setAttribute('aria-hidden', 'true');
+      menu?.setAttribute('inert', '');
       btn?.setAttribute('aria-expanded', 'false');
       if (bar1 && bar2 && bar3) {
         bar1.style.transform = ''; bar2.style.opacity = '1'; bar3.style.transform = ''; bar3.style.width = '';

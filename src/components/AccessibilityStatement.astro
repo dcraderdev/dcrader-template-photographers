@@ -1,0 +1,71 @@
+---
+interface Props {
+  businessName: string;
+  email: string;
+  lastUpdated?: string;
+}
+
+const { businessName, email, lastUpdated = '2026-05-17' } = Astro.props;
+---
+
+<section class="a11y-statement" aria-labelledby="a11y-statement-heading">
+  <h2 id="a11y-statement-heading" class="a11y-statement__heading">
+    Accessibility Statement
+  </h2>
+
+  <p class="a11y-statement__body">
+    {businessName} is committed to ensuring digital accessibility for people of
+    all abilities. We strive to conform to
+    <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 Level AA
+    standards and continuously improve the user experience for everyone who
+    visits this site.
+  </p>
+
+  <p class="a11y-statement__body">
+    If you experience any difficulty accessing any part of this website, or
+    need accommodations to view our portfolio or submit an inquiry, please
+    contact us at
+    <a href={`mailto:${email}`} class="a11y-statement__link">{email}</a>
+    and we will work to provide the information or service you need through an
+    alternative communication method.
+  </p>
+
+  <p class="a11y-statement__body">
+    This site is reviewed regularly. Last updated:
+    <time datetime={lastUpdated}>{lastUpdated}</time>.
+  </p>
+</section>
+
+<style>
+  .a11y-statement {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    color: inherit;
+  }
+  .a11y-statement__heading {
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+  .a11y-statement__body {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 0.85rem;
+    max-width: 65ch;
+  }
+  .a11y-statement__link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 600;
+  }
+  .a11y-statement__link:hover { text-decoration: none; }
+  .a11y-statement abbr {
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+    cursor: help;
+  }
+</style>

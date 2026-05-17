@@ -40,14 +40,14 @@ const galleriesJson = JSON.stringify(galleries);
 
     <!-- Section label (top left) -->
     <div class="absolute top-8 left-8 lg:top-10 lg:left-16 z-10 fade-hidden">
-      <p class="text-[9px] uppercase tracking-[0.4em] font-light" style="color:rgba(247,243,238,0.5);font-family:var(--f-body)">Selected Work</p>
+      <p class="text-[9px] uppercase tracking-[0.4em] font-light" style="color:rgba(247,243,238,0.9);font-family:var(--f-body)">Selected Work</p>
     </div>
 
     <!-- Slide counter (top right) -->
     <div class="absolute top-8 right-8 lg:top-10 lg:right-16 z-10 flex items-center gap-3 fade-hidden">
-      <span id="slide-current" class="text-sm" style="font-family:var(--f-display);color:rgba(247,243,238,0.6)">01</span>
+      <span id="slide-current" class="text-sm" style="font-family:var(--f-display);color:rgba(247,243,238,0.95)">01</span>
       <span class="w-8 h-px" style="background:rgba(247,243,238,0.25)" aria-hidden="true"></span>
-      <span class="text-sm" style="font-family:var(--f-display);color:rgba(247,243,238,0.3)">{String(galleries.length).padStart(2,'0')}</span>
+      <span class="text-sm" style="font-family:var(--f-display);color:rgba(247,243,238,0.7)">{String(galleries.length).padStart(2,'0')}</span>
     </div>
 
     <!-- Dot navigation -->
@@ -73,7 +73,7 @@ const galleriesJson = JSON.stringify(galleries);
       type="button"
       aria-label="Open current gallery"
     >
-      <span class="text-[9px] uppercase tracking-[0.3em] transition-colors" style="color:rgba(247,243,238,0.55);font-family:var(--f-body)">View gallery</span>
+      <span class="text-[9px] uppercase tracking-[0.3em] transition-colors" style="color:rgba(247,243,238,0.95);font-family:var(--f-body)">View gallery</span>
       <span class="w-6 h-px transition-all duration-300 group-hover:w-10" style="background:var(--c-accent)" aria-hidden="true"></span>
     </button>
   </div>

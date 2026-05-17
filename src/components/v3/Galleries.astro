@@ -57,10 +57,10 @@ const layout = [
       </svg>
     </div>
 
-    <p class="text-[10px] uppercase tracking-[0.3em] mb-3" style="color:var(--c-accent);font-family:var(--f-display)">Our Work</p>
+    <p class="text-[10px] uppercase tracking-[0.3em] mb-3" style="color:var(--c-accent-dark);font-family:var(--f-display)">Our Work</p>
     <h2 class="italic mb-2" style="font-family:var(--f-display);font-size:clamp(2.8rem,6vw,5.5rem);color:var(--c-text);font-weight:300">Wild Moments</h2>
     <!-- Caveat sub-heading -->
-    <p class="text-xl lg:text-2xl" style="font-family:var(--f-hand);color:var(--c-accent)">we chase golden hour wherever it leads</p>
+    <p class="text-xl lg:text-2xl" style="font-family:var(--f-hand);color:var(--c-accent-dark)">we chase golden hour wherever it leads</p>
   </div>
 
   <!-- Scrapbook wall — desktop: absolute overlap; mobile: responsive grid -->
@@ -96,8 +96,8 @@ const layout = [
 
           <!-- Caveat handwriting annotation (outside polaroid) -->
           <p
-            class="absolute -bottom-7 left-0 right-0 text-center opacity-70"
-            style="font-family:var(--f-hand);font-size:0.85rem;color:var(--c-accent)"
+            class="absolute -bottom-7 left-0 right-0 text-center"
+            style="font-family:var(--f-hand);font-size:0.85rem;color:var(--c-accent-dark)"
             aria-hidden="true"
           >
             {l.note}
@@ -145,7 +145,7 @@ const layout = [
     <p class="mb-6 text-2xl" style="font-family:var(--f-hand);color:var(--c-text-muted)">want to see more?</p>
     <a href="#inquire"
       class="inline-block transition-all duration-300 hover:opacity-80"
-      style="font-family:var(--f-display);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.3em;border:1px solid var(--c-accent);color:var(--c-accent);padding:0.8rem 2rem">
+      style="font-family:var(--f-display);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.3em;border:1px solid var(--c-accent-dark);color:var(--c-accent-dark);padding:0.8rem 2rem">
       Plan Your Adventure
     </a>
   </div>
@@ -156,10 +156,10 @@ const layout = [
   <div class="w-full max-w-5xl py-8 lg:py-16">
     <button id="lightbox-close" class="fixed top-6 right-6 lg:top-8 lg:right-8 z-10 flex items-center gap-3"
       style="color:white" aria-label="Close gallery" type="button">
-      <span style="font-family:var(--f-hand);font-size:1.1rem;color:rgba(253,248,242,0.7)">close ×</span>
+      <span style="font-family:var(--f-hand);font-size:1.1rem;color:#fdf8f2">close ×</span>
     </button>
     <div class="px-6 mb-10">
-      <p id="lightbox-subtitle" class="text-[9px] uppercase tracking-[0.3em] mb-3" style="color:var(--c-accent);font-family:var(--f-display)"></p>
+      <p id="lightbox-subtitle" class="text-[9px] uppercase tracking-[0.3em] mb-3" style="color:var(--c-accent-on-dark);font-family:var(--f-display)"></p>
       <h3 id="lightbox-title" class="italic leading-none" style="font-family:var(--f-display);font-size:clamp(2.2rem,5vw,4.5rem);color:white;font-weight:300"></h3>
     </div>
     <div id="lightbox-images" class="flex flex-col gap-4 px-6"></div>

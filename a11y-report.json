@@ -1,0 +1,51 @@
+[
+  {
+    "url": "http://localhost:4341/",
+    "violations": [],
+    "passCount": 18,
+    "incompleteCount": 1,
+    "timestamp": "2026-05-17T21:11:18.250Z"
+  },
+  {
+    "url": "http://localhost:4341/v1-cinematic-quiet/",
+    "violations": [],
+    "passCount": 29,
+    "incompleteCount": 2,
+    "timestamp": "2026-05-17T21:11:19.630Z"
+  },
+  {
+    "url": "http://localhost:4341/v2-bold-editorial/",
+    "violations": [],
+    "passCount": 30,
+    "incompleteCount": 2,
+    "timestamp": "2026-05-17T21:11:26.195Z"
+  },
+  {
+    "url": "http://localhost:4341/v3-bohemian-warm/",
+    "violations": [],
+    "passCount": 24,
+    "incompleteCount": 2,
+    "timestamp": "2026-05-17T21:11:29.838Z"
+  },
+  {
+    "url": "http://localhost:4341/v4-modern-minimal/",
+    "violations": [],
+    "passCount": 24,
+    "incompleteCount": 2,
+    "timestamp": "2026-05-17T21:11:32.440Z"
+  },
+  {
+    "url": "http://localhost:4341/v5-vibrant-joyful/",
+    "violations": [],
+    "passCount": 24,
+    "incompleteCount": 2,
+    "timestamp": "2026-05-17T21:11:34.197Z"
+  },
+  {
+    "url": "http://localhost:4341/accessibility/",
+    "violations": [],
+    "passCount": 21,
+    "incompleteCount": 0,
+    "timestamp": "2026-05-17T21:11:35.138Z"
+  }
+]

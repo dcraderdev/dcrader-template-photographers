@@ -7,11 +7,13 @@
   --c-bg-accent:    #ede3da;
   --c-bg-mid:       #f0ebe4;
   --c-text:         #1c1814;
-  --c-text-muted:   #7a6e66;
+  --c-text-muted:   #595048;   /* WCAG AA on #f7f3ee */
   --c-text-inv:     #f7f3ee;
+  --c-text-inv-muted: #d4cabe; /* WCAG AA on #1c1814 */
   --c-accent:       #c9a99a;
+  --c-accent-on-dark: #d8bbae; /* WCAG AA accent on dark bg */
   --c-accent-light: #ede3da;
-  --c-accent-dark:  #9e7265;
+  --c-accent-dark:  #8a5e51;   /* darkened for AA on cream */
   --c-border:       rgba(201,169,154,0.25);
   --f-display:      "Fraunces", Georgia, serif;
   --f-hand:         "Fraunces", Georgia, serif;
@@ -24,12 +26,14 @@
 .theme-v2 {
   --c-bg:           #f8f8f8;
   --c-bg-alt:       #0d0d0d;
-  --c-bg-accent:    #0d0d0d;
+  --c-bg-accent:    #efefef;
   --c-bg-mid:       #efefef;
   --c-text:         #0d0d0d;
-  --c-text-muted:   #5a5a5a;
+  --c-text-muted:   #4a4a4a;   /* WCAG AA on #f8f8f8 */
   --c-text-inv:     #f8f8f8;
+  --c-text-inv-muted: #cfcfcf; /* WCAG AA on #0d0d0d */
   --c-accent:       #c8102e;
+  --c-accent-on-dark: #f04458; /* AA on dark */
   --c-accent-light: #fde8eb;
   --c-accent-dark:  #96081f;
   --c-border:       rgba(0,0,0,0.12);
@@ -46,10 +50,12 @@
   --c-bg-accent:    #f0e2d0;
   --c-bg-mid:       #f7f0e6;
   --c-text:         #2e2016;
-  --c-text-muted:   #7a6350;
+  --c-text-muted:   #5e4634;   /* WCAG AA on #fdf8f2 */
   --c-text-inv:     #fdf8f2;
+  --c-text-inv-muted: #d8c4ac; /* AA on #2e2016 */
   --c-accent:       #c4673a;
-  --c-accent2:      #d4a843;
+  --c-accent-on-dark: #e8a070; /* AA on dark bg */
+  --c-accent2:      #b08020;   /* darkened ochre for AA on cream */
   --c-accent-light: #f0e2d0;
   --c-accent-dark:  #8b4521;
   --c-border:       rgba(196,103,58,0.2);
@@ -60,16 +66,20 @@
   --radius:         3px;
 }
 
-/* V4: Modern Minimal — pure white + carbon + platinum silence */
+/* V4: Modern Minimal — pure white + carbon + platinum silence
+   Note: --c-bg-alt is dark because shared sections (testimonials, inquiry, footer)
+   render light text on it. Light-grey body sections use --c-bg-mid. */
 .theme-v4 {
   --c-bg:           #ffffff;
-  --c-bg-alt:       #f5f5f5;
+  --c-bg-alt:       #0f0f0f;
   --c-bg-accent:    #f0f0f0;
   --c-bg-mid:       #fafafa;
   --c-text:         #0f0f0f;
-  --c-text-muted:   #999999;
-  --c-text-inv:     #0f0f0f;
+  --c-text-muted:   #595959;   /* WCAG AA on white */
+  --c-text-inv:     #ffffff;
+  --c-text-inv-muted: #cfcfcf; /* AA on #0f0f0f */
   --c-accent:       #0f0f0f;
+  --c-accent-on-dark: #ffffff;
   --c-accent-light: #e8e8e8;
   --c-accent-dark:  #000000;
   --c-border:       rgba(0,0,0,0.08);
@@ -87,15 +97,67 @@
   --c-bg-accent:    #fff5e0;
   --c-bg-mid:       #fff5e0;
   --c-text:         #1a1a1a;
-  --c-text-muted:   #666666;
+  --c-text-muted:   #545454;   /* WCAG AA on near-white */
   --c-text-inv:     #fffef9;
+  --c-text-inv-muted: #d6d6d6; /* AA on #1a1a1a */
   --c-accent:       #f5c842;
-  --c-coral:        #ff6b52;
+  --c-accent-on-dark: #f5c842; /* yellow on dark = fine */
+  --c-coral:        #b13d27;   /* darkened coral for AA — white text passes 4.5:1 */
   --c-accent-light: #fff5e0;
-  --c-accent-dark:  #e0b030;
+  --c-accent-dark:  #8a6500;   /* mustard-dark for AA on cream */
   --c-border:       rgba(245,200,66,0.35);
   --f-display:      "Fraunces", Georgia, serif;
   --f-body:         "Manrope", system-ui, sans-serif;
   --hero-text-y:    center;
   --radius:         16px;
+}
+
+/* ─── Accessibility utilities (shared) ─────────────────────────────────────── */
+
+/* Skip-to-content link: visible on focus */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background: #000;
+  color: #fff;
+  font-family: var(--f-body);
+  font-size: 14px;
+  text-decoration: underline;
+  border: 2px solid #fff;
+  outline: 2px solid #000;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Visible focus rings on interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.85);
+}
+.theme-v4 a:focus-visible,
+.theme-v4 button:focus-visible,
+.theme-v4 input:focus-visible,
+.theme-v4 textarea:focus-visible {
+  outline-color: #0f0f0f;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.9);
+}
+
+/* Minimum touch-target size for interactive controls */
+@media (pointer: coarse), (max-width: 768px) {
+  button, [role="button"], a.nav-cta {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

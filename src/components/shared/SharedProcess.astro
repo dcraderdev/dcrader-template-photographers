@@ -17,7 +17,7 @@ const { steps, label = 'How It Works', heading = 'The Experience' } = Astro.prop
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
       {steps.map((step, i) => (
         <div class="relative fade-hidden" style={`transition-delay:${i*0.1}s`}>
-          <p class="text-7xl lg:text-8xl leading-none mb-4 select-none" style={`font-family:var(--f-display);color:var(--c-accent);opacity:0.2`} aria-hidden="true">
+          <p class="text-7xl lg:text-8xl leading-none mb-4 select-none process-step-num" style={`font-family:var(--f-display);color:var(--c-text-muted)`} aria-hidden="true">
             {step.number}
           </p>
           {i < steps.length - 1 && (

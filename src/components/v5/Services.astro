@@ -53,18 +53,18 @@ const configs = [
             <!-- Emoji sticker -->
             <div class="text-4xl mb-5 wiggle inline-block" style="animation-delay:{i*0.5}s" aria-hidden="true">{c.emoji}</div>
 
-            <p class="text-[9px] uppercase tracking-[0.3em] font-semibold mb-2" style="color:rgba(26,26,26,0.45);font-family:var(--f-body)">Package</p>
+            <p class="text-[9px] uppercase tracking-[0.3em] font-semibold mb-2" style="color:#1a1a1a;font-family:var(--f-body)">Package</p>
             <h3 class="font-bold mb-3 leading-tight" style="font-family:var(--f-display);font-size:clamp(1.8rem,3vw,2.2rem);color:var(--c-text)">{pkg.name}</h3>
-            <p class="text-sm leading-relaxed mb-4 font-medium" style="color:rgba(26,26,26,0.6);font-family:var(--f-body)">{pkg.description}</p>
+            <p class="text-sm leading-relaxed mb-4 font-medium" style="color:#1a1a1a;font-family:var(--f-body)">{pkg.description}</p>
 
             <!-- Hours pill -->
-            <span class="inline-block text-[9px] font-bold uppercase tracking-wide px-3 py-1.5 mb-6 self-start" style="background:rgba(0,0,0,0.08);border-radius:9999px;color:rgba(26,26,26,0.65);font-family:var(--f-body)">
+            <span class="inline-block text-[9px] font-bold uppercase tracking-wide px-3 py-1.5 mb-6 self-start" style="background:rgba(0,0,0,0.08);border-radius:9999px;color:#1a1a1a;font-family:var(--f-body)">
               {pkg.hours}
             </span>
 
             <ul class="space-y-3 flex-1 mb-8" aria-label={`Included in ${pkg.name}`}>
               {pkg.highlights.map(item => (
-                <li class="flex items-start gap-3 text-sm font-medium" style="color:rgba(26,26,26,0.75);font-family:var(--f-body)">
+                <li class="flex items-start gap-3 text-sm font-medium" style="color:#1a1a1a;font-family:var(--f-body)">
                   <span class="font-bold flex-shrink-0 mt-0.5" style="color:var(--c-coral)" aria-hidden="true">✓</span>
                   {item}
                 </li>
@@ -72,7 +72,7 @@ const configs = [
             </ul>
 
             <div class="pt-6" style="border-top:2px solid rgba(0,0,0,0.07)">
-              <p class="text-[9px] uppercase tracking-wider mb-1 font-semibold" style="color:rgba(26,26,26,0.4);font-family:var(--f-body)">Starting at</p>
+              <p class="text-[9px] uppercase tracking-wider mb-1 font-semibold" style="color:#1a1a1a;font-family:var(--f-body)">Starting at</p>
               <p class="font-bold leading-none mb-6" style="font-family:var(--f-display);font-size:clamp(2.5rem,4vw,3rem);color:var(--c-text)">{pkg.startingAt}</p>
               <a href="#inquire"
                 class="block text-center font-bold text-sm uppercase tracking-wide py-3.5 transition-all duration-300 hover:opacity-85"

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { photographer } from '../data/photographer';
+import SkipToContent from '../components/a11y/SkipToContent.astro';
 
 interface Props {
   title?: string;
@@ -30,11 +31,14 @@ const {
     <title>{title}</title>
   </head>
   <body>
+    <SkipToContent />
     <!-- Custom cursor (desktop only) -->
     <div class="cursor-dot hidden lg:block" id="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-ring hidden lg:block" id="cursor-ring" aria-hidden="true"></div>
 
-    <slot />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
 
     <script>
       // Custom cursor

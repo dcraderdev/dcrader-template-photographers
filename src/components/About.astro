@@ -32,14 +32,14 @@ import { photographer } from '../data/v1/photographer';
           The woman<br />behind the lens
         </h2>
 
-        <div class="space-y-5 leading-relaxed text-base font-light mb-12" style="color:rgba(247,243,238,0.65);font-family:var(--f-body)">
+        <div class="space-y-5 leading-relaxed text-base font-light mb-12" style="color:var(--c-text-inv-muted);font-family:var(--f-body)">
           <p set:html={photographer.aboutParagraph1}></p>
           <p set:html={photographer.aboutParagraph2}></p>
         </div>
 
         <!-- Philosophy quote in Fraunces italic -->
         <figure class="pl-7" style="border-left:1px solid var(--c-accent)">
-          <blockquote class="italic leading-relaxed" style="font-family:var(--f-display);font-size:clamp(1.1rem,2vw,1.35rem);color:rgba(247,243,238,0.75)">
+          <blockquote class="italic leading-relaxed" style="font-family:var(--f-display);font-size:clamp(1.1rem,2vw,1.35rem);color:var(--c-text-inv)">
             "{photographer.philosophyQuote}"
           </blockquote>
           <figcaption class="mt-4 text-[9px] uppercase tracking-[0.3em]" style="color:var(--c-accent);font-family:var(--f-body)">

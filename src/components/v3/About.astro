@@ -27,7 +27,7 @@ const p = Astro.props;
   <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
 
     <!-- Caveat intro line -->
-    <p class="text-center text-2xl lg:text-3xl mb-16 fade-hidden" style="font-family:var(--f-hand);color:rgba(253,248,242,0.55)">
+    <p class="text-center text-2xl lg:text-3xl mb-16 fade-hidden" style="font-family:var(--f-hand);color:var(--c-text-inv)">
       two cameras, one obsession, zero regrets
     </p>
 
@@ -47,7 +47,7 @@ const p = Astro.props;
           </div>
 
           <!-- Caveat floating badge -->
-          <div class="absolute -bottom-6 -right-6 px-5 py-4 rotate-3" style="background:var(--c-accent)">
+          <div class="absolute -bottom-6 -right-6 px-5 py-4 rotate-3" style="background:var(--c-accent-dark)">
             <p style="font-family:var(--f-hand);font-size:1rem;color:var(--c-text-inv)">Since 2016 ✨</p>
           </div>
 
@@ -65,22 +65,22 @@ const p = Astro.props;
 
       <!-- Text column -->
       <div class="fade-hidden" style="transition-delay:0.15s">
-        <p class="text-[9px] uppercase tracking-[0.35em] mb-5" style="color:var(--c-accent);font-family:var(--f-display)">About</p>
+        <p class="text-[9px] uppercase tracking-[0.35em] mb-5" style="color:var(--c-accent-on-dark);font-family:var(--f-display)">About</p>
         <h2 class="italic leading-tight mb-8 fade-hidden" style="font-family:var(--f-display);font-size:clamp(2.2rem,4vw,3.8rem);color:var(--c-text-inv);font-weight:300;transition-delay:0.22s">
           The hearts<br />behind the lens
         </h2>
 
-        <div class="space-y-5 leading-relaxed font-light text-sm lg:text-base mb-10" style="color:rgba(253,248,242,0.65);font-family:var(--f-body)">
+        <div class="space-y-5 leading-relaxed font-light text-sm lg:text-base mb-10" style="color:var(--c-text-inv-muted);font-family:var(--f-body)">
           <p set:html={p.aboutParagraph1}></p>
           <p set:html={p.aboutParagraph2}></p>
         </div>
 
         <!-- Quote block with Caveat attribution -->
         <figure class="pl-6 py-2" style="border-left:1.5px solid var(--c-accent)">
-          <blockquote class="italic leading-relaxed" style="font-family:var(--f-display);font-size:clamp(1.05rem,2vw,1.3rem);color:rgba(253,248,242,0.75)">
+          <blockquote class="italic leading-relaxed" style="font-family:var(--f-display);font-size:clamp(1.05rem,2vw,1.3rem);color:var(--c-text-inv)">
             "{p.philosophyQuote}"
           </blockquote>
-          <figcaption class="mt-4" style="font-family:var(--f-hand);font-size:1rem;color:var(--c-accent)">
+          <figcaption class="mt-4" style="font-family:var(--f-hand);font-size:1rem;color:var(--c-accent-on-dark)">
             — {p.philosophyAuthor}
           </figcaption>
         </figure>

@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AccessibilityStatement from '../components/AccessibilityStatement.astro';
+
+import { photographer as v1 } from '../data/v1/photographer';
+import { photographer as v2 } from '../data/v2/photographer';
+import { photographer as v3 } from '../data/v3/photographer';
+import { photographer as v4 } from '../data/v4/photographer';
+import { photographer as v5 } from '../data/v5/photographer';
+
+const variants = [
+  { url: '/v1-cinematic-quiet/',  business: v1.business, email: 'accessibility@emmahayes.com' },
+  { url: '/v2-bold-editorial/',   business: v2.business, email: 'accessibility@dariavolkov.com' },
+  { url: '/v3-bohemian-warm/',    business: v3.business, email: 'accessibility@rubyandwilder.com' },
+  { url: '/v4-modern-minimal/',   business: v4.business, email: 'accessibility@lenaschultz.studio' },
+  { url: '/v5-vibrant-joyful/',   business: v5.business, email: 'accessibility@popandbloom.co' },
+];
+
+const title = 'Accessibility — dcrader.dev Photographer Templates';
+const description = 'Accessibility statement and WCAG 2.1 AA conformance notes for the wedding photographer landing page templates.';
+const ogImage = '/favicon.svg';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  themeClass="theme-v1"
+>
+  <main id="main-content" class="a11y-page" tabindex="-1">
+    <header class="a11y-page__top">
+      <nav aria-label="Breadcrumb">
+        <a href="/" class="a11y-page__back">&larr; Back to home</a>
+      </nav>
+      <h1 class="a11y-page__title">Accessibility</h1>
+      <p class="a11y-page__lede">
+        Our commitment to making every variant of this photographer landing
+        page template accessible to everyone.
+      </p>
+    </header>
+
+    <section class="a11y-page__section" aria-labelledby="our-commitment">
+      <h2 id="our-commitment">Our commitment</h2>
+      <p>
+        These templates target <strong>WCAG 2.1 Level AA</strong> conformance.
+        We audit each variant with axe-core and remediate every serious or
+        critical violation before a release. Each business below may also
+        publish its own accessibility contact.
+      </p>
+    </section>
+
+    <section class="a11y-page__section" aria-labelledby="how-we-conform">
+      <h2 id="how-we-conform">How we conform</h2>
+      <p>
+        We follow the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA,
+        published by the World Wide Web Consortium (W3C). Specifically:
+      </p>
+      <ul>
+        <li>Semantic HTML and ARIA landmarks for assistive technology users</li>
+        <li>Skip-to-content link at the top of every page (WCAG 2.4.1)</li>
+        <li>Keyboard-navigable interactive elements with visible focus rings</li>
+        <li>Text contrast that meets or exceeds WCAG AA thresholds (4.5:1 body, 3:1 large)</li>
+        <li>Meaningful <code>alt</code> text on all photography</li>
+        <li>Form fields with associated labels and accessible error messages</li>
+        <li>44 &times; 44px minimum touch targets on coarse-pointer devices</li>
+        <li>Respect for the <code>prefers-reduced-motion</code> user preference</li>
+      </ul>
+    </section>
+
+    <section class="a11y-page__section" aria-labelledby="per-variant">
+      <h2 id="per-variant">Variants &amp; contacts</h2>
+      <p>
+        Each of the five photographer brand variants is fully audited. To
+        report an accessibility issue with a specific variant, email the
+        contact listed beside it:
+      </p>
+      <ul class="a11y-page__variants">
+        {variants.map(v => (
+          <li>
+            <a href={v.url}>{v.business}</a> &mdash;
+            <a href={`mailto:${v.email}`}>{v.email}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="a11y-page__section" aria-labelledby="known-limits">
+      <h2 id="known-limits">Known limitations</h2>
+      <p>
+        Despite our best efforts, some content may not yet be fully accessible.
+        Third-party embeds (Instagram, map widgets, future booking widgets) may
+        have their own accessibility characteristics that we cannot fully
+        control. Demo photography is sourced from Unsplash; client deployments
+        should replace this imagery and re-audit alt text.
+      </p>
+    </section>
+
+    <section class="a11y-page__section" aria-labelledby="feedback">
+      <h2 id="feedback">Feedback</h2>
+      <p>
+        We welcome your feedback on the accessibility of these templates.
+        Reach the maintainer at
+        <a href="mailto:accessibility@dcrader.dev">accessibility@dcrader.dev</a>
+        or use the variant-specific contact above. We aim to respond within
+        five business days with an accessible alternative.
+      </p>
+    </section>
+
+    <AccessibilityStatement
+      businessName="dcrader.dev Photographer Templates"
+      email="accessibility@dcrader.dev"
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .a11y-page {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+    color: var(--c-text);
+  }
+  .a11y-page__top { margin-bottom: 2.5rem; }
+  .a11y-page__back {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .a11y-page__back:hover { text-decoration: none; }
+  .a11y-page__title {
+    font-family: var(--f-display);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 600;
+    margin: 1rem 0 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .a11y-page__lede {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    max-width: 50ch;
+    color: var(--c-text-muted);
+  }
+  .a11y-page__section {
+    margin-top: 2.5rem;
+    max-width: 65ch;
+  }
+  .a11y-page__section h2 {
+    font-family: var(--f-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .a11y-page__section p {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+  }
+  .a11y-page__section ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+  }
+  .a11y-page__section li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.35rem;
+  }
+  .a11y-page__variants { list-style: none; padding-left: 0; }
+  .a11y-page__variants li { margin-bottom: 0.5rem; }
+  .a11y-page__section a {
+    color: var(--c-accent-dark, inherit);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 600;
+  }
+  .a11y-page__section a:hover { text-decoration: none; }
+  .a11y-page__section code {
+    background: var(--c-bg-accent);
+    padding: 0.05em 0.35em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+</style>
