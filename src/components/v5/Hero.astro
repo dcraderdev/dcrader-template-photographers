@@ -91,24 +91,55 @@ const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
         />
       </div>
 
-      <!-- TILE 3: Coral stats block — bottom-right -->
+      <!-- TILE 3: "On the camera roll" — latest journal teaser, replaces the stats tile -->
       <div
-        class="lg:col-span-5 flex items-center justify-around p-6 lg:p-8 fade-hidden"
+        class="lg:col-span-5 p-6 lg:p-8 fade-hidden relative flex flex-col justify-between gap-4"
         style="background:var(--c-coral);border-radius:var(--radius);transition-delay:0.22s"
+        aria-label="From a recent shoot"
       >
-        <!-- Animated heart -->
-        <div class="text-center heart-beat" aria-hidden="true">
-          <svg width="36" height="32" viewBox="0 0 36 32" fill="none">
-            <path d="M18 30 C14 26, 2 20, 2 11 C2 5.5, 6.5 2, 11 2 C13.5 2, 16 3.5, 18 5.5 C20 3.5, 22.5 2, 25 2 C29.5 2, 34 5.5, 34 11 C34 20, 22 26, 18 30Z" fill="white" opacity="0.9"/>
-          </svg>
+        <div class="flex items-center justify-between">
+          <span
+            class="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] px-3 py-1"
+            style="background:rgba(255,255,255,0.18);color:white;border-radius:999px;font-family:var(--f-body)"
+          >
+            <span
+              class="inline-block w-1.5 h-1.5 rounded-full heart-beat"
+              style="background:white"
+              aria-hidden="true"
+            ></span>
+            Just back · Hill Country
+          </span>
+          <p
+            class="text-[10px] uppercase tracking-[0.25em]"
+            style="color:rgba(255,255,255,0.7);font-family:var(--f-body)"
+            aria-hidden="true"
+          >
+            Roll 247
+          </p>
         </div>
 
-        {[['300+','Happy couples'],['6+','Years of joy'],['50+','Venues']].map(([n, l]) => (
-          <div class="text-center">
-            <p class="leading-none mb-1" style="font-family:var(--f-display);font-size:2rem;color:white;font-weight:400">{n}</p>
-            <p class="text-[9px] uppercase tracking-[0.2em]" style="color:rgba(255,255,255,0.75);font-family:var(--f-body)">{l}</p>
-          </div>
-        ))}
+        <div>
+          <p
+            class="leading-tight mb-2"
+            style="font-family:var(--f-display);font-size:clamp(1.15rem,1.8vw,1.5rem);color:white;font-weight:400"
+          >
+            “Storm rolled in at 4:50 — we shot through it and got the best frame of the year.”
+          </p>
+          <p
+            class="text-[11px]"
+            style="color:rgba(255,255,255,0.85);font-family:var(--f-body)"
+          >
+            — From the journal · Bea &amp; Tomás
+          </p>
+        </div>
+
+        <a
+          href="#about"
+          class="self-start text-[11px] font-bold uppercase tracking-wider px-4 py-2"
+          style="background:white;color:var(--c-coral);border-radius:0.5rem;font-family:var(--f-body)"
+        >
+          Read the story →
+        </a>
       </div>
     </div>
   </div>

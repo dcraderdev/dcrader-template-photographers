@@ -1,0 +1,84 @@
+---
+// V1 Signature Frame Showcase
+// One stunning image, presented like a gallery wall print.
+// Minimal type, generous margins, designed to feel "cinematic quiet".
+---
+
+<section
+  id="signature-frame"
+  class="py-28 lg:py-44"
+  style="background:var(--c-bg)"
+  aria-label="Signature frame"
+>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Section eyebrow -->
+    <div class="mb-12 lg:mb-20 fade-hidden flex items-baseline gap-6">
+      <span class="block w-16 h-px" style="background:var(--c-accent)" aria-hidden="true"></span>
+      <p
+        class="text-[9px] uppercase tracking-[0.4em]"
+        style="color:var(--c-accent);font-family:var(--f-body)"
+      >
+        The signature frame
+      </p>
+    </div>
+
+    <!-- Two-column: oversized photo + caption rail -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+
+      <!-- Large print -->
+      <figure class="lg:col-span-9 fade-hidden">
+        <div class="relative overflow-hidden" style="aspect-ratio:4/5">
+          <picture>
+            <source srcset="/images/1606800052052-a08af7148866-1400.avif" type="image/avif" />
+            <img
+              src="/images/1606800052052-a08af7148866-1400.webp"
+              alt="A first look — bride and groom alone in a Sonoma vineyard at first light, the moment before anyone else has arrived."
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+              style="filter:contrast(0.97) saturate(0.92)"
+            />
+          </picture>
+          <!-- Soft inner border to suggest a print -->
+          <div
+            class="absolute inset-3 pointer-events-none"
+            style="border:1px solid rgba(247,243,238,0.18)"
+            aria-hidden="true"
+          ></div>
+        </div>
+      </figure>
+
+      <!-- Caption rail -->
+      <div class="lg:col-span-3 fade-hidden" style="transition-delay:0.2s">
+        <p
+          class="text-[8px] uppercase tracking-[0.5em] mb-5"
+          style="color:var(--c-accent);font-family:var(--f-body)"
+        >
+          Sonoma · 5:42 am
+        </p>
+        <p
+          class="leading-snug italic mb-6"
+          style="font-family:var(--f-display);font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--c-text-inv);font-weight:300"
+        >
+          The first frame I exposed that morning. Cold air, no music, nobody looking.
+        </p>
+        <p
+          class="text-[10px] tracking-wide font-light leading-relaxed"
+          style="color:rgba(247,243,238,0.5);font-family:var(--f-body)"
+        >
+          From the personal archive of Emma Hayes. Available as a 16×20 archival print on request.
+        </p>
+
+        <div class="mt-10 pt-6" style="border-top:1px solid rgba(247,243,238,0.12)">
+          <p
+            class="text-[8px] uppercase tracking-[0.5em]"
+            style="color:rgba(247,243,238,0.4);font-family:var(--f-body)"
+          >
+            Frame №&nbsp;004 / 2025
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

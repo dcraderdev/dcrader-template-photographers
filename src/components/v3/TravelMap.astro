@@ -1,0 +1,182 @@
+---
+// V3 — Bohemian Warm — Travel Map / "Where We Go" illustration.
+// Hand-drawn SVG world fragment with destination dots and Caveat-style labels.
+---
+
+<section
+  id="where-we-go"
+  class="py-24 lg:py-36 relative overflow-hidden"
+  style="background:var(--c-bg)"
+  aria-label="Destinations we shoot"
+>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Eyebrow -->
+    <div class="text-center mb-6 fade-hidden">
+      <p
+        class="text-[10px] uppercase tracking-[0.45em]"
+        style="color:var(--c-accent);font-family:var(--f-display)"
+      >
+        Where we go
+      </p>
+    </div>
+
+    <!-- Caveat headline -->
+    <h2
+      class="text-center italic leading-tight mb-3 fade-hidden"
+      style="font-family:var(--f-display);font-size:clamp(2rem,4vw,3.6rem);color:var(--c-text);font-weight:300;transition-delay:0.12s"
+    >
+      Pack the car. We&rsquo;ll meet you there.
+    </h2>
+
+    <p
+      class="text-center mb-16 fade-hidden"
+      style="font-family:var(--f-hand);font-size:1.5rem;color:rgba(60,40,30,0.5);transition-delay:0.18s"
+    >
+      a few of our favorite places to point a lens
+    </p>
+
+    <!-- Map illustration -->
+    <div class="relative mx-auto fade-hidden" style="max-width:900px;transition-delay:0.25s">
+      <svg
+        viewBox="0 0 900 460"
+        class="w-full h-auto"
+        role="img"
+        aria-label="Hand-drawn map of the western United States and Pacific Northwest with marked destinations"
+      >
+        <!-- Faint parchment background -->
+        <rect x="0" y="0" width="900" height="460" fill="var(--c-bg-alt)" opacity="0.4" rx="6" />
+
+        <!-- Latitude lines (very faint) -->
+        <g stroke="var(--c-accent)" stroke-width="0.5" opacity="0.18" stroke-dasharray="3 6">
+          <line x1="60" y1="120" x2="840" y2="120" />
+          <line x1="60" y1="230" x2="840" y2="230" />
+          <line x1="60" y1="340" x2="840" y2="340" />
+        </g>
+
+        <!-- Stylized west-coast outline (Pacific NW + CA) -->
+        <path
+          d="M 130 70
+             C 145 100, 135 140, 160 175
+             C 175 200, 165 230, 195 255
+             C 220 280, 205 315, 235 345
+             C 260 370, 250 400, 280 420
+             L 310 420
+             L 330 360
+             L 360 320
+             L 350 270
+             L 380 220
+             L 360 180
+             L 390 130
+             L 360 95
+             L 320 80
+             L 280 95
+             L 240 80
+             L 200 90
+             L 160 70 Z"
+          fill="none"
+          stroke="var(--c-accent)"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          opacity="0.55"
+        />
+
+        <!-- Dashed flight paths -->
+        <g stroke="var(--c-accent2)" stroke-width="1.4" stroke-dasharray="2 6" fill="none" opacity="0.7" stroke-linecap="round">
+          <path d="M 240 200 Q 380 140, 540 180" />
+          <path d="M 240 200 Q 320 280, 420 340" />
+          <path d="M 240 200 Q 180 130, 220 90" />
+          <path d="M 540 180 Q 660 230, 760 270" />
+        </g>
+
+        <!-- Destination pins -->
+        <g>
+          <!-- Cannon Beach, OR -->
+          <circle cx="240" cy="200" r="8" fill="var(--c-accent)" />
+          <circle cx="240" cy="200" r="3" fill="white" />
+
+          <!-- Crater Lake -->
+          <circle cx="260" cy="245" r="6" fill="var(--c-accent2)" />
+
+          <!-- San Juan Islands -->
+          <circle cx="220" cy="90" r="6" fill="var(--c-accent2)" />
+
+          <!-- Mt. Rainier -->
+          <circle cx="240" cy="135" r="6" fill="var(--c-accent2)" />
+
+          <!-- Big Sur -->
+          <circle cx="290" cy="365" r="6" fill="var(--c-accent2)" />
+
+          <!-- Zion/Moab -->
+          <circle cx="420" cy="340" r="6" fill="var(--c-accent2)" />
+
+          <!-- Glacier National Park -->
+          <circle cx="540" cy="180" r="6" fill="var(--c-accent2)" />
+
+          <!-- Banff -->
+          <circle cx="500" cy="100" r="6" fill="var(--c-accent2)" />
+
+          <!-- Iceland (off-map symbol) -->
+          <circle cx="760" cy="270" r="7" fill="var(--c-accent)" />
+        </g>
+
+        <!-- Labels (Caveat handwriting) -->
+        <g font-family="var(--f-hand), 'Caveat', cursive" fill="var(--c-text)">
+          <text x="252" y="195" font-size="20">Cannon Beach</text>
+          <text x="272" y="248" font-size="18" opacity="0.85">Crater Lake</text>
+          <text x="232" y="80" font-size="18" opacity="0.85">San Juans</text>
+          <text x="252" y="130" font-size="18" opacity="0.85">Mt. Rainier</text>
+          <text x="302" y="368" font-size="18" opacity="0.85">Big Sur</text>
+          <text x="432" y="345" font-size="18" opacity="0.85">Zion &amp; Moab</text>
+          <text x="552" y="183" font-size="18" opacity="0.85">Glacier NP</text>
+          <text x="512" y="100" font-size="18" opacity="0.85">Banff</text>
+          <text x="700" y="295" font-size="22" fill="var(--c-accent)">Iceland ✦</text>
+        </g>
+
+        <!-- "Home" marker -->
+        <g>
+          <path
+            d="M 230 215 L 230 240"
+            stroke="var(--c-accent)"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <text
+            x="195" y="258"
+            font-family="var(--f-hand), 'Caveat', cursive"
+            font-size="22"
+            fill="var(--c-accent)"
+          >home base · Portland</text>
+        </g>
+
+        <!-- Compass rose (top right, sketched) -->
+        <g transform="translate(800,80)" stroke="var(--c-accent)" fill="none" opacity="0.55">
+          <circle cx="0" cy="0" r="22" stroke-width="1.4" />
+          <path d="M 0 -22 L 0 22 M -22 0 L 22 0" stroke-width="1" />
+          <path d="M 0 -22 L -5 -5 L 0 0 L 5 -5 Z" fill="var(--c-accent)" />
+          <text x="-4" y="-30" font-family="var(--f-hand), 'Caveat', cursive" font-size="16" fill="var(--c-accent)" stroke="none">N</text>
+        </g>
+
+        <!-- Doodle airplane along one path -->
+        <g transform="translate(400,170) rotate(-20)">
+          <path
+            d="M -10 0 L 12 -2 L 14 0 L 12 2 L -10 0 M -2 -2 L -8 -8 M -2 2 L -8 8"
+            stroke="var(--c-accent)"
+            stroke-width="1.3"
+            fill="none"
+            stroke-linecap="round"
+          />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Footer line -->
+    <p
+      class="text-center mt-10 fade-hidden"
+      style="font-family:var(--f-hand);font-size:1.4rem;color:rgba(60,40,30,0.5);transition-delay:0.32s"
+    >
+      and anywhere with a sunrise — just say the word.
+    </p>
+  </div>
+</section>

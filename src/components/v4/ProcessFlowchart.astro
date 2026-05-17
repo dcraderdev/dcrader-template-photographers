@@ -1,0 +1,135 @@
+---
+// V4 — Modern Minimal — Signature Process Flowchart.
+// Thin geometric lines, monospaced metadata, generous whitespace.
+// Replaces any tendency toward a "by the numbers" stats grid with a
+// quietly precise diagram of how Lena Schultz Studio actually works.
+
+const steps = [
+  {
+    n: '01',
+    label: 'Enquiry',
+    detail: 'A short form. I read every word. Response within 48 hours.',
+    meta: 'wk 0',
+  },
+  {
+    n: '02',
+    label: 'Conversation',
+    detail: 'A video call, never a sales pitch. We see if there is a fit.',
+    meta: 'wk 1',
+  },
+  {
+    n: '03',
+    label: 'Moodboard',
+    detail: 'A private board. References, palette, intentions. Yours forever.',
+    meta: 'wk 2–4',
+  },
+  {
+    n: '04',
+    label: 'The day',
+    detail: 'I arrive early. I work quietly. I do not direct unless asked.',
+    meta: 'the date',
+  },
+  {
+    n: '05',
+    label: 'Delivery',
+    detail: 'A curated archive. 400–600 frames, hand-edited. No filler.',
+    meta: 'wk +6',
+  },
+];
+---
+
+<section
+  id="process-flowchart"
+  class="py-28 lg:py-44"
+  style="background:var(--c-bg-alt)"
+  aria-label="The studio process"
+>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Eyebrow + heading -->
+    <div class="flex items-start gap-6 mb-24 fade-hidden">
+      <span class="block w-px h-12 mt-2" style="background:var(--c-border)" aria-hidden="true"></span>
+      <div>
+        <p
+          class="text-[7px] uppercase tracking-[0.6em] font-light mb-2"
+          style="color:var(--c-text-muted);font-family:var(--f-body)"
+        >
+          Method · 005
+        </p>
+        <h2
+          style="font-family:var(--f-body);font-size:clamp(1.6rem,3vw,3rem);color:var(--c-text);font-weight:300;letter-spacing:-0.04em"
+        >
+          A five-step process,<br />unchanged since 2018.
+        </h2>
+      </div>
+    </div>
+
+    <!-- Flowchart row: horizontal on desktop, vertical on mobile -->
+    <div class="relative">
+      <!-- Connecting line (desktop) -->
+      <div
+        class="hidden lg:block absolute top-3 left-0 right-0 h-px"
+        style="background:var(--c-border)"
+        aria-hidden="true"
+      ></div>
+
+      <ol
+        class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-6"
+        style="list-style:none;padding:0;margin:0"
+        aria-label="Process steps"
+      >
+        {steps.map((s, i) => (
+          <li class="relative fade-hidden" style={`transition-delay:${0.1 + i * 0.08}s`}>
+            <!-- Node dot -->
+            <div
+              class="absolute -top-1 left-0 w-2 h-2"
+              style="background:var(--c-text)"
+              aria-hidden="true"
+            ></div>
+
+            <!-- Mobile vertical connector -->
+            <div
+              class="lg:hidden absolute top-3 left-1 bottom-0 w-px"
+              style={`background:${i === steps.length - 1 ? 'transparent' : 'var(--c-border)'}`}
+              aria-hidden="true"
+            ></div>
+
+            <div class="pt-8 lg:pl-0 pl-8">
+              <!-- Step number — monospaced metadata -->
+              <p
+                class="text-[10px] tracking-[0.3em] mb-5"
+                style="font-family:var(--f-body);color:var(--c-text-muted);font-variant-numeric:tabular-nums"
+              >
+                STEP {s.n} <span class="opacity-50">· {s.meta}</span>
+              </p>
+
+              <!-- Step label -->
+              <h3
+                class="leading-tight mb-3"
+                style="font-family:var(--f-body);font-size:clamp(1.05rem,1.4vw,1.25rem);color:var(--c-text);font-weight:400;letter-spacing:-0.02em"
+              >
+                {s.label}
+              </h3>
+
+              <!-- Step detail — serif body -->
+              <p
+                class="leading-relaxed text-sm"
+                style="font-family:var(--f-serif);color:var(--c-text-muted);font-weight:300"
+              >
+                {s.detail}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <!-- Foot note -->
+    <p
+      class="mt-20 text-[10px] uppercase tracking-[0.5em] font-light fade-hidden"
+      style="color:var(--c-text-muted);font-family:var(--f-body);transition-delay:0.6s"
+    >
+      No upsells. No surprise add-ons. No package PDFs in your inbox at 11pm.
+    </p>
+  </div>
+</section>

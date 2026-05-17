@@ -4,6 +4,7 @@ import SharedNav from '../components/shared/SharedNav.astro';
 import Hero from '../components/v3/Hero.astro';
 import Galleries from '../components/v3/Galleries.astro';
 import About from '../components/v3/About.astro';
+import TravelMap from '../components/v3/TravelMap.astro';
 import Services from '../components/v3/Services.astro';
 import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
 import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
@@ -53,6 +54,7 @@ const instagramPosts = [
       philosophyQuote={photographer.philosophyQuote}
       philosophyAuthor={photographer.philosophyAuthor}
     />
+    <TravelMap />
     <Services packages={packages} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
     <SharedTestimonials testimonials={testimonials} label="Love Letters" heading="Kind words from adventurers" />
