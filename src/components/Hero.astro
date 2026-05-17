@@ -103,13 +103,4 @@ import { photographer } from '../data/v1/photographer';
     setTimeout(() => path.classList.add('drawing'), 800);
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('fade-visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-hidden').forEach(el => observer.observe(el));
 </script>

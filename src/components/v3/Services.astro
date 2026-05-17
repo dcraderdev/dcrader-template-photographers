@@ -93,9 +93,3 @@ const handNotes = ['perfect for elopements 🌲', 'our most popular! ✨', 'the 
   </div>
 </section>
 
-<script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('fade-visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
-</script>

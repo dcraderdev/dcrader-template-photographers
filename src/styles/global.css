@@ -42,6 +42,17 @@
 @import "@fontsource/manrope/700.css";
 @import "@fontsource/manrope/800.css";
 
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 @theme {
   --color-cream: #f9f5f0;
   --color-warm-black: #1a1714;
