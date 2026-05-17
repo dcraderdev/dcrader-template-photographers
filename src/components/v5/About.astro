@@ -64,20 +64,94 @@ const p = Astro.props;
         </div>
       </div>
 
-      <!-- Fun stats bento strip -->
+      <!-- Behind-the-scenes journal teaser -->
       <div class="lg:col-span-12 fade-hidden" style="transition-delay:0.22s">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="flex items-center justify-between mb-5 flex-wrap gap-3">
+          <h3
+            class="font-bold leading-tight"
+            style="font-family:var(--f-display);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--c-text)"
+          >
+            From the journal 📓
+          </h3>
+          <a
+            href="#inquiry"
+            class="text-xs font-bold uppercase tracking-wider px-4 py-2"
+            style="background:var(--c-text);color:white;border-radius:0.5rem;font-family:var(--f-body)"
+          >
+            Read more on Instagram →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
-            { n: '300+', l: 'Happy couples', bg: 'var(--c-accent)', emoji: '✨' },
-            { n: '6 yrs', l: 'Of spreading joy', bg: 'var(--c-coral)', emoji: '🎊' },
-            { n: '50+', l: 'Venues & counting', bg: 'var(--c-text)', emoji: '📍' },
-            { n: '∞', l: 'Dance floor energy', bg: 'var(--c-accent)', emoji: '💃' },
-          ].map(s => (
-            <div class="p-6 text-center" style={`background:${s.bg};border-radius:var(--radius)`}>
-              <div class="text-2xl mb-2" aria-hidden="true">{s.emoji}</div>
-              <p class="leading-none mb-1" style={`font-family:var(--f-display);font-size:2rem;color:${s.bg === 'var(--c-text)' ? 'white' : 'var(--c-text)'};font-weight:400`}>{s.n}</p>
-              <p class="text-[9px] uppercase tracking-[0.2em]" style={`font-family:var(--f-body);color:${s.bg === 'var(--c-text)' ? 'rgba(255,255,255,0.6)' : 'rgba(26,26,26,0.55)'}`}>{s.l}</p>
-            </div>
+            {
+              img: '/images/1583939003579-730e3918a45a-800.webp',
+              alt: 'Petal toss exit at a Hill Country reception',
+              tag: 'Backstage',
+              tagBg: 'var(--c-coral)',
+              date: 'Apr 12',
+              title: 'The petal toss that almost wasn’t',
+              snippet: 'Wind shifted three minutes before the exit. Plan B involved sixty guests, two flower girls, and a leaf blower.',
+            },
+            {
+              img: '/images/1525772764200-be829a350797-800.webp',
+              alt: 'Vendor meal during a long Austin wedding day',
+              tag: 'Gear & Snacks',
+              tagBg: 'var(--c-accent)',
+              date: 'Mar 28',
+              title: 'What lives in our camera bag at hour 11',
+              snippet: 'Two backup bodies, four primes, fresh batteries, breath mints, and a granola bar older than this business.',
+            },
+            {
+              img: '/images/1606800052052-a08af7148866-800.webp',
+              alt: 'First dance under string lights at an Austin reception',
+              tag: 'Real Talk',
+              tagBg: 'var(--c-text)',
+              date: 'Mar 14',
+              title: 'A first dance, two left feet, one perfect frame',
+              snippet: 'Tomás nearly tripped on the dance floor cable. The shot we got is on our office wall.',
+            },
+          ].map((p, i) => (
+            <article
+              class="overflow-hidden flex flex-col"
+              style={`background:white;border-radius:var(--radius);transform:rotate(${i === 1 ? '0.6deg' : i === 2 ? '-0.4deg' : '0deg'})`}
+            >
+              <div class="relative" style="aspect-ratio:4/3">
+                <img
+                  src={p.img}
+                  alt={p.alt}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span
+                  class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-3 py-1"
+                  style={`background:${p.tagBg};color:${p.tagBg === 'var(--c-text)' ? 'white' : 'var(--c-text)'};border-radius:999px;font-family:var(--f-body)`}
+                >
+                  {p.tag}
+                </span>
+              </div>
+              <div class="p-5 flex-1 flex flex-col">
+                <p
+                  class="text-[10px] uppercase tracking-[0.25em] mb-2"
+                  style="color:var(--c-coral);font-family:var(--f-body);font-weight:700"
+                >
+                  Journal · {p.date}
+                </p>
+                <h4
+                  class="font-bold leading-snug mb-2"
+                  style="font-family:var(--f-display);font-size:1.1rem;color:var(--c-text)"
+                >
+                  {p.title}
+                </h4>
+                <p
+                  class="text-sm leading-relaxed flex-1"
+                  style="color:var(--c-text-muted);font-family:var(--f-body)"
+                >
+                  {p.snippet}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </div>

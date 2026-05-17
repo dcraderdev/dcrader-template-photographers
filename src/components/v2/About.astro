@@ -56,14 +56,37 @@ const p = Astro.props;
         <p set:html={p.aboutParagraph2}></p>
       </div>
 
-      <!-- Stat strip -->
-      <div class="mt-12 pt-10 grid grid-cols-3 gap-6 fade-hidden" style="border-top:1px solid var(--c-border);transition-delay:0.28s">
-        {[['12+','Years'], ['200+','Weddings'], ['40+','Countries']].map(([n, l]) => (
-          <div>
-            <p class="leading-none mb-1" style="font-family:var(--f-display);font-size:2.5rem;font-weight:900;color:var(--c-text);letter-spacing:-0.03em">{n}</p>
-            <p class="text-[8px] uppercase tracking-[0.35em]" style="color:var(--c-accent);font-family:var(--f-body)">{l}</p>
-          </div>
-        ))}
+      <!-- Press / features row -->
+      <div class="mt-14 pt-8 fade-hidden" style="border-top:1px solid var(--c-border);transition-delay:0.28s">
+        <div class="flex items-baseline gap-4 mb-7">
+          <span class="block w-6 h-px" style="background:var(--c-accent)" aria-hidden="true"></span>
+          <p class="text-[8px] uppercase tracking-[0.5em]" style="color:var(--c-text-muted);font-family:var(--f-body)">As featured in</p>
+        </div>
+        <ul
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-x-8 gap-y-5"
+          aria-label="Press features"
+          style="list-style:none;padding:0"
+        >
+          {[
+            { name: 'Vogue', sub: 'Russia · 2023' },
+            { name: 'Harper&rsquo;s Bazaar', sub: 'Brides · 2024' },
+            { name: 'Junebug Weddings', sub: 'Best of the Best' },
+            { name: 'Brides Magazine', sub: 'Editorial · 2024' },
+            { name: 'Vanity Fair', sub: 'Society Pages' },
+            { name: 'Martha Stewart', sub: 'Weddings · 2025' },
+          ].map(p => (
+            <li>
+              <p
+                class="leading-none mb-1"
+                style="font-family:var(--f-display);font-size:1.35rem;font-weight:900;color:var(--c-text);letter-spacing:-0.02em"
+              >{p.name}</p>
+              <p
+                class="text-[7px] uppercase tracking-[0.4em]"
+                style="color:var(--c-text-muted);font-family:var(--f-body)"
+              >{p.sub}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </div>
