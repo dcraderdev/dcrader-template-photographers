@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     name: "Priya & Marcus",
     weddingInfo: "Barton Springs, Austin · May 2025",
     // Photo: Rhone / Unsplash
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1508214751196-bcfd4ca60f91-400.webp",
     imageAlt: "Priya and Marcus dancing at their outdoor Austin wedding at Barton Springs",
     imageCredit: "Rhone / Unsplash",
   },
@@ -27,7 +27,7 @@ export const testimonials: Testimonial[] = [
     name: "Cleo & Raúl",
     weddingInfo: "Fiesta Colors, Austin · March 2025",
     // Photo: Cassie Lopez / Unsplash
-    image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1591604466107-ec97de577aff-400.webp",
     imageAlt: "Cleo and Raúl at their vibrant fiesta-themed wedding celebration",
     imageCredit: "Cassie Lopez / Unsplash",
   },
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     name: "Yuki & Sam",
     weddingInfo: "The Parish, Austin · January 2025",
     // Photo: Євгенія Височина / Unsplash
-    image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1537633552985-df8429e8048b-400.webp",
     imageAlt: "Yuki and Sam at their concert-venue wedding at The Parish in Austin",
     imageCredit: "Євгенія Височина / Unsplash",
   },
@@ -47,7 +47,7 @@ export const testimonials: Testimonial[] = [
     name: "Nia & Eli",
     weddingInfo: "Backyard BBQ Wedding, Austin · June 2024",
     // Photo: Jonathan Borba / Unsplash
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1508214751196-bcfd4ca60f91-400.webp",
     imageAlt: "Nia and Eli celebrating at their joyful backyard wedding with friends and family",
     imageCredit: "Jonathan Borba / Unsplash",
   },

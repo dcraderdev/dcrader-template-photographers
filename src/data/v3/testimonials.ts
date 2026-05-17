@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     name: "Anya & Finn",
     weddingInfo: "Olympic Peninsula, WA · July 2024",
     // Photo: Álvaro CvG / Unsplash
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1519741497674-611481863552-400.webp",
     imageAlt: "Anya and Finn on their elopement at the Olympic Peninsula coast",
     imageCredit: "Álvaro CvG / Unsplash",
   },
@@ -27,7 +27,7 @@ export const testimonials: Testimonial[] = [
     name: "Saya & Theo",
     weddingInfo: "Columbia River Gorge · September 2024",
     // Photo: Cassie Lopez / Unsplash
-    image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1591604466107-ec97de577aff-400.webp",
     imageAlt: "Saya and Theo at their Columbia River Gorge elopement",
     imageCredit: "Cassie Lopez / Unsplash",
   },
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     name: "Lila & Cove",
     weddingInfo: "Crater Lake, Oregon · August 2024",
     // Photo: Unsplash
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1508214751196-bcfd4ca60f91-400.webp",
     imageAlt: "Lila and Cove at the rim of Crater Lake on their elopement day",
     imageCredit: "Unsplash",
   },
@@ -47,7 +47,7 @@ export const testimonials: Testimonial[] = [
     name: "Ivy & Sage",
     weddingInfo: "Redwood Forest, CA · October 2024",
     // Photo: Nathan Dumlao / Unsplash
-    image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1606800052052-a08af7148866-400.webp",
     imageAlt: "Ivy and Sage among the ancient redwoods on their wedding day",
     imageCredit: "Nathan Dumlao / Unsplash",
   },

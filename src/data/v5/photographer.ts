@@ -13,12 +13,12 @@ export const photographer = {
 
   // Hero: joyful couple kissing as guests shower them with flower petals
   // Photo: Beatriz Pérez Moya / Unsplash  https://unsplash.com/photos/photo-1583939003579-730e3918a45a
-  heroImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=2000&q=85&fm=webp&fit=crop",
+  heroImage: "/images/1583939003579-730e3918a45a-1400.webp",
   heroImageAlt: "Newlyweds kissing as joyful wedding guests shower them with flower petals at an outdoor celebration",
 
   // About section
   // Portrait photo: Євгенія Височина / Unsplash  https://unsplash.com/photos/photo-1537633552985-df8429e8048b
-  portraitImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80&fm=webp&fit=crop",
+  portraitImage: "/images/1537633552985-df8429e8048b-800.webp",
   portraitAlt: "Bea and Tomás, the Pop & Bloom photography duo, laughing together outdoors in Austin",
 
   aboutParagraph1: `We met at a music festival on Sixth Street in 2016 — Bea had a film camera, Tomás had bad dance moves, and somehow that was enough. We've been shooting together ever since, and now we get paid to crash the best parties in Texas (and occasionally everywhere else). Official title: professional party joiners who happen to bring cameras. Unofficial title: the reason your cousin is still talking about your reception.`,

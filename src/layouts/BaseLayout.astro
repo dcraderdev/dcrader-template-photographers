@@ -24,8 +24,7 @@ const { title, description, ogImage, themeClass, heroPreload } = Astro.props;
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    {heroPreload && <link rel="preload" as="image" href={heroPreload} />}
-    <link rel="preconnect" href="https://images.unsplash.com" />
+    {heroPreload && <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />}
     <title>{title}</title>
   </head>
   <body style={`font-family: var(--f-body); background-color: var(--c-bg); color: var(--c-text);`}>

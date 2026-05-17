@@ -5,7 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
+  compressHTML: true,
+  prefetch: true,
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+    build: {
+      cssCodeSplit: true,
+    },
+  },
 });
