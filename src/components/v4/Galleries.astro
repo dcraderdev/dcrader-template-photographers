@@ -160,7 +160,7 @@ const { galleries, galleriesJson } = Astro.props;
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('fade-visible'); });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('fade-visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-hidden').forEach(el => obs.observe(el));
 </script>

@@ -107,6 +107,7 @@ import { photographer } from '../data/v1/photographer';
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('fade-visible');
+        observer.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
