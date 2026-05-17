@@ -18,7 +18,7 @@ export const testimonials: Testimonial[] = [
     name: "Isabella & Marco",
     weddingInfo: "The Plaza, New York · March 2025",
     // Photo: Shea Rouda / Unsplash
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1519225421980-715cb0215aed-400.webp",
     imageAlt: "Isabella and Marco, dressed in sharp evening wear at their Plaza Hotel wedding",
     imageCredit: "Shea Rouda / Unsplash",
   },
@@ -28,7 +28,7 @@ export const testimonials: Testimonial[] = [
     name: "Sofía & James",
     weddingInfo: "Paris · September 2024",
     // Photo: Nathan Dumlao / Unsplash
-    image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1606800052052-a08af7148866-400.webp",
     imageAlt: "Sofía and James, couple laughing at their Paris elopement",
     imageCredit: "Nathan Dumlao / Unsplash",
   },
@@ -38,7 +38,7 @@ export const testimonials: Testimonial[] = [
     name: "Jade & Christian",
     weddingInfo: "The High Line, NYC · October 2024",
     // Photo: Cassie Lopez / Unsplash
-    image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1591604466107-ec97de577aff-400.webp",
     imageAlt: "Jade and Christian, couple in contemporary wedding attire on The High Line",
     imageCredit: "Cassie Lopez / Unsplash",
   },
@@ -48,7 +48,7 @@ export const testimonials: Testimonial[] = [
     name: "Vera & Nikolai",
     weddingInfo: "Chicago Skyline · July 2024",
     // Photo: Євгенія Височина / Unsplash
-    image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1537633552985-df8429e8048b-400.webp",
     imageAlt: "Vera and Nikolai, couple against the Chicago skyline at their rooftop wedding",
     imageCredit: "Євгенія Височина / Unsplash",
   },

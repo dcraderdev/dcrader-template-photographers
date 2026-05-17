@@ -14,12 +14,12 @@ export const photographer = {
 
   // Hero: couple on a rocky Pacific coast beach with flowing cathedral veil
   // Photo: Unsplash  https://unsplash.com/photos/1537633552985-df8429e8048b
-  heroImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=2000&q=85&fm=webp&fit=crop",
+  heroImage: "/images/1537633552985-df8429e8048b-1400.webp",
   heroImageAlt: "Couple embracing on a rocky Pacific coast beach, bride's cathedral veil sweeping in the ocean wind",
 
   // About section
   // Portrait photo: Charles Deluvio / Unsplash  https://unsplash.com/photos/pjAH2Ax4uWk
-  portraitImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80&fm=webp&fit=crop",
+  portraitImage: "/images/1531746020798-e6953c6e8e04-800.webp",
   portraitAlt: "Ruby and Wilder, a husband-and-wife photography duo, smiling outdoors in the Pacific Northwest",
 
   aboutParagraph1: `We're Ruby and Wilder — a married couple, two cameras, and one shared obsession with wild places. We met on a hiking trail in the Cascades, got engaged at the edge of the Pacific, and eloped on a ferry to the San Juan Islands with a thermos of coffee and absolutely zero regrets. We understand the pull of running away together. That's why we built our whole business around it.`,

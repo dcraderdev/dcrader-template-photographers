@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     name: "Sophia & James",
     weddingInfo: "Big Sur, October 2024",
     // Photo: Shea Rouda / Unsplash
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1519225421980-715cb0215aed-400.webp",
     imageAlt: "Sophia and James, smiling couple at their Big Sur wedding",
     imageCredit: "Shea Rouda / Unsplash",
   },
@@ -27,7 +27,7 @@ export const testimonials: Testimonial[] = [
     name: "Maya & Rafael",
     weddingInfo: "Santa Ynez Valley, June 2024",
     // Photo: Candice Picard / Unsplash
-    image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1522673607200-164d1b6ce486-400.webp",
     imageAlt: "Maya and Rafael, couple laughing together at their vineyard reception",
     imageCredit: "Candice Picard / Unsplash",
   },
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     name: "Claire & Théo",
     weddingInfo: "Yosemite Elopement, August 2024",
     // Photo: Drew Coffman / Unsplash
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1508214751196-bcfd4ca60f91-400.webp",
     imageAlt: "Claire and Théo, couple standing in a Yosemite meadow on their wedding day",
     imageCredit: "Drew Coffman / Unsplash",
   },
@@ -47,7 +47,7 @@ export const testimonials: Testimonial[] = [
     name: "Nadia & Kai",
     weddingInfo: "Malibu, April 2025",
     // Photo: Євгенія Височина / Unsplash
-    image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1537633552985-df8429e8048b-400.webp",
     imageAlt: "Nadia and Kai, newlyweds laughing on a Malibu terrace",
     imageCredit: "Євгенія Височина / Unsplash",
   },

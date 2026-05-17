@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     name: "M & F",
     weddingInfo: "Villa d'Este, Lake Como · May 2025",
     // Photo: Shea Rouda / Unsplash
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1519225421980-715cb0215aed-400.webp",
     imageAlt: "M and F, couple at their Lake Como wedding at Villa d'Este",
     imageCredit: "Shea Rouda / Unsplash",
   },
@@ -27,7 +27,7 @@ export const testimonials: Testimonial[] = [
     name: "H & T",
     weddingInfo: "Château de Chambord · June 2024",
     // Photo: Nathan Dumlao / Unsplash
-    image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1606800052052-a08af7148866-400.webp",
     imageAlt: "H and T, newlyweds in the gardens of Château de Chambord",
     imageCredit: "Nathan Dumlao / Unsplash",
   },
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     name: "K & A",
     weddingInfo: "Designmuseum, Copenhagen · March 2025",
     // Photo: Álvaro CvG / Unsplash
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1511285560929-80b456fea0bc-400.webp",
     imageAlt: "K and A, couple in the Designmuseum Copenhagen on their wedding day",
     imageCredit: "Álvaro CvG / Unsplash",
   },
@@ -47,7 +47,7 @@ export const testimonials: Testimonial[] = [
     name: "E & L",
     weddingInfo: "Matrimoni, Tuscany · September 2024",
     // Photo: Євгенія Височина / Unsplash
-    image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80&fm=webp&fit=crop",
+    image: "/images/1537633552985-df8429e8048b-400.webp",
     imageAlt: "E and L, couple at their minimalist Tuscan villa wedding",
     imageCredit: "Євгенія Височина / Unsplash",
   },

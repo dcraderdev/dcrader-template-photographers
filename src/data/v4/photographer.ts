@@ -13,12 +13,12 @@ export const photographer = {
 
   // Hero: couple in golden forest by lake, fine art elegance
   // Photo: Cassie Lopez / Unsplash  https://unsplash.com/photos/photo-1591604466107-ec97de577aff
-  heroImage: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=2000&q=85&fm=webp&fit=crop",
+  heroImage: "/images/1591604466107-ec97de577aff-1400.webp",
   heroImageAlt: "Couple in elegant wedding attire standing in a sunlit forest beside a still lake",
 
   // About section
   // Portrait photo: Amy Shamblen / Unsplash  https://unsplash.com/photos/photo-1508214751196-bcfd4ca60f91
-  portraitImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&q=80&fm=webp&fit=crop",
+  portraitImage: "/images/1508214751196-bcfd4ca60f91-800.webp",
   portraitAlt: "Lena Schultz, fine art wedding photographer, in a clean white studio in Berlin",
 
   aboutParagraph1: `I studied fine art photography at the Royal Danish Academy in Copenhagen — four years spent learning how light falls, how composition breathes, and why most photographs fail. Wedding photography arrived later, almost by accident. What I found was a discipline I could not have invented myself: applied art with a deadline, under real emotional conditions, with no retakes. I have not stopped since.`,

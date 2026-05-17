@@ -14,12 +14,12 @@ export const photographer = {
 
   // Hero: full-bleed wedding image
   // Photo: Álvaro CvG / Unsplash  https://unsplash.com/photos/qxewBPHY_m0
-  heroImage: "https://images.unsplash.com/photo-1519741497674-611481863552?w=2000&q=85&fm=webp&fit=crop",
+  heroImage: "/images/1519741497674-611481863552-1400.webp",
   heroImageAlt: "Bride and groom in golden hour light at a California vineyard wedding",
 
   // About section
   // Portrait photo: Charles Deluvio / Unsplash  https://unsplash.com/photos/pjAH2Ax4uWk
-  portraitImage: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80&fm=webp&fit=crop",
+  portraitImage: "/images/1531746020798-e6953c6e8e04-800.webp",
   portraitAlt: "Emma Hayes, wedding photographer, smiling outdoors with camera",
 
   aboutParagraph1: `I grew up watching my grandmother pull old photos from a shoebox — faded rectangles that could stop a room cold. A laugh frozen mid-sentence. A hand squeeze that said everything. That's when I understood: photographs aren't decoration. They're the closest thing we have to going back.`,

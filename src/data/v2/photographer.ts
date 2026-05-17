@@ -14,12 +14,12 @@ export const photographer = {
 
   // Hero: dark editorial couple at dusk under palm trees
   // Photo: Unsplash  https://unsplash.com/photos/1606216794074-735e91aa2c92
-  heroImage: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=2000&q=85&fm=webp&fit=crop",
+  heroImage: "/images/1606216794074-735e91aa2c92-1400.webp",
   heroImageAlt: "Couple in sleek wedding attire at twilight, moody editorial lighting",
 
   // About section
   // Portrait photo: Unsplash  https://unsplash.com/photos/1508214751196-bcfd4ca60f91
-  portraitImage: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&q=80&fm=webp&fit=crop",
+  portraitImage: "/images/1508214751196-bcfd4ca60f91-800.webp",
   portraitAlt: "Daria Volkov, editorial wedding photographer, standing in a studio in New York City",
 
   aboutParagraph1: `I grew up between Moscow and Manhattan — two cities that taught me beauty lives in extremes. By twenty-three I was assisting on fashion shoots for Vogue Russia. By twenty-six I had my own editorial byline. Then a friend asked me to photograph her wedding, and I saw something I'd never seen on a fashion set: two people completely unguarded in front of a lens. I put the Vogue work on hold. I never went back.`,
