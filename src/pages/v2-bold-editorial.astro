@@ -6,10 +6,10 @@ import Galleries from '../components/v2/Galleries.astro';
 import About from '../components/v2/About.astro';
 import Services from '../components/v2/Services.astro';
 import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
-import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
-import SharedProcess from '../components/shared/SharedProcess.astro';
+import Testimonials from '../components/v2/Testimonials.astro';
+import Process from '../components/v2/Process.astro';
 import SharedInquiryForm from '../components/shared/SharedInquiryForm.astro';
-import SharedFooter from '../components/shared/SharedFooter.astro';
+import Footer from '../components/v2/Footer.astro';
 
 import { photographer } from '../data/v2/photographer';
 import { galleries } from '../data/v2/galleries';
@@ -43,7 +43,7 @@ const instagramPosts = [
       heroImage={photographer.heroImage}
       heroImageAlt={photographer.heroImageAlt}
     />
-    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <!-- About (with press masthead) leads to portfolio, then method, praise. Editorial cadence. -->
     <About
       name={photographer.name}
       portraitImage={photographer.portraitImage}
@@ -53,20 +53,21 @@ const instagramPosts = [
       philosophyQuote={photographer.philosophyQuote}
       philosophyAuthor={photographer.philosophyAuthor}
     />
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <Process steps={photographer.process} />
     <Services packages={packages} />
+    <Testimonials testimonials={testimonials} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
-    <SharedTestimonials testimonials={testimonials} label="Press & Praise" heading="What clients say" />
-    <SharedProcess steps={photographer.process} label="The Process" heading="How We Work" />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}
       location={photographer.location} instagramUrl={photographer.instagramUrl}
       instagram={photographer.instagram}
-      heading="Book a session"
-      subheading="Every inquiry is reviewed personally. Tell me about your event and I'll respond within 24 hours."
-      submitLabel="Submit Inquiry"
+      heading="Request the studio rate card"
+      subheading="Inquiries are reviewed personally and answered within 24 hours. Please include the date, venue and approximate guest count if known."
+      submitLabel="File the inquiry"
     />
   </main>
-  <SharedFooter
+  <Footer
     name={photographer.name} business={photographer.business}
     subtagline={photographer.subtagline} instagram={photographer.instagram}
     instagramUrl={photographer.instagramUrl} instagramPosts={instagramPosts}

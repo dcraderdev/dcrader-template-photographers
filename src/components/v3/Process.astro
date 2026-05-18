@@ -1,0 +1,77 @@
+---
+// V3 — bohemian warm
+// Trailhead map. Each step is a stop on a wandering hand-drawn dotted path.
+// Caveat handwriting + terracotta seal numbers.
+interface Step { number: string; title: string; description: string; }
+interface Props { steps: Step[]; }
+const { steps } = Astro.props;
+---
+
+<section id="process" class="py-24 lg:py-36 relative overflow-hidden" style="background:var(--c-bg)" aria-label="How it works">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Caveat label + heading -->
+    <div class="text-center mb-16 fade-hidden">
+      <p class="mb-3" style="font-family:var(--f-hand);font-size:1.5rem;color:var(--c-accent)">
+        the trail goes like this —
+      </p>
+      <h2
+        class="italic leading-tight"
+        style="font-family:var(--f-display);font-size:clamp(2rem,4.2vw,3.4rem);color:var(--c-text-inv);font-weight:300"
+      >
+        Four stops to a wedding<br />you actually remember.
+      </h2>
+    </div>
+
+    <!-- Trail of steps -->
+    <ol class="relative max-w-4xl mx-auto" style="list-style:none;padding:0;margin:0">
+      <!-- Hand-drawn dashed connector -->
+      <svg
+        class="hidden lg:block absolute left-0 right-0 top-12 w-full pointer-events-none"
+        height="80"
+        viewBox="0 0 800 80"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M 50 40 Q 200 5 350 45 T 750 35"
+          stroke="var(--c-accent)"
+          stroke-width="1.5"
+          stroke-dasharray="4 6"
+          fill="none"
+          stroke-linecap="round"
+          opacity="0.55"
+        />
+      </svg>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-6 relative">
+        {steps.map((step, i) => (
+          <li
+            class="text-center fade-hidden"
+            style={`transition-delay:${i*0.1}s;transform:translateY(${i % 2 === 0 ? '0' : '14px'})`}
+          >
+            <span
+              class="inline-flex items-center justify-center mb-6 mx-auto"
+              style="width:64px;height:64px;background:var(--c-accent);border-radius:50%;font-family:var(--f-hand);font-size:1.8rem;color:var(--c-text-inv);box-shadow:0 4px 12px rgba(196,103,58,0.25)"
+              aria-hidden="true"
+            >
+              {step.number}
+            </span>
+            <p class="mb-2" style="font-family:var(--f-hand);font-size:1.4rem;color:var(--c-accent)">
+              stop {Number(step.number)}
+            </p>
+            <h3
+              class="italic mb-3"
+              style="font-family:var(--f-display);font-size:1.5rem;color:var(--c-text-inv);font-weight:300"
+            >
+              {step.title}
+            </h3>
+            <p class="text-sm leading-relaxed font-light" style="color:rgba(253,248,242,0.65);font-family:var(--f-body)">
+              {step.description}
+            </p>
+          </li>
+        ))}
+      </div>
+    </ol>
+  </div>
+</section>

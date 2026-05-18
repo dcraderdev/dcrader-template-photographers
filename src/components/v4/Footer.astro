@@ -1,0 +1,119 @@
+---
+// V4 footer — modern minimal.
+// No instagram grid at all. A precise three-column index plus a quiet single thumbnail.
+// Inter Tight metadata, hairline rules, generous white.
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
+interface Props {
+  name: string;
+  business: string;
+  subtagline: string;
+  instagram: string;
+  instagramUrl: string;
+  instagramPosts: Array<{ src: string; alt: string; }>;
+}
+const { name, business, subtagline, instagram, instagramUrl, instagramPosts } = Astro.props;
+const thumb = instagramPosts[0];
+---
+
+<footer style="background:var(--c-bg);padding-top:6rem;padding-bottom:3rem" aria-label="Site footer">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Top rule + index label -->
+    <div class="flex items-start gap-6 pt-2 mb-14 fade-hidden" style="border-top:1px solid var(--c-border)">
+      <span class="block w-px h-10 mt-4" style="background:var(--c-text);opacity:0.3" aria-hidden="true"></span>
+      <div class="pt-3">
+        <p class="text-[7px] uppercase tracking-[0.6em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">
+          Index · End
+        </p>
+      </div>
+    </div>
+
+    <!-- Three columns: studio / navigation / latest -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 fade-hidden" style="transition-delay:0.1s">
+
+      <!-- Studio mark -->
+      <div class="lg:col-span-5">
+        <h2 style="font-family:var(--f-body);font-size:clamp(2rem,4vw,3.5rem);color:var(--c-text);font-weight:300;letter-spacing:-0.04em;line-height:1">
+          {name}
+        </h2>
+        <p class="text-[8px] uppercase tracking-[0.6em] font-light mt-4" style="color:var(--c-text-muted);font-family:var(--f-body)">
+          {subtagline}
+        </p>
+        <p class="text-sm leading-loose mt-6 max-w-sm" style="font-family:var(--f-serif);color:var(--c-text-muted);font-style:italic;font-weight:300">
+          A small studio. A short list. Five weddings a year.
+        </p>
+      </div>
+
+      <!-- Nav index -->
+      <nav class="lg:col-span-4 grid grid-cols-2 gap-8" aria-label="Footer navigation">
+        <div>
+          <p class="text-[7px] uppercase tracking-[0.5em] mb-4" style="color:var(--c-text-muted);font-family:var(--f-body)">Site</p>
+          <ul class="space-y-3" style="list-style:none;padding:0;margin:0">
+            {[['#galleries','Work'],['#about','Studio'],['#services','Investment'],['#inquire','Enquiries']].map(([href, label]) => (
+              <li>
+                <a href={href} class="text-xs transition-opacity duration-300 hover:opacity-50" style="color:var(--c-text);font-family:var(--f-body);font-weight:300">
+                  {label} <span class="opacity-40">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="text-[7px] uppercase tracking-[0.5em] mb-4" style="color:var(--c-text-muted);font-family:var(--f-body)">Channels</p>
+          <ul class="space-y-3" style="list-style:none;padding:0;margin:0">
+            <li>
+              <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="text-xs transition-opacity duration-300 hover:opacity-50" style="color:var(--c-text);font-family:var(--f-body);font-weight:300">
+                Instagram <span class="opacity-40">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="#inquire" class="text-xs transition-opacity duration-300 hover:opacity-50" style="color:var(--c-text);font-family:var(--f-body);font-weight:300">
+                Email <span class="opacity-40">↗</span>
+              </a>
+            </li>
+            <li>
+              <span class="text-xs" style="color:var(--c-text-muted);font-family:var(--f-body);font-weight:300">No social booking · enquiries only</span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Single quiet thumbnail -->
+      <a
+        href={instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="lg:col-span-3 group block"
+        aria-label={`${thumb.alt} — view on Instagram (opens in new tab)`}
+      >
+        <div class="aspect-square overflow-hidden">
+          <ResponsiveImage
+            src={thumb.src}
+            alt={thumb.alt}
+            class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <p class="text-[7px] uppercase tracking-[0.55em] font-light mt-3" style="color:var(--c-text-muted);font-family:var(--f-body)">
+          Recent · {instagram}
+        </p>
+      </a>
+    </div>
+
+    <!-- Bottom: monospaced metadata -->
+    <div class="pt-6 flex flex-col lg:flex-row items-center justify-between gap-4" style="border-top:1px solid var(--c-border)">
+      <p class="text-[7px] uppercase tracking-[0.55em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body);font-variant-numeric:tabular-nums">
+        © {new Date().getFullYear()} · {business}
+      </p>
+      <p class="text-[7px] uppercase tracking-[0.55em] font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">
+        Set in Inter Tight & Noto Serif. Designed in Berlin.
+      </p>
+    </div>
+
+    <p class="text-center mt-8 text-[8px]" style="color:var(--c-text-muted);opacity:0.6">Demo photography by Unsplash contributors.</p>
+    <p class="text-center mt-3 text-[10px]" style="color:var(--c-text-muted)">
+      Built by <a href="https://dcrader.dev" target="_blank" rel="noopener noreferrer" class="underline" style="color:var(--c-text)">Donovan Crader</a> · <a href="https://dcrader.dev" target="_blank" rel="noopener noreferrer" style="color:var(--c-text)">dcrader.dev</a>
+    </p>
+  </div>
+</footer>

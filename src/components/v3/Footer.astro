@@ -1,0 +1,101 @@
+---
+// V3 footer — bohemian warm.
+// Stacked polaroid scatter, handwritten sign-off, terracotta seal.
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
+interface Props {
+  name: string;
+  business: string;
+  subtagline: string;
+  instagram: string;
+  instagramUrl: string;
+  instagramPosts: Array<{ src: string; alt: string; }>;
+}
+const { name, business, subtagline, instagram, instagramUrl, instagramPosts } = Astro.props;
+const polaroids = instagramPosts.slice(0, 5);
+const rotations = ['-3deg', '2deg', '-1.5deg', '3deg', '-2deg'];
+---
+
+<footer style="background:var(--c-bg);padding-top:5rem;padding-bottom:3rem" aria-label="Site footer">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Handwritten sign-off -->
+    <div class="text-center mb-12 fade-hidden">
+      <p style="font-family:var(--f-hand);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--c-accent);line-height:1.2">
+        come find us on the road —
+      </p>
+      <a
+        href={instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block mt-3 transition-opacity hover:opacity-80"
+        style="font-family:var(--f-display);font-style:italic;font-size:clamp(1.4rem,2.4vw,1.8rem);color:var(--c-text-inv);font-weight:300"
+        aria-label={`Visit ${instagram} on Instagram (opens in new tab)`}
+      >
+        {instagram}
+      </a>
+    </div>
+
+    <!-- Polaroid scatter -->
+    <div class="flex flex-wrap justify-center items-center gap-4 lg:gap-6 mb-20 fade-hidden" style="transition-delay:0.1s" role="list" aria-label="Recent Instagram posts">
+      {polaroids.map((post, i) => (
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group block p-3 pb-8 transition-transform duration-300 hover:rotate-0"
+          style={`background:rgba(253,248,242,0.92);transform:rotate(${rotations[i % rotations.length]});box-shadow:0 4px 12px rgba(46,32,22,0.18)`}
+          role="listitem"
+          aria-label={`${post.alt} — view on Instagram (opens in new tab)`}
+        >
+          <div class="overflow-hidden" style="width:140px;aspect-ratio:1">
+            <ResponsiveImage src={post.src} alt={post.alt}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy" decoding="async" />
+          </div>
+          <p
+            class="mt-2 text-center"
+            style="font-family:var(--f-hand);font-size:0.95rem;color:var(--c-text)"
+            aria-hidden="true"
+          >
+            {['big sur','redwoods','crater lake','rainier','cannon beach'][i] || 'on the road'}
+          </p>
+        </a>
+      ))}
+    </div>
+
+    <!-- Wax-seal divider -->
+    <div class="flex items-center justify-center gap-4 mb-10" aria-hidden="true">
+      <span class="block w-24 h-px" style="background:var(--c-accent);opacity:0.5"></span>
+      <span
+        class="inline-flex items-center justify-center rounded-full"
+        style="width:42px;height:42px;background:var(--c-accent);color:var(--c-text-inv);font-family:var(--f-hand);font-size:1rem"
+      >R&W</span>
+      <span class="block w-24 h-px" style="background:var(--c-accent);opacity:0.5"></span>
+    </div>
+
+    <!-- Sign-off -->
+    <div class="text-center fade-hidden" style="transition-delay:0.2s">
+      <p style="font-family:var(--f-display);font-style:italic;font-size:1.4rem;color:var(--c-text-inv);font-weight:300">{name}</p>
+      <p class="text-[10px] uppercase tracking-[0.35em] mt-2" style="color:var(--c-text-muted)">{subtagline}</p>
+      <nav class="mt-8" aria-label="Footer navigation">
+        <ul class="flex flex-wrap justify-center gap-5 lg:gap-8" style="list-style:none;padding:0;margin:0">
+          {[['#galleries','the trips'],['#about','about us'],['#services','collections'],['#inquire','say hi']].map(([href, label]) => (
+            <li>
+              <a href={href} class="transition-opacity hover:opacity-100" style="font-family:var(--f-hand);font-size:1.2rem;color:var(--c-accent);opacity:0.85">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <p class="text-[10px] uppercase tracking-[0.35em] mt-10" style="color:var(--c-text-muted);font-family:var(--f-display)">
+        © {new Date().getFullYear()} {business} · made with sandy boots
+      </p>
+    </div>
+
+    <p class="text-center mt-8 text-[9px]" style="color:rgba(253,248,242,0.3)">Demo photography by Unsplash contributors.</p>
+    <p class="text-center mt-3 text-[10px]" style="color:var(--c-text-muted)">
+      Built by <a href="https://dcrader.dev" target="_blank" rel="noopener noreferrer" class="underline" style="color:var(--c-accent)">Donovan Crader</a> · <a href="https://dcrader.dev" target="_blank" rel="noopener noreferrer" style="color:var(--c-accent)">dcrader.dev</a>
+    </p>
+  </div>
+</footer>

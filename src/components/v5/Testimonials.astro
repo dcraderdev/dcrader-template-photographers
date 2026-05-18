@@ -1,0 +1,110 @@
+---
+// V5 — Vibrant joyful
+// Sticker-style love wall. Big chunky avatar list + tilted note cards.
+// Each tile has its own background color from the palette.
+import type { Testimonial } from '../../data/v5/testimonials';
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
+
+interface Props { testimonials: Testimonial[]; }
+const { testimonials } = Astro.props;
+
+const tileColors = [
+  { bg: 'var(--c-accent)', fg: 'var(--c-text)', tag: 'var(--c-text)', tagFg: 'white' },
+  { bg: 'var(--c-coral)',  fg: 'white',         tag: 'white',          tagFg: 'var(--c-coral)' },
+  { bg: 'white',            fg: 'var(--c-text)', tag: 'var(--c-coral)', tagFg: 'white' },
+  { bg: 'var(--c-text)',   fg: 'white',         tag: 'var(--c-accent)',tagFg: 'var(--c-text)' },
+];
+const rotations = ['-1deg', '0.6deg', '-0.4deg', '1.1deg'];
+const stickers = ['Pure joy 🎉', 'Best decision ✨', 'Forever obsessed 💛', 'On the fridge 📌'];
+---
+
+<section id="testimonials" class="py-20 lg:py-32" style="background:var(--c-bg)" aria-label="The love wall">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Heading + chunky avatar row -->
+    <div class="text-center mb-12 fade-hidden">
+      <span
+        class="inline-block text-xs font-bold uppercase tracking-wider px-4 py-2 mb-6 rotate-[-1.5deg]"
+        style="background:var(--c-coral);color:white;border-radius:0.5rem;font-family:var(--f-body)"
+      >
+        The love wall 💌
+      </span>
+      <h2
+        class="font-bold leading-tight"
+        style="font-family:var(--f-display);font-size:clamp(2.2rem,5vw,4rem);color:var(--c-text)"
+      >
+        They keep texting us 🥹
+      </h2>
+    </div>
+
+    <!-- Avatar stack -->
+    <div class="flex items-center justify-center mb-12 fade-hidden" style="transition-delay:0.1s">
+      <div class="flex -space-x-3" aria-hidden="true">
+        {testimonials.map(t => (
+          <ResponsiveImage
+            src={t.image}
+            alt=""
+            class="w-14 h-14 rounded-full object-cover"
+            style="border:3px solid var(--c-bg)"
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
+      </div>
+      <p class="ml-5 text-sm font-semibold" style="color:var(--c-text);font-family:var(--f-body)">
+        + {testimonials.length * 18} more couples this year
+      </p>
+    </div>
+
+    <!-- Tilted note tiles -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {testimonials.map((t, i) => {
+        const c = tileColors[i % tileColors.length];
+        return (
+          <figure
+            class="fade-hidden p-7 lg:p-9 flex flex-col"
+            style={`background:${c.bg};color:${c.fg};border-radius:var(--radius);transform:rotate(${rotations[i % rotations.length]});transition-delay:${i*0.08}s`}
+          >
+            <div class="flex items-center justify-between mb-5">
+              <span
+                class="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1"
+                style={`background:${c.tag};color:${c.tagFg};border-radius:999px;font-family:var(--f-body)`}
+              >
+                {stickers[i % stickers.length]}
+              </span>
+              <span
+                class="text-[10px] font-bold uppercase tracking-wider"
+                style={`color:${c.fg};opacity:0.7;font-family:var(--f-body)`}
+              >
+                #{String(i+1).padStart(2,'0')}
+              </span>
+            </div>
+
+            <blockquote
+              class="text-base lg:text-lg leading-relaxed flex-1 font-medium"
+              style="font-family:var(--f-display)"
+            >
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+
+            <figcaption class="mt-6 pt-5 flex items-center gap-4" style={`border-top:1px solid ${c.fg};border-color:currentColor;opacity:1`}>
+              <ResponsiveImage
+                src={t.image}
+                alt={t.imageAlt}
+                class="w-12 h-12 rounded-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div>
+                <p class="text-sm font-bold" style="font-family:var(--f-body)">— {t.name}</p>
+                <p class="text-[10px] uppercase tracking-wider font-semibold opacity-80" style="font-family:var(--f-body)">
+                  {t.weddingInfo}
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+        );
+      })}
+    </div>
+  </div>
+</section>

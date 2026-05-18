@@ -1,0 +1,57 @@
+---
+// V2 — bold editorial
+// Oversized numerals as the structure. Each step is a big "01" with serif label
+// and short body — like a magazine method spread.
+interface Step { number: string; title: string; description: string; }
+interface Props { steps: Step[]; }
+const { steps } = Astro.props;
+---
+
+<section id="process" class="py-20 lg:py-32" style="background:var(--c-bg)" aria-label="How it works">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Masthead row -->
+    <div class="flex items-end justify-between mb-12 pb-5 fade-hidden" style="border-bottom:1px solid var(--c-border)">
+      <div>
+        <p class="text-[9px] uppercase tracking-[0.55em] mb-3" style="color:var(--c-accent);font-family:var(--f-body)">
+          The Method
+        </p>
+        <h2
+          class="leading-none"
+          style="font-family:var(--f-display);font-size:clamp(2.4rem,5.5vw,4.5rem);color:var(--c-text);font-weight:900;letter-spacing:-0.04em"
+        >
+          From inquiry<br />to print.
+        </h2>
+      </div>
+      <p class="hidden lg:block text-[9px] uppercase tracking-[0.45em]" style="color:var(--c-text-muted);font-family:var(--f-body)">
+        Steps {String(steps.length).padStart(2,'0')}
+      </p>
+    </div>
+
+    <!-- Steps: enormous numerals -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-0">
+      {steps.map((step, i) => (
+        <article
+          class={`fade-hidden p-6 lg:p-7 ${i > 0 ? 'lg:border-l' : ''}`}
+          style={`border-color:var(--c-border);transition-delay:${i*0.08}s`}
+        >
+          <p
+            class="leading-none mb-6"
+            style="font-family:var(--f-display);font-size:clamp(5rem,9vw,9rem);color:var(--c-accent);font-weight:900;letter-spacing:-0.04em"
+          >
+            {step.number}
+          </p>
+          <h3
+            class="text-2xl mb-3"
+            style="font-family:var(--f-display);color:var(--c-text);font-weight:900;letter-spacing:-0.02em"
+          >
+            {step.title}.
+          </h3>
+          <p class="text-sm leading-relaxed font-light" style="color:var(--c-text-muted);font-family:var(--f-body)">
+            {step.description}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

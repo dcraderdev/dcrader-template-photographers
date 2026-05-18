@@ -6,10 +6,10 @@ import Galleries from '../components/v5/Galleries.astro';
 import About from '../components/v5/About.astro';
 import Services from '../components/v5/Services.astro';
 import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
-import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
-import SharedProcess from '../components/shared/SharedProcess.astro';
+import Testimonials from '../components/v5/Testimonials.astro';
+import Process from '../components/v5/Process.astro';
 import SharedInquiryForm from '../components/shared/SharedInquiryForm.astro';
-import SharedFooter from '../components/shared/SharedFooter.astro';
+import Footer from '../components/v5/Footer.astro';
 
 import { photographer } from '../data/v5/photographer';
 import { galleries } from '../data/v5/galleries';
@@ -43,7 +43,7 @@ const instagramPosts = [
       heroImage={photographer.heroImage}
       heroImageAlt={photographer.heroImageAlt}
     />
-    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <!-- Party-energy ordering: meet us → the love wall up high → galleries → roadmap → pricing → newsletter → DM -->
     <About
       name={photographer.name}
       portraitImage={photographer.portraitImage}
@@ -53,20 +53,21 @@ const instagramPosts = [
       philosophyQuote={photographer.philosophyQuote}
       philosophyAuthor={photographer.philosophyAuthor}
     />
+    <Testimonials testimonials={testimonials} />
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <Process steps={photographer.process} />
     <Services packages={packages} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
-    <SharedTestimonials testimonials={testimonials} label="Happy Couples" heading="They're talking about us 🎉" />
-    <SharedProcess steps={photographer.process} label="The Journey" heading="How We Roll" />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}
       location={photographer.location} instagramUrl={photographer.instagramUrl}
       instagram={photographer.instagram}
-      heading="Let's make magic"
-      subheading="Tell us about your celebration! The more you share, the better. We respond to every inquiry within 48 hours."
-      submitLabel="Let's Go! →"
+      heading="Slide into our inbox 🎉"
+      subheading="Tell us about your party! The more chaotic the details, the better. We answer every inquiry (and most DMs) within 48 hours — usually with too many emoji."
+      submitLabel="Send it! ✨"
     />
   </main>
-  <SharedFooter
+  <Footer
     name={photographer.name} business={photographer.business}
     subtagline={photographer.subtagline} instagram={photographer.instagram}
     instagramUrl={photographer.instagramUrl} instagramPosts={instagramPosts}

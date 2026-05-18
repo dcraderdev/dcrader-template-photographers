@@ -1,0 +1,82 @@
+---
+// V3 — Bohemian warm
+// "Love letters" pinned to a board. Each card is a polaroid-ish note with handwritten
+// Caveat signature. Mild rotation, no shadows-pop. Warm linen background.
+import type { Testimonial } from '../../data/v3/testimonials';
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
+
+interface Props { testimonials: Testimonial[]; }
+const { testimonials } = Astro.props;
+
+const rotations = ['-1.2deg', '0.8deg', '-0.6deg', '1.4deg', '-0.3deg'];
+const stamps = ['Postmarked Big Sur', 'Sealed with kisses', 'Mailed from the road', 'From the cottage'];
+---
+
+<section id="testimonials" class="py-24 lg:py-36 relative overflow-hidden" style="background:var(--c-bg-alt)" aria-label="Love letters">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Caveat heading -->
+    <div class="text-center mb-16 lg:mb-20 fade-hidden">
+      <p class="mb-3" style="font-family:var(--f-hand);font-size:1.5rem;color:var(--c-accent)">
+        from the mailbox —
+      </p>
+      <h2
+        class="italic"
+        style="font-family:var(--f-display);font-size:clamp(2.2rem,4.5vw,3.8rem);color:var(--c-text-inv);font-weight:300"
+      >
+        Love letters we keep<br />on the fridge.
+      </h2>
+    </div>
+
+    <!-- Pinned-letter grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-14">
+      {testimonials.map((t, i) => (
+        <figure
+          class="fade-hidden relative"
+          style={`transform:rotate(${rotations[i % rotations.length]});transition-delay:${i*0.1}s`}
+        >
+          <!-- Tape strip -->
+          <span
+            class="absolute -top-3 left-10 w-16 h-5 opacity-70"
+            style="background:rgba(253,248,242,0.35);transform:rotate(-4deg)"
+            aria-hidden="true"
+          ></span>
+
+          <div
+            class="p-8 lg:p-10 h-full flex flex-col"
+            style="background:rgba(253,248,242,0.05);border:1px solid rgba(196,103,58,0.18)"
+          >
+            <p class="text-[9px] uppercase tracking-[0.35em] mb-4" style="color:var(--c-accent);font-family:var(--f-display)">
+              {stamps[i % stamps.length]}
+            </p>
+
+            <blockquote
+              class="italic leading-relaxed flex-1 mb-8"
+              style="font-family:var(--f-display);font-size:1.05rem;color:rgba(253,248,242,0.82);font-weight:300"
+            >
+              {t.quote}
+            </blockquote>
+
+            <figcaption class="flex items-end justify-between gap-6">
+              <div>
+                <p style="font-family:var(--f-hand);font-size:1.6rem;color:var(--c-accent);line-height:1">
+                  {t.name}
+                </p>
+                <p class="text-[10px] uppercase tracking-[0.3em] mt-2" style="color:rgba(253,248,242,0.5);font-family:var(--f-display)">
+                  {t.weddingInfo}
+                </p>
+              </div>
+              <ResponsiveImage
+                src={t.image}
+                alt={t.imageAlt}
+                class="w-14 h-14 rounded-full object-cover flex-shrink-0"
+                loading="lazy"
+                decoding="async"
+              />
+            </figcaption>
+          </div>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

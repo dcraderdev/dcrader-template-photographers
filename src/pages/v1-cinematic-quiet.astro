@@ -7,10 +7,10 @@ import About from '../components/About.astro';
 import SignatureFrame from '../components/v1/SignatureFrame.astro';
 import Services from '../components/Services.astro';
 import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
-import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
-import SharedProcess from '../components/shared/SharedProcess.astro';
+import Testimonials from '../components/v1/Testimonials.astro';
+import Process from '../components/v1/Process.astro';
 import SharedInquiryForm from '../components/shared/SharedInquiryForm.astro';
-import SharedFooter from '../components/shared/SharedFooter.astro';
+import Footer from '../components/v1/Footer.astro';
 
 import { photographer } from '../data/v1/photographer';
 import { galleries } from '../data/v1/galleries';
@@ -35,21 +35,26 @@ const instagramPosts = [
 >
   <SharedNav name={photographer.name} variant="v1" />
   <main id="main-content">
+    <!-- Hero → quiet signature frame teaser → galleries → about -->
     <Hero />
+    <SignatureFrame />
     <Galleries />
     <About />
-    <SignatureFrame />
+    <!-- A single hero letter, with quieter footnote letters below -->
+    <Testimonials testimonials={testimonials} />
     <Services />
+    <Process steps={photographer.process} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
-    <SharedTestimonials testimonials={testimonials} />
-    <SharedProcess steps={photographer.process} />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}
       location={photographer.location} instagramUrl={photographer.instagramUrl}
       instagram={photographer.instagram}
+      heading="Write to me"
+      subheading="Tell me about your day — even just a few sentences. I read every message in the morning, with coffee, before anything else."
+      submitLabel="Send the letter"
     />
   </main>
-  <SharedFooter
+  <Footer
     name={photographer.name} business={photographer.business}
     subtagline={photographer.subtagline} instagram={photographer.instagram}
     instagramUrl={photographer.instagramUrl} instagramPosts={instagramPosts}

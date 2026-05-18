@@ -7,10 +7,9 @@ import About from '../components/v4/About.astro';
 import ProcessFlowchart from '../components/v4/ProcessFlowchart.astro';
 import Services from '../components/v4/Services.astro';
 import SharedInvestmentGuide from '../components/shared/SharedInvestmentGuide.astro';
-import SharedTestimonials from '../components/shared/SharedTestimonials.astro';
-import SharedProcess from '../components/shared/SharedProcess.astro';
+import Testimonials from '../components/v4/Testimonials.astro';
 import SharedInquiryForm from '../components/shared/SharedInquiryForm.astro';
-import SharedFooter from '../components/shared/SharedFooter.astro';
+import Footer from '../components/v4/Footer.astro';
 
 import { photographer } from '../data/v4/photographer';
 import { galleries } from '../data/v4/galleries';
@@ -44,6 +43,7 @@ const instagramPosts = [
       heroImage={photographer.heroImage}
       heroImageAlt={photographer.heroImageAlt}
     />
+    <!-- Method-first ordering: work → studio → method → investment → references → enquiry -->
     <Galleries galleries={galleries} galleriesJson={galleriesJson} />
     <About
       name={photographer.name}
@@ -57,18 +57,17 @@ const instagramPosts = [
     <ProcessFlowchart />
     <Services packages={packages} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
-    <SharedTestimonials testimonials={testimonials} label="Testimonials" heading="Client words" />
-    <SharedProcess steps={photographer.process} label="Methodology" heading="How I work" />
+    <Testimonials testimonials={testimonials} />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}
       location={photographer.location} instagramUrl={photographer.instagramUrl}
       instagram={photographer.instagram}
-      heading="Begin an enquiry"
-      subheading="All enquiries are reviewed personally. Please include your date and venue if known. I respond within 48 hours."
-      submitLabel="Send Enquiry"
+      heading="Begin an enquiry."
+      subheading="The studio accepts five weddings each year. Enquiries are read personally and answered within 48 hours. Please include the date and venue if known."
+      submitLabel="Send enquiry"
     />
   </main>
-  <SharedFooter
+  <Footer
     name={photographer.name} business={photographer.business}
     subtagline={photographer.subtagline} instagram={photographer.instagram}
     instagramUrl={photographer.instagramUrl} instagramPosts={instagramPosts}

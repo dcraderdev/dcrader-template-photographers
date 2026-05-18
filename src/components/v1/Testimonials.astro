@@ -1,0 +1,78 @@
+---
+// V1 — Cinematic quiet
+// Single hero quote treatment with a numbered list of "other letters".
+// One quote breathes large; the rest are quiet footnotes.
+import type { Testimonial } from '../../data/v1/testimonials';
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
+
+interface Props { testimonials: Testimonial[]; }
+const { testimonials } = Astro.props;
+const [hero, ...rest] = testimonials;
+---
+
+<section id="testimonials" class="py-28 lg:py-44" style="background:var(--c-bg-alt)" aria-label="Client letters">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Section eyebrow -->
+    <div class="flex items-baseline gap-6 mb-16 lg:mb-24 fade-hidden">
+      <span class="block w-16 h-px" style="background:var(--c-accent)" aria-hidden="true"></span>
+      <p class="text-[9px] uppercase tracking-[0.4em]" style="color:var(--c-accent);font-family:var(--f-body)">
+        Letters received
+      </p>
+    </div>
+
+    <!-- Hero quote: oversized, single column, no card -->
+    <figure class="max-w-4xl fade-hidden mb-24 lg:mb-32">
+      <span
+        class="block text-7xl leading-none mb-8 select-none"
+        style="font-family:var(--f-display);color:var(--c-accent);opacity:0.45"
+        aria-hidden="true"
+      >&ldquo;</span>
+      <blockquote
+        class="leading-snug italic"
+        style="font-family:var(--f-display);font-size:clamp(1.6rem,3.4vw,2.8rem);color:var(--c-text-inv);font-weight:300"
+      >
+        {hero.quote}
+      </blockquote>
+      <figcaption class="mt-10 flex items-center gap-5">
+        <ResponsiveImage
+          src={hero.image}
+          alt={hero.imageAlt}
+          class="w-16 h-16 rounded-full object-cover flex-shrink-0"
+          loading="lazy"
+          decoding="async"
+        />
+        <div>
+          <p class="text-lg" style="font-family:var(--f-display);color:var(--c-text-inv)">{hero.name}</p>
+          <p class="text-[10px] uppercase tracking-[0.3em] mt-1" style="color:var(--c-accent)">{hero.weddingInfo}</p>
+        </div>
+      </figcaption>
+    </figure>
+
+    <!-- Other letters: thin rule-divided rows, no card -->
+    <ol class="border-t" style="list-style:none;padding:0;margin:0;border-color:rgba(247,243,238,0.1)" aria-label="More letters">
+      {rest.map((t, i) => (
+        <li
+          class="py-10 lg:py-12 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 fade-hidden"
+          style={`border-bottom:1px solid rgba(247,243,238,0.1);transition-delay:${i*0.08}s`}
+        >
+          <div class="lg:col-span-3">
+            <p class="text-[9px] uppercase tracking-[0.4em] mb-2" style="color:var(--c-accent);font-family:var(--f-body)">
+              Letter №&nbsp;{String(i+2).padStart(2,'0')}
+            </p>
+            <p style="font-family:var(--f-display);font-size:1.2rem;color:var(--c-text-inv);font-weight:400">{t.name}</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] mt-1" style="color:rgba(247,243,238,0.45);font-family:var(--f-body)">
+              {t.weddingInfo}
+            </p>
+          </div>
+          <blockquote
+            class="lg:col-span-9 italic leading-relaxed"
+            style="font-family:var(--f-display);font-size:clamp(1rem,1.5vw,1.2rem);color:rgba(247,243,238,0.78);font-weight:300"
+          >
+            &ldquo;{t.quote}&rdquo;
+          </blockquote>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,58 @@
+---
+// V1 — cinematic quiet
+// Vertical timeline rail. Single column, alternating side margins, hairline indicators.
+interface Step { number: string; title: string; description: string; }
+interface Props { steps: Step[]; }
+const { steps } = Astro.props;
+---
+
+<section id="process" class="py-28 lg:py-44" style="background:var(--c-bg)" aria-label="How it works">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <div class="flex items-baseline gap-6 mb-20 fade-hidden">
+      <span class="block w-16 h-px" style="background:var(--c-accent)" aria-hidden="true"></span>
+      <p class="text-[9px] uppercase tracking-[0.4em]" style="color:var(--c-accent);font-family:var(--f-body)">
+        The experience
+      </p>
+    </div>
+
+    <h2
+      class="mb-20 fade-hidden"
+      style="font-family:var(--f-display);font-size:clamp(2.4rem,5vw,4rem);color:var(--c-text-inv);font-weight:400;letter-spacing:-0.01em;transition-delay:0.05s;line-height:1.05"
+    >
+      Slow. Quiet.<br /><span class="italic" style="color:rgba(247,243,238,0.55);font-weight:300">In four parts.</span>
+    </h2>
+
+    <!-- Single-column timeline with vertical rail -->
+    <ol class="relative max-w-3xl mx-auto" style="list-style:none;padding:0;margin:0">
+      <div
+        class="absolute left-3 top-3 bottom-3 w-px"
+        style="background:rgba(247,243,238,0.15)"
+        aria-hidden="true"
+      ></div>
+      {steps.map((step, i) => (
+        <li class="relative pl-16 pb-16 last:pb-0 fade-hidden" style={`transition-delay:${i*0.08}s`}>
+          <span
+            class="absolute left-0 top-0 flex items-center justify-center"
+            style="width:32px;height:32px;background:var(--c-bg);border:1px solid var(--c-accent);border-radius:50%"
+            aria-hidden="true"
+          >
+            <span class="block w-1.5 h-1.5 rounded-full" style="background:var(--c-accent)"></span>
+          </span>
+          <p class="text-[9px] uppercase tracking-[0.45em] mb-3" style="color:var(--c-accent);font-family:var(--f-body)">
+            Chapter {step.number}
+          </p>
+          <h3
+            class="mb-3"
+            style="font-family:var(--f-display);font-size:clamp(1.4rem,2.2vw,1.9rem);color:var(--c-text-inv);font-weight:400"
+          >
+            {step.title}
+          </h3>
+          <p class="text-sm lg:text-base leading-relaxed font-light max-w-xl" style="color:rgba(247,243,238,0.65);font-family:var(--f-body)">
+            {step.description}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

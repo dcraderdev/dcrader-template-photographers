@@ -1,0 +1,93 @@
+---
+// V1 footer — cinematic quiet.
+// Wide single-image strip rather than a 6-up grid. Slow, archival.
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
+interface Props {
+  name: string;
+  business: string;
+  subtagline: string;
+  instagram: string;
+  instagramUrl: string;
+  instagramPosts: Array<{ src: string; alt: string; }>;
+}
+const { name, business, subtagline, instagram, instagramUrl, instagramPosts } = Astro.props;
+const strip = instagramPosts.slice(0, 4);
+---
+
+<footer style="background:var(--c-bg-alt);padding-top:6rem;padding-bottom:3rem" aria-label="Site footer">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
+
+    <!-- Centered handwritten-style invite, no grid yet -->
+    <div class="text-center mb-12 fade-hidden">
+      <p class="text-[9px] uppercase tracking-[0.5em] mb-5" style="color:var(--c-accent);font-family:var(--f-body)">
+        From the archive
+      </p>
+      <a
+        href={instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="italic transition-opacity hover:opacity-80"
+        style="font-family:var(--f-display);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--c-text-inv);font-weight:300"
+        aria-label={`Visit ${instagram} on Instagram (opens in new tab)`}
+      >
+        {instagram}
+      </a>
+    </div>
+
+    <!-- Wide 4-up horizontal strip, taller aspect -->
+    <div
+      class="grid grid-cols-2 lg:grid-cols-4 gap-1 mb-20 fade-hidden"
+      style="transition-delay:0.1s"
+      role="list"
+      aria-label="Recent Instagram posts"
+    >
+      {strip.map((post, i) => (
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative overflow-hidden"
+          style="aspect-ratio:3/4"
+          role="listitem"
+          aria-label={`${post.alt} — view on Instagram (opens in new tab)`}
+        >
+          <ResponsiveImage
+            src={post.src}
+            alt={post.alt}
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <span
+            class="absolute bottom-3 left-3 text-[8px] uppercase tracking-[0.4em]"
+            style="color:rgba(247,243,238,0.85);font-family:var(--f-body)"
+            aria-hidden="true"
+          >
+            Frame {String(i+1).padStart(2,'0')}
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Sign-off rule -->
+    <div
+      class="pt-10 flex flex-col lg:flex-row items-center justify-between gap-6 fade-hidden"
+      style="border-top:1px solid rgba(247,243,238,0.1);transition-delay:0.2s"
+    >
+      <div class="text-center lg:text-left">
+        <p style="font-family:var(--f-display);font-size:1.4rem;color:var(--c-text-inv);font-weight:400">{name}</p>
+        <p class="text-[10px] uppercase tracking-[0.35em] mt-1.5" style="color:var(--c-text-muted)">{subtagline}</p>
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.4em] text-center" style="color:var(--c-text-muted);font-family:var(--f-body)">
+        © {new Date().getFullYear()} {business}
+      </p>
+    </div>
+
+    <p class="text-center mt-10 text-[9px]" style="color:rgba(247,243,238,0.2)">
+      Demo photography by Unsplash contributors.
+    </p>
+    <p class="text-center mt-3 text-[10px]" style="color:var(--c-text-muted)">
+      Built by <a href="https://dcrader.dev" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline" style="color:var(--c-text-inv)">Donovan Crader</a> · <a href="https://dcrader.dev" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color:var(--c-text-inv)">dcrader.dev</a>
+    </p>
+  </div>
+</footer>
