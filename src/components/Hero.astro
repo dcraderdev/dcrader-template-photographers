@@ -1,11 +1,12 @@
 ---
 import { photographer } from '../data/v1/photographer';
+import ResponsiveImage from './shared/ResponsiveImage.astro';
 ---
 
 <section id="hero" class="relative h-screen min-h-[600px] overflow-hidden" aria-label="Hero">
   <!-- Full-bleed cinematic image with Ken Burns -->
   <div class="absolute inset-0">
-    <img
+    <ResponsiveImage
       src={photographer.heroImage}
       alt={photographer.heroImageAlt}
       class="w-full h-full object-cover ken-burns"

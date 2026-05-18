@@ -1,5 +1,6 @@
 ---
 import { photographer } from '../data/photographer';
+import ResponsiveImage from './shared/ResponsiveImage.astro';
 
 // Instagram grid: 6 demo images from Unsplash (wedding/photography aesthetic)
 // In production, replace with real Instagram embed or API.
@@ -72,7 +73,7 @@ const instagramPosts = [
           role="listitem"
           aria-label={`${post.alt} — view on Instagram (opens in new tab)`}
         >
-          <img
+          <ResponsiveImage
             src={post.src}
             alt={post.alt}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

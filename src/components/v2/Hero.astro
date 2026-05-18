@@ -1,4 +1,5 @@
 ---
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 interface Props {
   name: string;
   subtagline: string;
@@ -15,7 +16,7 @@ const [firstName, lastName] = name.split(' ');
 
   <!-- Full-bleed photo -->
   <div class="absolute inset-0">
-    <img
+    <ResponsiveImage
       src={heroImage}
       alt={heroImageAlt}
       class="w-full h-full object-cover"

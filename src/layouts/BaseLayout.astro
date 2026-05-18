@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { title, description, ogImage, themeClass, heroPreload } = Astro.props;
+const heroPreloadAvif = heroPreload?.replace(/\.(webp|jpg|jpeg|png)$/i, '.avif');
+const hasAvifPreload = heroPreloadAvif && heroPreloadAvif !== heroPreload;
 ---
 
 <!DOCTYPE html>
@@ -24,7 +26,8 @@ const { title, description, ogImage, themeClass, heroPreload } = Astro.props;
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    {heroPreload && <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />}
+    {hasAvifPreload && <link rel="preload" as="image" href={heroPreloadAvif} type="image/avif" fetchpriority="high" />}
+    {heroPreload && !hasAvifPreload && <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />}
     <title>{title}</title>
     <script src="/template-topheader.js" defer></script>
   </head>

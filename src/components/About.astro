@@ -1,5 +1,6 @@
 ---
 import { photographer } from '../data/v1/photographer';
+import ResponsiveImage from './shared/ResponsiveImage.astro';
 ---
 
 <section id="about" class="py-28 lg:py-44" style="background:var(--c-bg-alt)" aria-label="About Emma Hayes">
@@ -9,7 +10,7 @@ import { photographer } from '../data/v1/photographer';
       <!-- Portrait with soft offset border -->
       <div class="relative fade-hidden">
         <div class="relative aspect-[3/4] overflow-hidden max-w-sm mx-auto lg:mx-0">
-          <img
+          <ResponsiveImage
             src={photographer.portraitImage}
             alt={photographer.portraitAlt}
             class="w-full h-full object-cover"

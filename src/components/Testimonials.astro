@@ -1,5 +1,6 @@
 ---
 import { testimonials } from '../data/testimonials';
+import ResponsiveImage from './shared/ResponsiveImage.astro';
 ---
 
 <section id="testimonials" class="py-24 lg:py-40 bg-[var(--color-warm-black)]" aria-label="Client testimonials">
@@ -29,7 +30,7 @@ import { testimonials } from '../data/testimonials';
 
             <!-- Attribution -->
             <figcaption class="mt-10 flex items-center gap-5">
-              <img
+              <ResponsiveImage
                 src={t.image}
                 alt={t.imageAlt}
                 class="w-14 h-14 rounded-full object-cover flex-shrink-0"

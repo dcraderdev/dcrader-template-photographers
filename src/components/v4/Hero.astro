@@ -1,4 +1,5 @@
 ---
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 interface Props {
   name: string;
   subtagline: string;
@@ -55,7 +56,7 @@ const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
 
   <!-- Right: full-height photo, flush edge -->
   <div class="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2 fade-hidden" style="transition-delay:0.12s">
-    <img src={heroImage} alt={heroImageAlt}
+    <ResponsiveImage src={heroImage} alt={heroImageAlt}
       class="w-full h-full object-cover"
       loading="eager" fetchpriority="high" decoding="async" />
     <!-- Subtle inner shadow left edge -->
@@ -64,7 +65,7 @@ const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
 
   <!-- Mobile: very subtle photo bg -->
   <div class="lg:hidden absolute inset-0 -z-10">
-    <img src={heroImage} alt={heroImageAlt} class="w-full h-full object-cover" style="opacity:0.08" loading="eager" fetchpriority="high" decoding="async" />
+    <ResponsiveImage src={heroImage} alt={heroImageAlt} class="w-full h-full object-cover" style="opacity:0.08" loading="eager" fetchpriority="high" decoding="async" />
   </div>
 </section>
 

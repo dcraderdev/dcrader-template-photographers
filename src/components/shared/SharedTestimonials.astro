@@ -1,5 +1,6 @@
 ---
 import type { Testimonial } from '../../data/v1/testimonials';
+import ResponsiveImage from './ResponsiveImage.astro';
 
 interface Props {
   testimonials: Testimonial[];
@@ -25,7 +26,7 @@ const { testimonials, label = 'Kind Words', heading = 'What couples say' } = Ast
               {t.quote}
             </blockquote>
             <figcaption class="mt-10 flex items-center gap-5">
-              <img src={t.image} alt={t.imageAlt} class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" decoding="async" />
+              <ResponsiveImage src={t.image} alt={t.imageAlt} class="w-14 h-14 rounded-full object-cover flex-shrink-0" loading="lazy" decoding="async" />
               <div>
                 <p class="text-lg" style="font-family:var(--f-display);color:var(--c-text-inv)">{t.name}</p>
                 <p class="text-[10px] uppercase tracking-[0.2em] mt-1" style="color:var(--c-accent)">{t.weddingInfo}</p>

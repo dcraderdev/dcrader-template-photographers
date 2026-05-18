@@ -1,0 +1,52 @@
+---
+// Native <picture> with AVIF source + WebP/JPG fallback <img>.
+// Derives the .avif sibling from a .webp/.jpg/.jpeg/.png `src`.
+// Use for any pre-generated /images/*.{webp,avif} pair in public/.
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  style?: string;
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  decoding?: 'async' | 'sync' | 'auto';
+  width?: number | string;
+  height?: number | string;
+  id?: string;
+  [key: string]: any;
+}
+
+const {
+  src,
+  alt,
+  class: className,
+  style,
+  loading = 'lazy',
+  fetchpriority,
+  decoding = 'async',
+  width,
+  height,
+  id,
+  ...rest
+} = Astro.props;
+
+const avifSrc = src.replace(/\.(webp|jpg|jpeg|png)$/i, '.avif');
+const hasAvif = avifSrc !== src;
+---
+<picture>
+  {hasAvif && <source srcset={avifSrc} type="image/avif" />}
+  <img
+    src={src}
+    alt={alt}
+    class={className}
+    style={style}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding={decoding}
+    width={width}
+    height={height}
+    id={id}
+    {...rest}
+  />
+</picture>

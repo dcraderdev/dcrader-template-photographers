@@ -1,4 +1,5 @@
 ---
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 interface Props {
   name: string;
   subtagline: string;
@@ -80,7 +81,7 @@ const { name, subtagline, tagline, heroImage, heroImageAlt } = Astro.props;
         class="lg:col-span-5 overflow-hidden fade-hidden"
         style="border-radius:var(--radius);min-height:280px;transition-delay:0.12s"
       >
-        <img
+        <ResponsiveImage
           src={heroImage}
           alt={heroImageAlt}
           class="w-full h-full object-cover ken-burns"

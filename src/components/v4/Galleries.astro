@@ -1,5 +1,6 @@
 ---
 import type { Gallery } from '../../data/v1/galleries';
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 interface Props { galleries: Gallery[]; galleriesJson: string; }
 const { galleries, galleriesJson } = Astro.props;
 ---
@@ -41,7 +42,7 @@ const { galleries, galleriesJson } = Astro.props;
               type="button"
               aria-label={`Open ${gallery.title} gallery`}
             >
-              <img
+              <ResponsiveImage
                 src={gallery.coverImage}
                 alt={gallery.coverAlt}
                 class="w-full object-cover transition-opacity duration-500 group-hover:opacity-90"

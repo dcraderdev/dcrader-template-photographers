@@ -1,5 +1,6 @@
 ---
 import type { Gallery } from '../../data/v1/galleries';
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 interface Props { galleries: Gallery[]; galleriesJson: string; }
 const { galleries, galleriesJson } = Astro.props;
 ---
@@ -36,7 +37,7 @@ const { galleries, galleriesJson } = Astro.props;
         data-gallery-id={gallery.id}
       >
         <!-- Full-bleed image -->
-        <img
+        <ResponsiveImage
           src={gallery.coverImage}
           alt={gallery.coverAlt}
           class="w-full h-full object-cover"

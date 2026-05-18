@@ -1,4 +1,5 @@
 ---
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 interface Props {
   name: string; portraitImage: string; portraitAlt: string;
   aboutParagraph1: string; aboutParagraph2: string;
@@ -42,7 +43,7 @@ const p = Astro.props;
           <div class="absolute -inset-8 rounded-full" style="border:1px solid rgba(212,168,67,0.2)" aria-hidden="true"></div>
 
           <div class="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden">
-            <img src={p.portraitImage} alt={p.portraitAlt}
+            <ResponsiveImage src={p.portraitImage} alt={p.portraitAlt}
               class="w-full h-full object-cover" loading="lazy" decoding="async" />
           </div>
 

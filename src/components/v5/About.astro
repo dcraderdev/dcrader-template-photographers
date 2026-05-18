@@ -1,4 +1,5 @@
 ---
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 interface Props {
   name: string; portraitImage: string; portraitAlt: string;
   aboutParagraph1: string; aboutParagraph2: string;
@@ -28,7 +29,7 @@ const p = Astro.props;
       <div class="lg:col-span-4 relative fade-hidden">
         <div class="absolute inset-0 -z-10" style="background:var(--c-accent);border-radius:var(--radius);transform:translate(10px,10px)" aria-hidden="true"></div>
         <div class="overflow-hidden" style="border-radius:var(--radius);aspect-ratio:4/5">
-          <img src={p.portraitImage} alt={p.portraitAlt}
+          <ResponsiveImage src={p.portraitImage} alt={p.portraitAlt}
             class="w-full h-full object-cover" loading="lazy" decoding="async" />
         </div>
         <!-- Floating heart badge -->
@@ -117,7 +118,7 @@ const p = Astro.props;
               style={`background:white;border-radius:var(--radius);transform:rotate(${i === 1 ? '0.6deg' : i === 2 ? '-0.4deg' : '0deg'})`}
             >
               <div class="relative" style="aspect-ratio:4/3">
-                <img
+                <ResponsiveImage
                   src={p.img}
                   alt={p.alt}
                   class="w-full h-full object-cover"
