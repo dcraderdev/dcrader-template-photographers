@@ -26,6 +26,7 @@ const { title, description, ogImage, themeClass, heroPreload } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {heroPreload && <link rel="preload" as="image" href={heroPreload} fetchpriority="high" />}
     <title>{title}</title>
+    <script src="/template-topheader.js" defer></script>
   </head>
   <body style={`font-family: var(--f-body); background-color: var(--c-bg); color: var(--c-text);`}>
     <!-- Custom cursor dot/ring (v1 only — others use default cursor) -->
