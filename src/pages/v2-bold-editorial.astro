@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SharedNav from '../components/shared/SharedNav.astro';
-import Hero from '../components/v2/Hero.astro';
+import GalleryGridHero from '../components/photographers/GalleryGridHero.astro';
 import Galleries from '../components/v2/Galleries.astro';
 import About from '../components/v2/About.astro';
 import Services from '../components/v2/Services.astro';
@@ -36,14 +36,15 @@ const instagramPosts = [
 >
   <SharedNav name={photographer.name} variant="v2" />
   <main id="main-content">
-    <Hero
+    <!-- V2 — Gallery-grid hero: the portfolio mosaic IS the entrance. Then deep dive. -->
+    <GalleryGridHero
       name={photographer.name}
       subtagline={photographer.subtagline}
       tagline={photographer.tagline}
       heroImage={photographer.heroImage}
       heroImageAlt={photographer.heroImageAlt}
     />
-    <!-- About (with press masthead) leads to portfolio, then method, praise. Editorial cadence. -->
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
     <About
       name={photographer.name}
       portraitImage={photographer.portraitImage}
@@ -53,7 +54,6 @@ const instagramPosts = [
       philosophyQuote={photographer.philosophyQuote}
       philosophyAuthor={photographer.philosophyAuthor}
     />
-    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
     <Process steps={photographer.process} />
     <Services packages={packages} />
     <Testimonials testimonials={testimonials} />

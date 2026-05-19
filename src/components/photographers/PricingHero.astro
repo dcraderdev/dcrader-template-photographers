@@ -1,0 +1,102 @@
+---
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
+import type { Package } from '../../data/v3/packages';
+
+interface Props {
+  name: string;
+  subtagline: string;
+  tagline: string;
+  heroImage: string;
+  heroImageAlt: string;
+  packages: Package[];
+}
+const { name, subtagline, tagline, heroImage, heroImageAlt, packages } = Astro.props;
+
+// Re-cast the three packages into the canonical Wedding / Portrait / Commercial trio
+// (using the actual data values so the page stays personalizable)
+const labels = ['Wedding', 'Portrait', 'Commercial'];
+const tiers = packages.slice(0, 3).map((p, i) => ({
+  label: labels[i] ?? p.name,
+  starting: p.startingAt,
+  hours: p.hours,
+  highlights: p.highlights.slice(0, 4),
+  featured: p.featured,
+}));
+---
+
+<!-- V3 — Pricing-Led Hero: three package tiers ARE the hero. Image is wallpaper. -->
+<section id="hero" class="relative w-full min-h-screen flex items-center" aria-label="Hero">
+
+  <!-- Soft background image, heavily washed -->
+  <div class="absolute inset-0 -z-0">
+    <ResponsiveImage
+      src={heroImage}
+      alt={heroImageAlt}
+      class="w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="absolute inset-0" aria-hidden="true"
+      style="background:linear-gradient(180deg, rgba(253,248,242,0.6) 0%, rgba(253,248,242,0.92) 60%, rgba(253,248,242,1) 100%)"></div>
+  </div>
+
+  <div class="relative w-full px-6 lg:px-12 pt-28 pb-16">
+    <!-- Intro -->
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="text-[11px] uppercase tracking-[0.45em]" style="color:var(--c-accent-dark); font-family:var(--f-body)">
+        {subtagline}
+      </p>
+      <h1 class="mt-5" style="font-family:var(--f-display); color:var(--c-text); font-weight:500; font-size:clamp(2.5rem,5.5vw,4.75rem); letter-spacing:-0.01em; line-height:1.02">
+        {name}
+      </h1>
+      <p class="mt-4 italic" style="font-family:var(--f-hand, var(--f-display)); font-size:clamp(1.1rem,1.6vw,1.5rem); color:var(--c-text-muted)">
+        {tagline}
+      </p>
+      <p class="mt-6 text-sm tracking-wide" style="color:var(--c-text-muted)">
+        Three ways to work together — every collection includes a print release and an heirloom-grade gallery.
+      </p>
+    </div>
+
+    <!-- Three tier cards -->
+    <div class="mt-12 lg:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
+      {tiers.map((t) => (
+        <article class="relative flex flex-col p-7 lg:p-9"
+          style={`background:var(--c-bg); border:1px solid ${t.featured ? 'var(--c-accent)' : 'var(--c-border)'}; border-radius:var(--radius)`}
+        >
+          {t.featured && (
+            <span class="absolute top-0 right-6 -translate-y-1/2 px-3 py-1 text-[9px] uppercase tracking-[0.3em]"
+              style="background:var(--c-accent); color:var(--c-text-inv); font-family:var(--f-body)">
+              Most booked
+            </span>
+          )}
+          <h2 class="text-xl uppercase tracking-[0.25em]" style="font-family:var(--f-body); color:var(--c-text); font-weight:600">
+            {t.label}
+          </h2>
+          <p class="mt-5" style="font-family:var(--f-display); font-size:clamp(2rem,3vw,2.75rem); color:var(--c-accent-dark); font-weight:500">
+            From {t.starting}
+          </p>
+          <p class="mt-1 text-xs uppercase tracking-[0.25em]" style="color:var(--c-text-muted)">
+            {t.hours}
+          </p>
+          <ul class="mt-6 space-y-2.5 flex-1">
+            {t.highlights.map((h) => (
+              <li class="flex gap-2.5 text-sm" style="color:var(--c-text)">
+                <span aria-hidden="true" style="color:var(--c-accent)">—</span>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="#inquire" class="mt-7 inline-block text-center py-3 text-[10px] uppercase tracking-[0.35em]"
+            style={`border:1px solid var(--c-accent); color:${t.featured ? 'var(--c-text-inv)' : 'var(--c-accent-dark)'}; background:${t.featured ? 'var(--c-accent)' : 'transparent'}; font-family:var(--f-body)`}>
+            Inquire about {t.label}
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-10 text-center text-xs" style="color:var(--c-text-muted)">
+      Custom multi-day and destination collections available on request.
+    </p>
+  </div>
+</section>

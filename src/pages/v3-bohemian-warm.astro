@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SharedNav from '../components/shared/SharedNav.astro';
-import Hero from '../components/v3/Hero.astro';
+import PricingHero from '../components/photographers/PricingHero.astro';
 import Galleries from '../components/v3/Galleries.astro';
 import About from '../components/v3/About.astro';
 import TravelMap from '../components/v3/TravelMap.astro';
@@ -37,14 +37,19 @@ const instagramPosts = [
 >
   <SharedNav name={photographer.name} variant="v3" />
   <main id="main-content">
-    <Hero
+    <!-- V3 — Pricing-led hero: package tiers front and center. -->
+    <PricingHero
       name={photographer.name}
       subtagline={photographer.subtagline}
       tagline={photographer.tagline}
       heroImage={photographer.heroImage}
       heroImageAlt={photographer.heroImageAlt}
+      packages={packages}
     />
-    <!-- Story arc: meet us → where we've been → what it looks like → the trail → letters → say hi -->
+    <Services packages={packages} />
+    <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <TravelMap />
     <About
       name={photographer.name}
       portraitImage={photographer.portraitImage}
@@ -54,12 +59,8 @@ const instagramPosts = [
       philosophyQuote={photographer.philosophyQuote}
       philosophyAuthor={photographer.philosophyAuthor}
     />
-    <TravelMap />
-    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
     <Process steps={photographer.process} />
-    <Services packages={packages} />
     <Testimonials testimonials={testimonials} />
-    <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}
       location={photographer.location} instagramUrl={photographer.instagramUrl}

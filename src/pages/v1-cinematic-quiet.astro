@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SharedNav from '../components/shared/SharedNav.astro';
-import Hero from '../components/Hero.astro';
+import CinematicHero from '../components/photographers/CinematicHero.astro';
 import Galleries from '../components/Galleries.astro';
 import About from '../components/About.astro';
 import SignatureFrame from '../components/v1/SignatureFrame.astro';
@@ -35,15 +35,20 @@ const instagramPosts = [
 >
   <SharedNav name={photographer.name} variant="v1" />
   <main id="main-content">
-    <!-- Hero → quiet signature frame teaser → galleries → about -->
-    <Hero />
+    <!-- V1 — Cinematic quiet: a single hero frame, then breath, then story. -->
+    <CinematicHero
+      name={photographer.name}
+      subtagline={photographer.subtagline}
+      tagline={photographer.tagline}
+      heroImage={photographer.heroImage}
+      heroImageAlt={photographer.heroImageAlt}
+    />
     <SignatureFrame />
-    <Galleries />
     <About />
-    <!-- A single hero letter, with quieter footnote letters below -->
+    <Galleries />
+    <Process steps={photographer.process} />
     <Testimonials testimonials={testimonials} />
     <Services />
-    <Process steps={photographer.process} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}

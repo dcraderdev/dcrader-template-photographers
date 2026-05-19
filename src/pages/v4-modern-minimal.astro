@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SharedNav from '../components/shared/SharedNav.astro';
-import Hero from '../components/v4/Hero.astro';
+import TestimonialHero from '../components/photographers/TestimonialHero.astro';
 import Galleries from '../components/v4/Galleries.astro';
 import About from '../components/v4/About.astro';
 import ProcessFlowchart from '../components/v4/ProcessFlowchart.astro';
@@ -36,15 +36,16 @@ const instagramPosts = [
 >
   <SharedNav name={photographer.name} variant="v4" />
   <main id="main-content">
-    <Hero
+    <!-- V4 — Testimonial hero: client letters lead. Praise → references → work → method. -->
+    <TestimonialHero
       name={photographer.name}
       subtagline={photographer.subtagline}
       tagline={photographer.tagline}
       heroImage={photographer.heroImage}
       heroImageAlt={photographer.heroImageAlt}
+      testimonials={testimonials}
     />
-    <!-- Method-first ordering: work → studio → method → investment → references → enquiry -->
-    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <Testimonials testimonials={testimonials} />
     <About
       name={photographer.name}
       portraitImage={photographer.portraitImage}
@@ -54,10 +55,10 @@ const instagramPosts = [
       philosophyQuote={photographer.philosophyQuote}
       philosophyAuthor={photographer.philosophyAuthor}
     />
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
     <ProcessFlowchart />
     <Services packages={packages} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
-    <Testimonials testimonials={testimonials} />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}
       location={photographer.location} instagramUrl={photographer.instagramUrl}

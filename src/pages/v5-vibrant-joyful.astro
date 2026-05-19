@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SharedNav from '../components/shared/SharedNav.astro';
-import Hero from '../components/v5/Hero.astro';
+import BookingHero from '../components/photographers/BookingHero.astro';
 import Galleries from '../components/v5/Galleries.astro';
 import About from '../components/v5/About.astro';
 import Services from '../components/v5/Services.astro';
@@ -36,14 +36,18 @@ const instagramPosts = [
 >
   <SharedNav name={photographer.name} variant="v5" />
   <main id="main-content">
-    <Hero
+    <!-- V5 — Booking hero: pick a date + session type up top, then sell the experience. -->
+    <BookingHero
       name={photographer.name}
       subtagline={photographer.subtagline}
       tagline={photographer.tagline}
       heroImage={photographer.heroImage}
       heroImageAlt={photographer.heroImageAlt}
     />
-    <!-- Party-energy ordering: meet us → the love wall up high → galleries → roadmap → pricing → newsletter → DM -->
+    <Process steps={photographer.process} />
+    <Services packages={packages} />
+    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
+    <Testimonials testimonials={testimonials} />
     <About
       name={photographer.name}
       portraitImage={photographer.portraitImage}
@@ -53,10 +57,6 @@ const instagramPosts = [
       philosophyQuote={photographer.philosophyQuote}
       philosophyAuthor={photographer.philosophyAuthor}
     />
-    <Testimonials testimonials={testimonials} />
-    <Galleries galleries={galleries} galleriesJson={galleriesJson} />
-    <Process steps={photographer.process} />
-    <Services packages={packages} />
     <SharedInvestmentGuide headline={investmentGuide.headline} subline={investmentGuide.subline} ctaLabel={investmentGuide.ctaLabel} />
     <SharedInquiryForm
       name={photographer.name} email={photographer.email}
