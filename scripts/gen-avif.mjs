@@ -7,7 +7,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 const IMG_DIR = path.resolve('public/images');
-const TARGET_WIDTHS = [320, 640, 1024, 1400, 1920];
+const TARGET_WIDTHS = [320, 400, 640, 800, 1024, 1400, 1920];
 
 function parseName(file) {
   const m = file.match(/^(.+)-(\d+)\.webp$/);
