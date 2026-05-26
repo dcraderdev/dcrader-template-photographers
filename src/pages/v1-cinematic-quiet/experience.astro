@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SharedNav from '../../components/shared/SharedNav.astro';
+import { photographer } from '../../data/v1/photographer';
+
+const homeHref = '/v1-cinematic-quiet';
+const title = `What to Expect on the Day | ${photographer.business}`;
+const description = `A walk through the rhythm of a wedding day photographed by ${photographer.name} — quiet, unhurried, documentary. Timelines, light, what we'll actually do together.`;
+---
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={photographer.heroImage}
+  themeClass="theme-v1"
+>
+  <SharedNav name={photographer.name} variant="v1" homeHref={homeHref} extraLink={{ href: `${homeHref}/experience`, label: 'The Day' }} />
+
+  <main id="main-content" class="pt-32 lg:pt-40 pb-32">
+
+    <!-- HERO BAND -->
+    <header class="px-6 lg:px-16 max-w-6xl mx-auto mb-20 lg:mb-28">
+      <div class="text-xs uppercase tracking-[0.3em] mb-6" style="color:var(--c-accent-dark)">A field guide for our couples</div>
+      <h1 class="font-serif text-5xl lg:text-7xl leading-[1.05] tracking-tight mb-8" style="color:var(--c-text); font-family:var(--f-display); font-weight:400;">
+        What the day<br/><em class="italic" style="color:var(--c-accent-dark)">actually feels like</em>.
+      </h1>
+      <p class="text-lg lg:text-xl max-w-2xl leading-relaxed" style="color:var(--c-text-muted); font-family:var(--f-body); font-weight:300;">
+        Couples ask me, often after their video call, what a wedding day with me really looks like. The honest answer is: not much. I want the day to feel like a wedding — not a photoshoot in a wedding's clothing. This is the rhythm I keep, hour by hour.
+      </p>
+    </header>
+
+    <!-- HOURLY RHYTHM -->
+    <section class="px-6 lg:px-16 max-w-5xl mx-auto mb-24 lg:mb-32">
+      <div class="grid lg:grid-cols-[160px_1fr] gap-y-12 lg:gap-x-16">
+
+        <div class="font-serif italic text-2xl" style="color:var(--c-accent-dark); font-family:var(--f-display);">9:30 am</div>
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl mb-4" style="font-family:var(--f-display); font-weight:400;">Coffee. Quiet. A held breath.</h2>
+          <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">I arrive earlier than I need to. The day is still soft and a little tender. Your dress is hanging in the window. Someone is bringing pastries up the stairs. I photograph the rings on the linens, the handwritten vows folded into a copy of your favorite book, the way the light is falling on the bedroom floor. Nobody is being directed yet. We're just here.</p>
+        </div>
+
+        <div class="font-serif italic text-2xl" style="color:var(--c-accent-dark); font-family:var(--f-display);">10:45 am</div>
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl mb-4" style="font-family:var(--f-display); font-weight:400;">Getting ready, gently.</h2>
+          <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">Bridesmaids are zipping each other into dresses, a grandmother is fussing with a hem, your father is somewhere downstairs not quite sure what to do with his hands. I photograph it the way you'd remember it later — not the way a glossy magazine would frame it. I will ask, very quietly, if there's anything you want me to look for. Otherwise I disappear into the wallpaper and let it happen.</p>
+        </div>
+
+        <div class="font-serif italic text-2xl" style="color:var(--c-accent-dark); font-family:var(--f-display);">12:30 pm</div>
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl mb-4" style="font-family:var(--f-display); font-weight:400;">The first look (or not).</h2>
+          <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">I don't have a strong opinion about whether you should do a first look. I have a strong opinion that whatever you choose should be the right thing for the two of you and not for the timeline. If you decide on one, I'll find a private place with good light — usually a courtyard, a stairwell, the end of a long hallway — and then I'll back away to a long lens so it can be yours.</p>
+        </div>
+
+        <div class="font-serif italic text-2xl" style="color:var(--c-accent-dark); font-family:var(--f-display);">2:00 pm</div>
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl mb-4" style="font-family:var(--f-display); font-weight:400;">Family, as quickly as we can.</h2>
+          <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">I'll send you a short questionnaire about a month before the wedding so we know exactly which family groupings matter, who's already arrived from out of town, who walks slowly, who hates being photographed but loves you anyway. We move through the formals in 18 to 22 minutes. Then I hand you back to your people. Long family sessions are where wedding days lose their air.</p>
+        </div>
+
+        <div class="font-serif italic text-2xl" style="color:var(--c-accent-dark); font-family:var(--f-display);">4:30 pm</div>
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl mb-4" style="font-family:var(--f-display); font-weight:400;">Vows. The reason for all of it.</h2>
+          <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">I shoot ceremonies with two camera bodies — one short, one long — and I move very little. I have been doing this long enough to know exactly where to stand so that I'm never the thing your grandmother sees behind your shoulder in the photograph she'll keep on her dresser. I get the kiss. I get the way you both laugh on the recessional. I get the relief on your mother's face.</p>
+        </div>
+
+        <div class="font-serif italic text-2xl" style="color:var(--c-accent-dark); font-family:var(--f-display);">6:15 pm</div>
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl mb-4" style="font-family:var(--f-display); font-weight:400;">Twenty minutes of golden hour.</h2>
+          <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">After the toasts, before dinner is fully plated, I will steal you for about twenty minutes. We walk somewhere with a view and good late-afternoon light — a vineyard row, an olive grove, the back of the property nobody usually wanders to. This is the only portion of the day that's really for the photographs, and you'll be grateful for them in twenty years. Bring comfortable shoes hidden under your dress.</p>
+        </div>
+
+        <div class="font-serif italic text-2xl" style="color:var(--c-accent-dark); font-family:var(--f-display);">9:45 pm</div>
+        <div>
+          <h2 class="font-serif text-3xl lg:text-4xl mb-4" style="font-family:var(--f-display); font-weight:400;">The dance floor. The end.</h2>
+          <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">I stay through the toasts, the cake, an hour of open dancing, and the first sparkler exit or last-song moment you've planned. Then I leave you to it. You will not see me much by then — I'll be on the edge of the floor with a small flash, looking for the uncle who's finally letting loose and the way your partner's hand finds the small of your back when they think nobody is watching.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRUTHS -->
+    <section class="border-t border-b py-20 lg:py-28 mb-24" style="background:var(--c-bg-accent); border-color:var(--c-border);">
+      <div class="px-6 lg:px-16 max-w-5xl mx-auto">
+        <div class="text-xs uppercase tracking-[0.3em] mb-6" style="color:var(--c-accent-dark)">Three quiet truths</div>
+        <h2 class="font-serif text-4xl lg:text-5xl mb-14 leading-tight" style="font-family:var(--f-display); font-weight:400;">Things I wish couples knew before the day.</h2>
+
+        <div class="grid lg:grid-cols-3 gap-12 lg:gap-16">
+          <div>
+            <div class="font-serif italic text-3xl mb-4" style="color:var(--c-accent-dark); font-family:var(--f-display);">i.</div>
+            <h3 class="font-serif text-2xl mb-3" style="font-family:var(--f-display); font-weight:400;">Buffer your timeline.</h3>
+            <p class="leading-relaxed text-base" style="color:var(--c-text-muted); font-weight:300;">Every wedding day runs about 22 minutes behind by 4 pm. Build in two unscheduled 15-minute windows — one before the ceremony, one before dinner. They are the difference between a day you remember and a day you survive.</p>
+          </div>
+          <div>
+            <div class="font-serif italic text-3xl mb-4" style="color:var(--c-accent-dark); font-family:var(--f-display);">ii.</div>
+            <h3 class="font-serif text-2xl mb-3" style="font-family:var(--f-display); font-weight:400;">Eat the breakfast.</h3>
+            <p class="leading-relaxed text-base" style="color:var(--c-text-muted); font-weight:300;">Nerves will tell you that you're not hungry. Nerves are lying. Eat something with protein in the morning and again at the cocktail hour. The best portraits I make are of couples who are not running on fumes.</p>
+          </div>
+          <div>
+            <div class="font-serif italic text-3xl mb-4" style="color:var(--c-accent-dark); font-family:var(--f-display);">iii.</div>
+            <h3 class="font-serif text-2xl mb-3" style="font-family:var(--f-display); font-weight:400;">Trust the unposed.</h3>
+            <p class="leading-relaxed text-base" style="color:var(--c-text-muted); font-weight:300;">You will be tempted, around the third toast, to ask me to set up a few "real" portraits. Resist. The photographs you'll cherish in ten years are the ones happening in the room while you're crying, not the ones I orchestrated in a hallway.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AFTER -->
+    <section class="px-6 lg:px-16 max-w-4xl mx-auto mb-20 text-center">
+      <div class="text-xs uppercase tracking-[0.3em] mb-6" style="color:var(--c-accent-dark)">After the day</div>
+      <h2 class="font-serif text-4xl lg:text-5xl mb-8 leading-tight" style="font-family:var(--f-display); font-weight:400;">A handful of frames, within the week.</h2>
+      <p class="text-lg leading-relaxed mb-6" style="color:var(--c-text-muted); font-weight:300;">Within seven days you'll have a small set of preview photographs — twelve to twenty frames, fully finished, the ones I couldn't wait for you to see. The full gallery follows within six weeks. I deliver between 600 and 850 edited images, depending on the length of the day. You'll receive them as a beautifully presented online gallery, with a high-resolution download for every frame and personal printing rights for life.</p>
+      <p class="text-lg leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">Eight to twelve weeks after the wedding, we sit down together — over coffee, in person if you're in California, on a call if you're not — to choose your album spread. I design every album by hand. It is the part of this work I love most.</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-6 lg:px-16 max-w-3xl mx-auto text-center">
+      <div class="h-px w-16 mx-auto mb-12" style="background:var(--c-accent-dark)"></div>
+      <p class="font-serif italic text-2xl lg:text-3xl leading-snug mb-10" style="font-family:var(--f-display); color:var(--c-text);">
+        If any of this sounds like the kind of day you're hoping to remember, I would love to hear from you.
+      </p>
+      <a href={`${homeHref}#inquire`} class="inline-block uppercase tracking-[0.3em] text-xs px-10 py-4 transition-colors" style="border:1px solid var(--c-text); color:var(--c-text);">
+        Write to me
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="border-t mt-24 py-10 px-6 lg:px-16" style="border-color:var(--c-border)">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 text-sm" style="color:var(--c-text-muted)">
+      <div>© {new Date().getFullYear()} {photographer.business}</div>
+      <div><a href={homeHref} class="hover:underline">← Back to the work</a></div>
+    </div>
+  </footer>
+</BaseLayout>

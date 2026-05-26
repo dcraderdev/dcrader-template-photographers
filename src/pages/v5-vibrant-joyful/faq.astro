@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SharedNav from '../../components/shared/SharedNav.astro';
+import { photographer } from '../../data/v5/photographer';
+
+const homeHref = '/v5-vibrant-joyful';
+const title = `FAQ — Stuff People Actually Ask Us | ${photographer.business}`;
+const description = `Real questions, honest answers. Everything our Austin couples want to know about hiring Pop & Bloom Photography — minus the corporate copy.`;
+
+const faqs = [
+  {
+    section: 'The basics',
+    items: [
+      {
+        q: 'How many weddings do you book a year?',
+        a: "We cap it at 28. Past that, we get tired, and tired photographers make boring photos. Once a year is full, we're full — we don't squeeze."
+      },
+      {
+        q: "Are y'all really a couple, or is that just a brand thing?",
+        a: "Married eight years. Met at South by Southwest, got engaged at Barton Springs, fought about whose camera bag goes on the front seat that very same week. The couple part is real. So is the fighting about the front seat."
+      },
+      {
+        q: 'How far do you travel?',
+        a: "Anywhere with a runway. We're based in Austin, but about a third of our weddings happen out of state. Travel within Texas is included up to 90 miles. Beyond that, we just pass through the cost of flights and a hotel — no inflated travel fees."
+      },
+    ]
+  },
+  {
+    section: 'Pricing & packages',
+    items: [
+      {
+        q: "Okay, what's it actually cost?",
+        a: "Wedding collections start at $4,800 for eight hours of two-photographer coverage. The most-booked package is $6,400 (ten hours + engagement session + a beautifully edited gallery + sneak peeks on Monday). Full pricing PDF in your inbox the same day you inquire — no calendar tag, no sales call gauntlet."
+      },
+      {
+        q: 'Do you offer payment plans?',
+        a: "Yes. A 25% retainer locks your date and the rest gets split into monthly payments however your budget allows — we set it up the day you book. No interest, no fees."
+      },
+      {
+        q: 'Will you do "just a few hours"?',
+        a: "For elopements and micro-weddings under 25 people, absolutely — those start at $2,400 for four hours. For traditional weddings we stick to the eight-hour minimum because anything shorter tends to leave huge holes in the story."
+      },
+    ]
+  },
+  {
+    section: 'The actual day',
+    items: [
+      {
+        q: "We hate posing. We're so awkward. Can you work with us?",
+        a: "This is literally what we do. About 80% of our couples open with 'we're not photogenic.' By the third song at the reception they've stopped noticing the cameras and we're getting the photos that end up on their parents' fridges. Posing is mostly about the photographer knowing how to talk to you — that's our job, not yours."
+      },
+      {
+        q: "What if it rains?",
+        a: "Texas weather does whatever it wants. We've shot in 104°F sun and a tornado warning in the same week. We bring clear umbrellas, we have a backup plan for every venue we work, and honestly some of the prettiest portraits we've ever made happened under a porch during a thunderstorm. You'll be fine. We've got you."
+      },
+      {
+        q: 'Do you do the family formal photo list?',
+        a: "Yes — please send us your list two weeks out. We knock the family formals out in 20 minutes flat using a clipboard and a loud voice for grandparents who can't hear over the bagpiper. Efficient is a love language."
+      },
+      {
+        q: "Can our cousin who 'does photography' shoot too?",
+        a: "Honestly? Yes. We don't get weird about it. We just ask that they don't jump in front of our shots during the ceremony or first dance — those moments only happen once. Otherwise, the more cameras the merrier."
+      },
+    ]
+  },
+  {
+    section: 'After the wedding',
+    items: [
+      {
+        q: 'When do we get the photos?',
+        a: "Sneak peeks on Monday — usually 30 to 50 images so you have something to post and your family stops calling. The full gallery (700+ images, all edited) lands within four weeks. We don't believe in eight-week turnarounds. Y'all already waited a year for this day."
+      },
+      {
+        q: 'Are the photos edited or do we get RAW files?',
+        a: "Fully edited, color-graded, and ready to print or post. We don't release RAWs — same reason a chef doesn't send you home with the ingredients."
+      },
+      {
+        q: 'Can we print the photos ourselves?',
+        a: "Print rights forever, no permission needed. The gallery has a built-in print shop with a professional lab we trust, but if you want to send them somewhere else, go for it."
+      },
+      {
+        q: "We're terrible at picking photos. Help?",
+        a: "We offer a beautiful linen album that we design for you — you don't pick a thing. We pull the 40 best images, lay them out in a story you'd actually want to flip through, and you get two rounds of edits. Books start at $750. Most couples cry when they see them. We're not even sorry."
+      },
+    ]
+  },
+  {
+    section: 'The weird ones',
+    items: [
+      {
+        q: 'Will you dance at our wedding?',
+        a: "Reader, we are going to dance at your wedding. We can't help it. There is a non-zero chance we will be photographed dancing at your wedding by your guests. We accept these terms."
+      },
+      {
+        q: 'Can our dog be in the photos?',
+        a: "Please. Yes. Bring the dog. Bring two dogs. We've worked with a wedding goat, a parrot named Linda, and a cat who hated everyone but us. Animals are welcome and frequently the favorite part of the gallery."
+      },
+      {
+        q: "What's the secret to a good wedding photo?",
+        a: "Letting yourself actually be there. The couples who get out of their heads, drink the champagne, and trust that the day is happening to them — not at them — are the ones who end up loving their pictures. We can only photograph what you'll let yourselves feel."
+      },
+    ]
+  }
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={photographer.heroImage}
+  themeClass="theme-v5"
+>
+  <SharedNav name={photographer.name} variant="v5" homeHref={homeHref} extraLink={{ href: `${homeHref}/faq`, label: 'FAQ' }} />
+
+  <main id="main-content" class="pt-32 lg:pt-40">
+
+    <!-- HERO -->
+    <header class="px-6 lg:px-16 max-w-5xl mx-auto text-center mb-20 lg:mb-24">
+      <div class="inline-block px-5 py-2 mb-8 rounded-full text-sm font-bold" style="background:var(--c-accent); color:var(--c-text);">
+        ✦ The honest FAQ ✦
+      </div>
+      <h1 class="text-5xl lg:text-7xl xl:text-8xl leading-[1] mb-8" style="font-family:var(--f-display); color:var(--c-text); font-weight:700;">
+        Stuff y'all<br/>actually <em class="italic" style="color:var(--c-coral);">ask us</em>.
+      </h1>
+      <p class="text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto" style="color:var(--c-text-muted); font-weight:400;">
+        Twenty real questions from real inquiries, answered the way we'd answer them on the phone. No corporate copy. No sales-y nonsense. If we wouldn't say it at brunch, it isn't here.
+      </p>
+    </header>
+
+    <!-- FAQ SECTIONS -->
+    <section class="px-6 lg:px-16 max-w-4xl mx-auto mb-24">
+      {faqs.map((section, sIdx) => (
+        <div class="mb-16 lg:mb-20">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="text-2xl" style="color:var(--c-coral);">✦</div>
+            <h2 class="text-3xl lg:text-4xl" style="font-family:var(--f-display); color:var(--c-text); font-weight:700;">{section.section}</h2>
+            <div class="flex-1 h-px" style="background:var(--c-border);"></div>
+          </div>
+
+          <div class="space-y-5">
+            {section.items.map((item, i) => (
+              <details class="group rounded-2xl border-2 transition-colors" style={`background:var(--c-bg-accent); border-color:transparent;`}>
+                <summary class="flex items-center justify-between gap-4 p-6 lg:p-7 cursor-pointer list-none">
+                  <h3 class="text-lg lg:text-xl flex-1" style="font-family:var(--f-display); color:var(--c-text); font-weight:700;">
+                    {item.q}
+                  </h3>
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-xl transition-transform group-open:rotate-45" style="background:var(--c-accent); color:var(--c-text);">+</div>
+                </summary>
+                <div class="px-6 lg:px-7 pb-6 lg:pb-7 -mt-2">
+                  <p class="text-base lg:text-lg leading-relaxed" style="color:var(--c-text); font-weight:400;">
+                    {item.a}
+                  </p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- STILL HAVE QUESTIONS -->
+    <section class="px-6 lg:px-16 mb-20">
+      <div class="max-w-5xl mx-auto rounded-3xl p-10 lg:p-16 text-center" style="background:var(--c-bg-alt); color:var(--c-text-inv);">
+        <div class="text-5xl mb-6">🎉</div>
+        <h2 class="text-4xl lg:text-5xl mb-6 leading-tight" style="font-family:var(--f-display); font-weight:700;">
+          Got a question we didn't cover?
+        </h2>
+        <p class="text-lg lg:text-xl mb-10 max-w-xl mx-auto" style="color:rgba(255,254,249,0.75); font-weight:400;">
+          Genuinely — we love a weird question. We answer every inquiry within 24 hours (usually faster, often with too many exclamation points).
+        </p>
+        <a href={`${homeHref}#inquire`} class="inline-block text-base font-bold px-10 py-4 rounded-full transition-transform hover:scale-105" style="background:var(--c-accent); color:var(--c-text);">
+          Ask us anything →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-10 px-6 lg:px-16 border-t" style="border-color:var(--c-border);">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 text-sm" style="color:var(--c-text-muted)">
+      <div>© {new Date().getFullYear()} {photographer.business}</div>
+      <div><a href={homeHref} class="hover:underline" style="color:var(--c-coral);">← Back to the party</a></div>
+    </div>
+  </footer>
+</BaseLayout>

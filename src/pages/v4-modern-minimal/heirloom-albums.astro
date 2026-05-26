@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SharedNav from '../../components/shared/SharedNav.astro';
+import { photographer } from '../../data/v4/photographer';
+
+const homeHref = '/v4-modern-minimal';
+const title = `Heirloom Albums & Fine Art Prints | ${photographer.business}`;
+const description = `On the discipline of finishing — hand-bound albums, museum-grade prints, and the philosophy of why every wedding should end on paper. ${photographer.name}, Berlin & Copenhagen.`;
+---
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={photographer.heroImage}
+  themeClass="theme-v4"
+>
+  <SharedNav name={photographer.name} variant="v4" homeHref={homeHref} extraLink={{ href: `${homeHref}/heirloom-albums`, label: 'Heirlooms' }} />
+
+  <main id="main-content" style="background:var(--c-bg); color:var(--c-text);">
+
+    <!-- HERO -->
+    <section class="pt-40 pb-24 px-6 lg:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-8 mb-16">
+          <div class="lg:col-span-2 text-xs uppercase tracking-[0.3em]" style="color:var(--c-text-muted);">No. 04 — Heirlooms</div>
+          <div class="lg:col-span-10">
+            <h1 class="text-5xl lg:text-7xl xl:text-8xl leading-[1] tracking-tight" style="font-family:var(--f-serif); font-weight:400;">
+              The object,<br/>not the file.
+            </h1>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-8">
+          <div class="lg:col-start-3 lg:col-span-7">
+            <p class="text-lg lg:text-xl leading-relaxed" style="font-weight:300;">
+              A wedding gallery is not finished when it is delivered. It is finished when it has been pressed into the hand of a child, twenty-five years from now, who has never met the people on the page but understands something of them. That requires paper, ink, thread, and binding. That requires the slow work of finishing. The studio dedicates roughly the same number of hours to print and album craft as it does to photographing the wedding itself.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALBUMS -->
+    <section class="border-t py-24 px-6 lg:px-16" style="border-color:var(--c-border);">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 mb-16">
+          <div class="lg:col-span-3">
+            <div class="text-xs uppercase tracking-[0.3em] mb-2" style="color:var(--c-text-muted);">01 / Albums</div>
+            <h2 class="text-3xl lg:text-4xl leading-tight" style="font-family:var(--f-serif); font-weight:400;">Hand-bound, in Copenhagen.</h2>
+          </div>
+          <div class="lg:col-span-8 lg:col-start-5">
+            <p class="text-base lg:text-lg leading-relaxed mb-6" style="font-weight:300;">
+              Every album in the studio is produced in collaboration with a third-generation Danish bindery in Vesterbro. The covers are full-grain Buffalo leather or natural Italian linen, the spreads are layflat with seamless gutters, and the paper is a 350gsm uncoated cotton rag from Hahnemühle. Twelve to sixteen weeks from gallery delivery to your hand.
+            </p>
+            <p class="text-base lg:text-lg leading-relaxed" style="font-weight:300;">
+              Design is the part we do not outsource. The studio sequences each album personally over two unhurried weeks. The first revision is shown to you in a private digital proof. We expect — and welcome — two rounds of changes. The final spread count averages 38 images across 22 spreads. Restraint matters. An album of 200 photographs is a hard drive in disguise.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-px" style="background:var(--c-border);">
+          <div class="p-8 lg:p-10" style="background:var(--c-bg);">
+            <div class="text-xs uppercase tracking-[0.2em] mb-3" style="color:var(--c-text-muted);">Petite — 8 × 10"</div>
+            <div class="text-3xl mb-3" style="font-family:var(--f-serif); font-weight:400;">€1,450</div>
+            <p class="text-sm leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">Up to 22 spreads. Linen or leather cover. Included with the Signature collection by default.</p>
+          </div>
+          <div class="p-8 lg:p-10" style="background:var(--c-bg);">
+            <div class="text-xs uppercase tracking-[0.2em] mb-3" style="color:var(--c-text-muted);">Studio — 10 × 12"</div>
+            <div class="text-3xl mb-3" style="font-family:var(--f-serif); font-weight:400;">€2,200</div>
+            <p class="text-sm leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">Up to 28 spreads. Hand-tooled spine. The studio's recommended size — the most-chosen for nine years running.</p>
+          </div>
+          <div class="p-8 lg:p-10" style="background:var(--c-bg);">
+            <div class="text-xs uppercase tracking-[0.2em] mb-3" style="color:var(--c-text-muted);">Heirloom — 12 × 14"</div>
+            <div class="text-3xl mb-3" style="font-family:var(--f-serif); font-weight:400;">€3,400</div>
+            <p class="text-sm leading-relaxed" style="color:var(--c-text-muted); font-weight:300;">Up to 36 spreads. Slipcase included. Commissioned for the wedding that will sit on a coffee table, openly, for a lifetime.</p>
+          </div>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-12">
+          <div class="lg:col-start-3 lg:col-span-8 text-xs uppercase tracking-[0.2em] pt-6 border-t" style="color:var(--c-text-muted); border-color:var(--c-border);">
+            Parent albums are offered as duplicates at 50% of the original. Two-album minimum.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINTS -->
+    <section class="border-t py-24 px-6 lg:px-16" style="background:var(--c-bg-alt); border-color:var(--c-border);">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 mb-16">
+          <div class="lg:col-span-3">
+            <div class="text-xs uppercase tracking-[0.3em] mb-2" style="color:var(--c-text-muted);">02 / Prints</div>
+            <h2 class="text-3xl lg:text-4xl leading-tight" style="font-family:var(--f-serif); font-weight:400;">Museum-grade, printed in Berlin.</h2>
+          </div>
+          <div class="lg:col-span-8 lg:col-start-5">
+            <p class="text-base lg:text-lg leading-relaxed mb-6" style="font-weight:300;">
+              Fine art prints are produced at a single archive-grade lab in Berlin-Mitte, on Hahnemühle Photo Rag Baryta, with pigment-based inks rated for 200 years of color stability. Every print is hand-finished, deckle-edged on request, and signed on the verso. The studio does not produce prints anywhere else, in any other format, by any other process.
+            </p>
+            <p class="text-base lg:text-lg leading-relaxed" style="font-weight:300;">
+              We offer three finishing options: unmounted, mounted on 4mm Dibond aluminum composite, or framed in solid white oak with museum glass. Frames are made by a single workshop in Charlottenburg that builds for the Kunsthalle.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-4 gap-px" style="background:var(--c-border);">
+          {[
+            ['8 × 10"', '€85', 'Unmounted'],
+            ['11 × 14"', '€140', 'Unmounted'],
+            ['16 × 20"', '€260', 'Mounted'],
+            ['24 × 30"', '€520', 'Mounted'],
+          ].map(([size, price, finish]) => (
+            <div class="p-8" style="background:var(--c-bg-alt);">
+              <div class="text-xs uppercase tracking-[0.2em] mb-3" style="color:var(--c-text-muted);">{finish}</div>
+              <div class="text-2xl mb-2" style="font-family:var(--f-serif); font-weight:400;">{size}</div>
+              <div class="text-base" style="color:var(--c-text-muted); font-weight:300;">{price}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-12">
+          <div class="lg:col-start-3 lg:col-span-8 text-xs uppercase tracking-[0.2em] pt-6 border-t" style="color:var(--c-text-muted); border-color:var(--c-border);">
+            Framed prints add €180–€480 depending on size. Worldwide art-shipping available.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="border-t py-24 px-6 lg:px-16" style="border-color:var(--c-border);">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-3">
+          <div class="text-xs uppercase tracking-[0.3em] mb-2" style="color:var(--c-text-muted);">03 / Philosophy</div>
+          <h2 class="text-3xl lg:text-4xl leading-tight" style="font-family:var(--f-serif); font-weight:400;">Why paper, still.</h2>
+        </div>
+        <div class="lg:col-span-8 lg:col-start-5 space-y-6 text-base lg:text-lg leading-relaxed" style="font-weight:300;">
+          <p>
+            Cloud storage is not preservation. It is convenience masquerading as permanence. The hard drives of 2026 will be unreadable by 2046, the platforms will be deprecated, the file formats will be migrated three times badly. A printed photograph, made on cotton rag with pigment ink, simply sits on a shelf — and is still there.
+          </p>
+          <p>
+            Every couple who works with the studio leaves with at least one printed object, by design and by contract. This is not an upsell. It is a discipline we will not compromise on. The world has enough digital archives that nobody opens. It does not have enough printed weddings that get passed down.
+          </p>
+          <p style="font-family:var(--f-serif); font-style:italic; padding-left:1.5rem; border-left:2px solid var(--c-text);">
+            "An object that the hand can hold is more valuable than a thousand images that the hand cannot. This is true of every wedding I have photographed. It will be true of yours."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t py-24 px-6 lg:px-16" style="border-color:var(--c-border);">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl lg:text-5xl mb-8 leading-tight" style="font-family:var(--f-serif); font-weight:400;">
+          Begin a conversation.
+        </h2>
+        <p class="text-lg mb-10 max-w-2xl mx-auto" style="color:var(--c-text-muted); font-weight:300;">
+          The studio takes a maximum of twenty weddings per year. Inquiries for 2026 are reviewed on a rolling basis. Album-only commissions, for couples whose weddings have already been photographed elsewhere, are accepted by exception.
+        </p>
+        <a href={`${homeHref}#inquire`} class="inline-block uppercase tracking-[0.3em] text-xs font-medium px-12 py-5 transition-colors" style="background:var(--c-text); color:var(--c-bg);">
+          Inquire →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t py-10 px-6 lg:px-16" style="border-color:var(--c-border);">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 text-xs uppercase tracking-[0.2em]" style="color:var(--c-text-muted);">
+      <div>© {new Date().getFullYear()} {photographer.business}</div>
+      <div><a href={homeHref} class="hover:underline">← Studio</a></div>
+    </div>
+  </footer>
+</BaseLayout>

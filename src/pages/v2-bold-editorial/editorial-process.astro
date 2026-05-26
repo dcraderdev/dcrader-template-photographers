@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SharedNav from '../../components/shared/SharedNav.astro';
+import { photographer } from '../../data/v2/photographer';
+
+const homeHref = '/v2-bold-editorial';
+const title = `The Editorial Process | ${photographer.business}`;
+const description = `Behind the work of ${photographer.name} — how an editorial wedding is built, from creative brief to final magazine-grade gallery. New York and worldwide.`;
+---
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={photographer.heroImage}
+  themeClass="theme-v2"
+>
+  <SharedNav name={photographer.name} variant="v2" homeHref={homeHref} extraLink={{ href: `${homeHref}/editorial-process`, label: 'Process' }} />
+
+  <main id="main-content" style="background:var(--c-bg-alt); color:var(--c-text-inv); min-height:100vh;">
+
+    <!-- HERO -->
+    <section class="pt-40 pb-20 px-6 lg:px-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-[1fr_3fr] gap-8 lg:gap-16 items-end mb-12">
+          <div>
+            <div class="text-xs uppercase tracking-[0.4em] mb-4" style="color:var(--c-accent)">Issue 04 / The Method</div>
+            <div class="font-serif italic text-lg" style="font-family:var(--f-display); color:rgba(248,248,248,0.6);">A working document.</div>
+          </div>
+          <h1 class="font-serif text-6xl lg:text-8xl xl:text-9xl leading-[0.95] tracking-tight uppercase" style="font-family:var(--f-display); font-weight:900; color:var(--c-text-inv);">
+            The Editorial<br/><span class="italic font-normal" style="color:var(--c-accent)">Process</span>
+          </h1>
+        </div>
+        <div class="h-px w-full mb-12" style="background:rgba(248,248,248,0.2)"></div>
+        <div class="grid lg:grid-cols-3 gap-12">
+          <p class="lg:col-span-2 text-xl lg:text-2xl leading-relaxed" style="color:rgba(248,248,248,0.85); font-weight:300;">
+            An editorial wedding is not photographed. It is <em class="italic" style="color:var(--c-accent)">art-directed</em> in real time, under the most uncontrolled circumstances a working photographer ever encounters. What follows is the seven-stage methodology I have built across nine years and 218 weddings — refined from the same disciplines that produce a glossy fashion editorial, adapted to a day that must remain, above all, true.
+          </p>
+          <div class="text-sm leading-relaxed" style="color:rgba(248,248,248,0.55);">
+            <div class="uppercase tracking-[0.2em] mb-3" style="color:var(--c-accent)">Cover Story</div>
+            218 Weddings · 9 Countries · 14 Magazine Features · 1 Method
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGES -->
+    <section class="px-6 lg:px-16 py-20 lg:py-28">
+      <div class="max-w-6xl mx-auto space-y-24 lg:space-y-32">
+
+        <article class="grid lg:grid-cols-[120px_1fr] gap-8 lg:gap-16 border-t pt-12 lg:pt-16" style="border-color:rgba(248,248,248,0.15);">
+          <div>
+            <div class="font-serif text-7xl lg:text-8xl leading-none" style="font-family:var(--f-display); font-weight:900; color:var(--c-accent);">01</div>
+            <div class="text-xs uppercase tracking-[0.3em] mt-2" style="color:rgba(248,248,248,0.4);">Weeks 12–10 out</div>
+          </div>
+          <div>
+            <h2 class="font-serif text-4xl lg:text-5xl uppercase mb-6 leading-tight" style="font-family:var(--f-display); font-weight:900;">Creative Brief</h2>
+            <p class="text-lg leading-relaxed mb-4" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              Every editorial begins with a brief. I send a 14-page intake document — not a questionnaire — covering the visual references that move you, the rooms you'll be in, the textures of your invitations, the typography of your stationery, and the photographs you cannot get out of your head. I am looking for the through-line. Without one, an editorial collapses into mere coverage.
+            </p>
+            <p class="text-lg leading-relaxed" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              I take that brief and build a mood board — usually 60 to 90 images — that I send back within ten days. It is the visual contract of our work together. If you don't recognize yourself in it, we re-shoot the brief. We do not move forward until you do.
+            </p>
+          </div>
+        </article>
+
+        <article class="grid lg:grid-cols-[120px_1fr] gap-8 lg:gap-16 border-t pt-12 lg:pt-16" style="border-color:rgba(248,248,248,0.15);">
+          <div>
+            <div class="font-serif text-7xl lg:text-8xl leading-none" style="font-family:var(--f-display); font-weight:900; color:var(--c-accent);">02</div>
+            <div class="text-xs uppercase tracking-[0.3em] mt-2" style="color:rgba(248,248,248,0.4);">Weeks 10–6 out</div>
+          </div>
+          <div>
+            <h2 class="font-serif text-4xl lg:text-5xl uppercase mb-6 leading-tight" style="font-family:var(--f-display); font-weight:900;">Location Scout</h2>
+            <p class="text-lg leading-relaxed" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              I visit your venue in person whenever it is within a 90-minute radius of New York City. For destination weddings, I arrive 48 hours before the rehearsal dinner and spend a full afternoon walking the property with light meter in hand, finding the three or four pockets the rest of the day will be built around. I map the sun's arc across the property on the date of your wedding and identify exactly when each window of light will arrive. Nothing is left to weather. The editorial is built before the day exists.
+            </p>
+          </div>
+        </article>
+
+        <article class="grid lg:grid-cols-[120px_1fr] gap-8 lg:gap-16 border-t pt-12 lg:pt-16" style="border-color:rgba(248,248,248,0.15);">
+          <div>
+            <div class="font-serif text-7xl lg:text-8xl leading-none" style="font-family:var(--f-display); font-weight:900; color:var(--c-accent);">03</div>
+            <div class="text-xs uppercase tracking-[0.3em] mt-2" style="color:rgba(248,248,248,0.4);">Weeks 6–2 out</div>
+          </div>
+          <div>
+            <h2 class="font-serif text-4xl lg:text-5xl uppercase mb-6 leading-tight" style="font-family:var(--f-display); font-weight:900;">Shot Architecture</h2>
+            <p class="text-lg leading-relaxed mb-4" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              I do not work from a shot list — I work from a shot architecture. It is a three-page document organizing the day into eleven movements, each with its lead image, its environmental context, its supporting frames, and its negative space. Fashion editorials open with the cover, then break to the layout — weddings are no different, they have simply never been treated that way.
+            </p>
+            <p class="text-lg leading-relaxed" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              The architecture also lists what I will <em class="italic">not</em> photograph. This is at least as important as what I will. A bold editorial wedding is defined by its restraint.
+            </p>
+          </div>
+        </article>
+
+        <article class="grid lg:grid-cols-[120px_1fr] gap-8 lg:gap-16 border-t pt-12 lg:pt-16" style="border-color:rgba(248,248,248,0.15);">
+          <div>
+            <div class="font-serif text-7xl lg:text-8xl leading-none" style="font-family:var(--f-display); font-weight:900; color:var(--c-accent);">04</div>
+            <div class="text-xs uppercase tracking-[0.3em] mt-2" style="color:rgba(248,248,248,0.4);">The day</div>
+          </div>
+          <div>
+            <h2 class="font-serif text-4xl lg:text-5xl uppercase mb-6 leading-tight" style="font-family:var(--f-display); font-weight:900;">Capture</h2>
+            <p class="text-lg leading-relaxed mb-4" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              I arrive with a second photographer, a digital tech for high-pressure cycles, three Leica bodies, six prime lenses, and a portable Profoto B10 kit for portraits that demand the kind of light a window cannot provide. Coverage is twelve hours by default. The day moves through the eleven movements at the cadence we've already planned.
+            </p>
+            <p class="text-lg leading-relaxed" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              On the day itself I am precise but never invisible. An editorial photographer who hides is a documentary photographer. We are different disciplines.
+            </p>
+          </div>
+        </article>
+
+        <article class="grid lg:grid-cols-[120px_1fr] gap-8 lg:gap-16 border-t pt-12 lg:pt-16" style="border-color:rgba(248,248,248,0.15);">
+          <div>
+            <div class="font-serif text-7xl lg:text-8xl leading-none" style="font-family:var(--f-display); font-weight:900; color:var(--c-accent);">05</div>
+            <div class="text-xs uppercase tracking-[0.3em] mt-2" style="color:rgba(248,248,248,0.4);">Week 1 after</div>
+          </div>
+          <div>
+            <h2 class="font-serif text-4xl lg:text-5xl uppercase mb-6 leading-tight" style="font-family:var(--f-display); font-weight:900;">First Edit</h2>
+            <p class="text-lg leading-relaxed" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              Within 72 hours I deliver a 24-image preview set — already color-graded, already laid out as a digital editorial spread. This is the cover and the opening sequence of your story. You see what your wedding looks like as a publication before you see the volume of it.
+            </p>
+          </div>
+        </article>
+
+        <article class="grid lg:grid-cols-[120px_1fr] gap-8 lg:gap-16 border-t pt-12 lg:pt-16" style="border-color:rgba(248,248,248,0.15);">
+          <div>
+            <div class="font-serif text-7xl lg:text-8xl leading-none" style="font-family:var(--f-display); font-weight:900; color:var(--c-accent);">06</div>
+            <div class="text-xs uppercase tracking-[0.3em] mt-2" style="color:rgba(248,248,248,0.4);">Weeks 4–6 after</div>
+          </div>
+          <div>
+            <h2 class="font-serif text-4xl lg:text-5xl uppercase mb-6 leading-tight" style="font-family:var(--f-display); font-weight:900;">Color Grading</h2>
+            <p class="text-lg leading-relaxed" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              I grade every frame of every gallery by hand, in Capture One, on a calibrated NEC PA-Series monitor in a darkened room. There is no preset, no filter, no batch. Each image is treated the way a magazine cover is treated. This is the slow part. It is also the part that separates editorial work from everything else.
+            </p>
+          </div>
+        </article>
+
+        <article class="grid lg:grid-cols-[120px_1fr] gap-8 lg:gap-16 border-t pt-12 lg:pt-16" style="border-color:rgba(248,248,248,0.15);">
+          <div>
+            <div class="font-serif text-7xl lg:text-8xl leading-none" style="font-family:var(--f-display); font-weight:900; color:var(--c-accent);">07</div>
+            <div class="text-xs uppercase tracking-[0.3em] mt-2" style="color:rgba(248,248,248,0.4);">Weeks 8–10 after</div>
+          </div>
+          <div>
+            <h2 class="font-serif text-4xl lg:text-5xl uppercase mb-6 leading-tight" style="font-family:var(--f-display); font-weight:900;">Final Delivery</h2>
+            <p class="text-lg leading-relaxed" style="color:rgba(248,248,248,0.8); font-weight:300;">
+              The full gallery — 480 to 620 frames — arrives as a private digital editorial. Black-and-white companion edits of every key frame are included by default. We then move into album design, where we'll cut the final story down to the 38 images that earn a place on paper. The album is hand-bound, in linen or full-grain leather, and arrives twelve to fourteen weeks after the wedding.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PUBLICATION BAR -->
+    <section class="border-t border-b py-16 px-6 lg:px-16" style="border-color:rgba(248,248,248,0.15); background:#000;">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-xs uppercase tracking-[0.4em] mb-8" style="color:var(--c-accent)">As featured in</div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 font-serif text-2xl lg:text-3xl italic" style="font-family:var(--f-display); color:rgba(248,248,248,0.7);">
+          <div>Vogue Weddings</div>
+          <div>Harper's Bazaar</div>
+          <div>Magnolia Rouge</div>
+          <div>Once Wed</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6 lg:px-16 text-center">
+      <h2 class="font-serif text-5xl lg:text-6xl uppercase mb-8 leading-tight" style="font-family:var(--f-display); font-weight:900;">
+        Build your <span class="italic font-normal" style="color:var(--c-accent)">editorial</span>.
+      </h2>
+      <p class="text-xl mb-12 max-w-2xl mx-auto" style="color:rgba(248,248,248,0.7); font-weight:300;">
+        Editorial weddings begin at $14,500. I take on six to eight per year. The 2026 calendar opens in May.
+      </p>
+      <a href={`${homeHref}#inquire`} class="inline-block uppercase tracking-[0.3em] text-sm font-bold px-12 py-5 transition-colors" style="background:var(--c-accent); color:white;">
+        Begin the brief →
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="py-10 px-6 lg:px-16" style="background:#000; color:rgba(248,248,248,0.5);">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4 text-sm">
+      <div>© {new Date().getFullYear()} {photographer.business}</div>
+      <div><a href={homeHref} class="hover:underline" style="color:var(--c-accent)">← Back to portfolio</a></div>
+    </div>
+  </footer>
+</BaseLayout>

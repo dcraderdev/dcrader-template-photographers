@@ -3,27 +3,35 @@
 interface Props {
   name: string;
   variant: 'v1' | 'v2' | 'v3' | 'v4' | 'v5';
+  /** When on a sub-page, prefix in-page anchors with the home path so they navigate back. */
+  homeHref?: string;
+  /** Optional extra link rendered before "Inquire" — used by sub-pages. */
+  extraLink?: { href: string; label: string };
 }
-const { name, variant } = Astro.props;
+const { name, variant, homeHref, extraLink } = Astro.props;
+const base = homeHref ?? '';
 const links = [
-  { href: '#galleries', label: 'Work' },
-  { href: '#about',     label: 'About' },
-  { href: '#services',  label: 'Services' },
-  { href: '#testimonials', label: 'Praise' },
+  { href: `${base}#galleries`, label: 'Work' },
+  { href: `${base}#about`,     label: 'About' },
+  { href: `${base}#services`,  label: 'Services' },
+  { href: `${base}#testimonials`, label: 'Praise' },
 ];
+if (extraLink) links.push(extraLink);
+const inquireHref = `${base}#inquire`;
+const logoHref = homeHref ?? '#hero';
 ---
 
 <nav id="main-nav" class={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-16 pt-10 pb-5 lg:py-6 transition-all duration-500 nav-${variant}`}
   aria-label="Main navigation">
 
-  <a href="#hero" class="nav-logo transition-colors duration-300" aria-label={`${name} — home`}>
+  <a href={logoHref} class="nav-logo transition-colors duration-300" aria-label={`${name} — home`}>
     {name}
   </a>
 
   <ul class="hidden lg:flex items-center gap-10 text-xs uppercase tracking-widest font-light nav-links">
     {links.map(l => <li><a href={l.href} class="nav-link transition-colors duration-300">{l.label}</a></li>)}
     <li>
-      <a href="#inquire" class="nav-cta text-xs uppercase tracking-[0.2em] px-5 py-2 transition-all duration-300">
+      <a href={inquireHref} class="nav-cta text-xs uppercase tracking-[0.2em] px-5 py-2 transition-all duration-300">
         Inquire
       </a>
     </li>
@@ -39,7 +47,7 @@ const links = [
 <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300"
   style="background:var(--c-bg-alt)" aria-hidden="true">
   <ul class="flex flex-col items-center gap-8 text-2xl" style="font-family:var(--f-display);color:var(--c-text-inv)">
-    {[...links, { href:'#inquire', label:'Inquire' }].map(l => (
+    {[...links, { href: inquireHref, label:'Inquire' }].map(l => (
       <li><a href={l.href} class="mobile-link transition-colors hover:opacity-70">{l.label}</a></li>
     ))}
   </ul>
