@@ -170,9 +170,13 @@ const description = `Behind the work of ${photographer.name} — how an editoria
       <p class="text-xl mb-12 max-w-2xl mx-auto" style="color:rgba(248,248,248,0.7); font-weight:300;">
         Editorial weddings begin at $14,500. I take on six to eight per year. The 2026 calendar opens in May.
       </p>
-      <a href={`${homeHref}#inquire`} class="inline-block uppercase tracking-[0.3em] text-sm font-bold px-12 py-5 transition-colors" style="background:var(--c-accent); color:white;">
+      <a href={`${homeHref}#inquire`} class="cta-brief inline-block uppercase tracking-[0.3em] text-sm font-bold px-12 py-5 transition-all" style="background:var(--c-accent); color:white;">
         Begin the brief →
       </a>
+      <style>
+        .cta-brief:hover { background: #ffffff !important; color: var(--c-accent) !important; transform: translateY(-2px); }
+        .cta-brief:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; background: #ffffff !important; color: var(--c-accent) !important; }
+      </style>
     </section>
 
   </main>

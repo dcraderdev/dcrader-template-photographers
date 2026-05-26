@@ -61,8 +61,8 @@ const { packages } = Astro.props;
                 </span>
               )}
               <a href="#inquire"
-                class="text-[8px] uppercase tracking-[0.3em] px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black"
-                style="border:1px solid rgba(248,248,248,0.3);color:rgba(248,248,248,0.7);font-family:var(--f-body)">
+                class="book-link text-[8px] uppercase tracking-[0.3em] px-6 py-3 transition-all duration-300 hover:bg-white hover:text-black"
+                style="border:1px solid rgba(248,248,248,0.45);color:rgba(248,248,248,0.85);font-family:var(--f-body)">
                 Book
               </a>
             </div>
@@ -71,9 +71,12 @@ const { packages } = Astro.props;
       ))}
     </div>
 
-    <p class="mt-10 text-[9px] font-light fade-hidden" style="color:rgba(248,248,248,0.25);font-family:var(--f-body);transition-delay:0.35s">
+    <p class="mt-10 text-[9px] font-light fade-hidden" style="color:rgba(248,248,248,0.55);font-family:var(--f-body);transition-delay:0.35s">
       Rates in USD. Travel surcharges apply outside New York metro. International weddings quoted separately.
     </p>
   </div>
+  <style>
+    .book-link:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 2px; background: #fff; color: #000 !important; }
+  </style>
 </section>
 

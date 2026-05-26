@@ -119,7 +119,7 @@ const {
 
         <div class="pt-4">
           <button type="submit"
-            class="w-full sm:w-auto text-xs uppercase tracking-[0.25em] px-10 py-4 transition-colors duration-300"
+            class="inquiry-submit w-full sm:w-auto text-xs uppercase tracking-[0.25em] px-10 py-4 transition-all duration-300"
             style="background:var(--c-accent);color:var(--c-text-inv)">
             {submitLabel}
           </button>
@@ -130,6 +130,49 @@ const {
       </form>
     </div>
   </div>
+
+  <style>
+    /* a11y: visible focus on form inputs (focus:outline-none was removing the only indicator) */
+    #inquiry-form input,
+    #inquiry-form textarea {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    #inquiry-form input:hover,
+    #inquiry-form textarea:hover {
+      border-bottom-color: rgba(255,255,255,0.45) !important;
+    }
+    #inquiry-form input:focus-visible,
+    #inquiry-form textarea:focus-visible {
+      border-bottom-color: var(--c-accent) !important;
+      box-shadow: 0 1px 0 0 var(--c-accent);
+    }
+    /* Radio peer-checked + hover/focus for budget buttons */
+    #inquiry-form input[type="radio"]:checked + span {
+      border-color: var(--c-accent) !important;
+      color: var(--c-text-inv) !important;
+      background: rgba(255,255,255,0.06);
+    }
+    #inquiry-form label:hover span {
+      border-color: rgba(255,255,255,0.45) !important;
+      color: rgba(255,255,255,0.85) !important;
+    }
+    #inquiry-form input[type="radio"]:focus-visible + span {
+      outline: 2px solid var(--c-accent);
+      outline-offset: 2px;
+    }
+    /* Submit button */
+    .inquiry-submit {
+      filter: brightness(1);
+    }
+    .inquiry-submit:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+    .inquiry-submit:focus-visible {
+      outline: 2px solid var(--c-accent);
+      outline-offset: 3px;
+    }
+  </style>
 </section>
 
 <script>

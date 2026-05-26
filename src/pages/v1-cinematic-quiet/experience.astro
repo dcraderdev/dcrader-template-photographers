@@ -117,9 +117,13 @@ const description = `A walk through the rhythm of a wedding day photographed by 
       <p class="font-serif italic text-2xl lg:text-3xl leading-snug mb-10" style="font-family:var(--f-display); color:var(--c-text);">
         If any of this sounds like the kind of day you're hoping to remember, I would love to hear from you.
       </p>
-      <a href={`${homeHref}#inquire`} class="inline-block uppercase tracking-[0.3em] text-xs px-10 py-4 transition-colors" style="border:1px solid var(--c-text); color:var(--c-text);">
+      <a href={`${homeHref}#inquire`} class="cta-write inline-block uppercase tracking-[0.3em] text-xs px-10 py-4 transition-colors" style="border:1px solid var(--c-text); color:var(--c-text);">
         Write to me
       </a>
+      <style>
+        .cta-write:hover { background: var(--c-text); color: var(--c-bg) !important; }
+        .cta-write:focus-visible { outline: 2px solid var(--c-accent-dark); outline-offset: 3px; background: var(--c-text); color: var(--c-bg) !important; }
+      </style>
     </section>
 
   </main>

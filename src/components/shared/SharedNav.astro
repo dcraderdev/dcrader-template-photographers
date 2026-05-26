@@ -9,6 +9,8 @@ interface Props {
   extraLink?: { href: string; label: string };
 }
 const { name, variant, homeHref, extraLink } = Astro.props;
+/* Sub-pages have no hero image behind the nav — force darker text against light backgrounds. */
+const isSubpage = !!homeHref;
 const base = homeHref ?? '';
 const links = [
   { href: `${base}#galleries`, label: 'Work' },
@@ -21,7 +23,7 @@ const inquireHref = `${base}#inquire`;
 const logoHref = homeHref ?? '#hero';
 ---
 
-<nav id="main-nav" class={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-16 pt-10 pb-5 lg:py-6 transition-all duration-500 nav-${variant}`}
+<nav id="main-nav" class={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-16 pt-10 pb-5 lg:py-6 transition-all duration-500 nav-${variant}${isSubpage ? ' is-subpage' : ''}`}
   aria-label="Main navigation">
 
   <a href={logoHref} class="nav-logo transition-colors duration-300" aria-label={`${name} — home`}>
@@ -54,6 +56,15 @@ const logoHref = homeHref ?? '#hero';
 </div>
 
 <style>
+  /* a11y: visible keyboard focus across every variant */
+  #main-nav a:focus-visible,
+  #main-nav button:focus-visible,
+  #mobile-menu a:focus-visible {
+    outline: 2px solid var(--c-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
   /* Scrolled state: solid dark bar; cream text reads regardless of variant */
   #main-nav.is-scrolled {
     background: var(--c-bg-alt);
@@ -86,13 +97,18 @@ const logoHref = homeHref ?? '#hero';
   .nav-v2 .nav-bar { background: var(--c-text-inv); }
 
   /* ───── V3 — Bohemian Warm ─────
-     Hero is bright golden-hour image. Cream text needs shadow for legibility on bright areas. */
-  .nav-v3 .nav-logo { font-family: var(--f-display); font-size: 1.1rem; font-style: italic; color: var(--c-text-inv); letter-spacing: 0.03em; text-shadow: 0 1px 14px rgba(46,32,22,0.55); }
-  .nav-v3 .nav-link { color: var(--c-text-inv); text-shadow: 0 1px 10px rgba(46,32,22,0.5); }
-  .nav-v3 .nav-link:hover { color: var(--c-accent); }
-  .nav-v3 .nav-cta { border: 1px solid rgba(255,255,255,0.7); color: var(--c-text-inv); text-shadow: 0 1px 10px rgba(46,32,22,0.5); }
-  .nav-v3 .nav-cta:hover { background: rgba(255,255,255,0.15); }
-  .nav-v3 .nav-bar { background: var(--c-text-inv); }
+     Hero is a washed-cream "pricing-led" wallpaper — cream text disappears, so use dark text
+     with a subtle highlight shadow that still reads against any warm tones. */
+  .nav-v3 .nav-logo { font-family: var(--f-display); font-size: 1.1rem; font-style: italic; color: var(--c-text); letter-spacing: 0.03em; text-shadow: 0 1px 14px rgba(253,248,242,0.7); }
+  .nav-v3 .nav-link { color: var(--c-text); text-shadow: 0 1px 8px rgba(253,248,242,0.7); opacity: 0.85; }
+  .nav-v3 .nav-link:hover { color: var(--c-accent-dark); opacity: 1; }
+  .nav-v3 .nav-cta { border: 1px solid var(--c-accent-dark); color: var(--c-text); text-shadow: none; }
+  .nav-v3 .nav-cta:hover { background: var(--c-accent); border-color: var(--c-accent); color: var(--c-text-inv); }
+  .nav-v3 .nav-bar { background: var(--c-text); }
+  #main-nav.nav-v3.is-scrolled .nav-logo,
+  #main-nav.nav-v3.is-scrolled .nav-link { color: var(--c-text-inv); text-shadow: none; }
+  #main-nav.nav-v3.is-scrolled .nav-cta { color: var(--c-text-inv); border-color: rgba(255,255,255,0.7); }
+  #main-nav.nav-v3.is-scrolled .nav-bar { background: var(--c-text-inv); }
 
   /* ───── V4 — Modern Minimal ─────
      Hero is white left split + photo right. Nav sits over white left half → black text. */

@@ -155,9 +155,13 @@ const description = `Everything you need to plan a wild Pacific Northwest elopem
       <h2 class="text-4xl lg:text-5xl mb-8 leading-tight" style="font-family:var(--f-display); font-weight:400;">
         Let's go somewhere wild together.
       </h2>
-      <a href={`${homeHref}#inquire`} class="inline-block uppercase tracking-[0.3em] text-sm px-10 py-4 transition-colors" style="border:1px solid rgba(253,248,242,0.7); color:var(--c-text-inv);">
+      <a href={`${homeHref}#inquire`} class="cta-note inline-block uppercase tracking-[0.3em] text-sm px-10 py-4 transition-all" style="border:1px solid var(--c-text-inv); color:var(--c-text-inv);">
         Send us a note
       </a>
+      <style>
+        .cta-note:hover { background: var(--c-accent); border-color: var(--c-accent); color: var(--c-text-inv) !important; transform: translateY(-1px); }
+        .cta-note:focus-visible { outline: 2px solid var(--c-accent2, var(--c-accent)); outline-offset: 3px; background: var(--c-accent); border-color: var(--c-accent); }
+      </style>
     </section>
 
   </main>

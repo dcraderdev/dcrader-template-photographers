@@ -153,9 +153,14 @@ const description = `On the discipline of finishing — hand-bound albums, museu
         <p class="text-lg mb-10 max-w-2xl mx-auto" style="color:var(--c-text-muted); font-weight:300;">
           The studio takes a maximum of twenty weddings per year. Inquiries for 2026 are reviewed on a rolling basis. Album-only commissions, for couples whose weddings have already been photographed elsewhere, are accepted by exception.
         </p>
-        <a href={`${homeHref}#inquire`} class="inline-block uppercase tracking-[0.3em] text-xs font-medium px-12 py-5 transition-colors" style="background:var(--c-text); color:var(--c-bg);">
+        <a href={`${homeHref}#inquire`} class="cta-inquire inline-block uppercase tracking-[0.3em] text-xs font-medium px-12 py-5 transition-all" style="background:var(--c-text); color:var(--c-bg);">
           Inquire →
         </a>
+        <style>
+          .cta-inquire { border: 1px solid var(--c-text); }
+          .cta-inquire:hover { background: var(--c-bg) !important; color: var(--c-text) !important; }
+          .cta-inquire:focus-visible { outline: 2px solid var(--c-text); outline-offset: 3px; background: var(--c-bg) !important; color: var(--c-text) !important; }
+        </style>
       </div>
     </section>
 

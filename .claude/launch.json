@@ -4,8 +4,9 @@
     {
       "name": "photographer-templates",
       "runtimeExecutable": "bash",
-      "runtimeArgs": ["-lc", "export PATH=\"$HOME/.nvm/versions/node/v22.15.0/bin:$PATH\" && npm run dev"],
-      "port": 4321
+      "runtimeArgs": ["-lc", "export PATH=\"$HOME/.nvm/versions/node/v22.15.0/bin:$PATH\" && npm run dev -- --port $PORT"],
+      "port": 4321,
+      "autoPort": true
     }
   ]
 }
