@@ -6,7 +6,7 @@ interface Props { steps: Step[]; }
 const { steps } = Astro.props;
 ---
 
-<section id="process" class="py-28 lg:py-44" style="background:var(--c-bg)" aria-label="How it works">
+<section id="process" class="py-28 lg:py-44" style="background:var(--c-bg-alt)" aria-label="How it works">
   <div class="max-w-screen-xl mx-auto px-6 lg:px-16">
 
     <div class="flex items-baseline gap-6 mb-20 fade-hidden">
@@ -34,7 +34,7 @@ const { steps } = Astro.props;
         <li class="relative pl-16 pb-16 last:pb-0 fade-hidden" style={`transition-delay:${i*0.08}s`}>
           <span
             class="absolute left-0 top-0 flex items-center justify-center"
-            style="width:32px;height:32px;background:var(--c-bg);border:1px solid var(--c-accent);border-radius:50%"
+            style="width:32px;height:32px;background:var(--c-bg-alt);border:1px solid var(--c-accent);border-radius:50%"
             aria-hidden="true"
           >
             <span class="block w-1.5 h-1.5 rounded-full" style="background:var(--c-accent)"></span>

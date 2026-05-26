@@ -46,34 +46,65 @@ const links = [
 </div>
 
 <style>
-  .nav-v1 .nav-logo { font-family: var(--f-display); font-size: 1.2rem; color: var(--c-text-inv); letter-spacing: 0.05em; }
-  .nav-v1 .nav-link { color: var(--c-text-inv); }
-  .nav-v1 .nav-link:hover { color: var(--c-accent); }
-  .nav-v1 .nav-cta { border: 1px solid rgba(255,255,255,0.6); color: var(--c-text-inv); }
-  .nav-v1 .nav-cta:hover { background: var(--c-text-inv); color: var(--c-text); }
-  .nav-v1 .nav-bar { background: var(--c-text-inv); }
+  /* Scrolled state: solid dark bar; cream text reads regardless of variant */
+  #main-nav.is-scrolled {
+    background: var(--c-bg-alt);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.18);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  #main-nav.is-scrolled .nav-logo,
+  #main-nav.is-scrolled .nav-link { color: var(--c-text-inv); text-shadow: none; }
+  #main-nav.is-scrolled .nav-bar { background: var(--c-text-inv); }
 
-  .nav-v2 .nav-logo { font-family: var(--f-display); font-size: 1.4rem; color: var(--c-text); letter-spacing: 0.1em; }
-  .nav-v2 .nav-link { color: var(--c-text); }
+  /* ───── V1 — Cinematic Quiet ─────
+     Hero opens with cream margin around a framed photo; nav sits on cream.
+     At top: dark text on cream margin (readable). After scroll: cream on dark. */
+  .nav-v1 .nav-logo { font-family: var(--f-display); font-size: 1.2rem; color: var(--c-text); letter-spacing: 0.05em; }
+  .nav-v1 .nav-link { color: var(--c-text); }
+  .nav-v1 .nav-link:hover { color: var(--c-accent-dark); }
+  .nav-v1 .nav-cta { border: 1px solid var(--c-text); color: var(--c-text); }
+  .nav-v1 .nav-cta:hover { background: var(--c-text); color: var(--c-text-inv); }
+  .nav-v1 .nav-bar { background: var(--c-text); }
+  #main-nav.nav-v1.is-scrolled .nav-cta { border-color: rgba(255,255,255,0.6); color: var(--c-text-inv); }
+
+  /* ───── V2 — Bold Editorial ─────
+     Hero is dark photo with heavy black gradient overlay; cream text needed at top. */
+  .nav-v2 .nav-logo { font-family: var(--f-display); font-size: 1.4rem; color: var(--c-text-inv); letter-spacing: 0.1em; text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
+  .nav-v2 .nav-link { color: var(--c-text-inv); text-shadow: 0 1px 8px rgba(0,0,0,0.4); }
   .nav-v2 .nav-link:hover { color: var(--c-accent); }
   .nav-v2 .nav-cta { background: var(--c-accent); color: white; }
   .nav-v2 .nav-cta:hover { background: var(--c-accent-dark); }
-  .nav-v2 .nav-bar { background: var(--c-text); }
+  .nav-v2 .nav-bar { background: var(--c-text-inv); }
 
-  .nav-v3 .nav-logo { font-family: var(--f-display); font-size: 1.1rem; font-style: italic; color: var(--c-text-inv); letter-spacing: 0.03em; }
-  .nav-v3 .nav-link { color: var(--c-text-inv); }
+  /* ───── V3 — Bohemian Warm ─────
+     Hero is bright golden-hour image. Cream text needs shadow for legibility on bright areas. */
+  .nav-v3 .nav-logo { font-family: var(--f-display); font-size: 1.1rem; font-style: italic; color: var(--c-text-inv); letter-spacing: 0.03em; text-shadow: 0 1px 14px rgba(46,32,22,0.55); }
+  .nav-v3 .nav-link { color: var(--c-text-inv); text-shadow: 0 1px 10px rgba(46,32,22,0.5); }
   .nav-v3 .nav-link:hover { color: var(--c-accent); }
-  .nav-v3 .nav-cta { border: 1px solid rgba(255,255,255,0.5); color: var(--c-text-inv); }
+  .nav-v3 .nav-cta { border: 1px solid rgba(255,255,255,0.7); color: var(--c-text-inv); text-shadow: 0 1px 10px rgba(46,32,22,0.5); }
   .nav-v3 .nav-cta:hover { background: rgba(255,255,255,0.15); }
   .nav-v3 .nav-bar { background: var(--c-text-inv); }
 
-  .nav-v4 .nav-logo { font-family: var(--f-display); font-size: 1rem; color: var(--c-text-inv); letter-spacing: 0.2em; text-transform: uppercase; }
-  .nav-v4 .nav-link { color: rgba(255,255,255,0.6); }
-  .nav-v4 .nav-link:hover { color: white; }
-  .nav-v4 .nav-cta { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
-  .nav-v4 .nav-cta:hover { background: white; color: var(--c-text); }
-  .nav-v4 .nav-bar { background: var(--c-text-inv); }
+  /* ───── V4 — Modern Minimal ─────
+     Hero is white left split + photo right. Nav sits over white left half → black text. */
+  .nav-v4 .nav-logo { font-family: var(--f-display); font-size: 1rem; color: var(--c-text); letter-spacing: 0.2em; text-transform: uppercase; }
+  .nav-v4 .nav-link { color: rgba(15,15,15,0.7); }
+  .nav-v4 .nav-link:hover { color: var(--c-text); }
+  .nav-v4 .nav-cta { border: 1px solid rgba(15,15,15,0.4); color: var(--c-text); }
+  .nav-v4 .nav-cta:hover { background: var(--c-text); color: white; }
+  .nav-v4 .nav-bar { background: var(--c-text); }
+  /* V4's --c-bg-alt is platinum (#f5f5f5), so scrolled state stays dark-on-light. */
+  #main-nav.nav-v4.is-scrolled { background: rgba(255,255,255,0.92) !important; backdrop-filter: blur(8px); box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+  #main-nav.nav-v4.is-scrolled .nav-logo,
+  #main-nav.nav-v4.is-scrolled .nav-link { color: var(--c-text); }
+  #main-nav.nav-v4.is-scrolled .nav-link { color: rgba(15,15,15,0.7); }
+  #main-nav.nav-v4.is-scrolled .nav-link:hover { color: var(--c-text); }
+  #main-nav.nav-v4.is-scrolled .nav-cta { border-color: rgba(15,15,15,0.4); color: var(--c-text); }
+  #main-nav.nav-v4.is-scrolled .nav-bar { background: var(--c-text); }
 
+  /* ───── V5 — Vibrant Joyful ─────
+     Hero opens with cream margin; bento yellow/coral tiles below. Black wordmark on cream is fine. */
   .nav-v5 .nav-logo { font-family: var(--f-display); font-size: 1.1rem; font-weight: 700; color: var(--c-text); letter-spacing: -0.01em; }
   .nav-v5 .nav-link { color: var(--c-text); }
   .nav-v5 .nav-link:hover { color: var(--c-accent-dark); }
@@ -94,15 +125,9 @@ const links = [
   window.addEventListener('scroll', () => {
     if (!nav) return;
     if (window.scrollY > 80) {
-      nav.style.background = 'var(--c-bg-alt)';
-      nav.style.boxShadow = '0 1px 20px rgba(0,0,0,0.15)';
-      nav.style.paddingTop = '1rem';
-      nav.style.paddingBottom = '1rem';
+      nav.classList.add('is-scrolled');
     } else {
-      nav.style.background = 'transparent';
-      nav.style.boxShadow = 'none';
-      nav.style.paddingTop = '';
-      nav.style.paddingBottom = '';
+      nav.classList.remove('is-scrolled');
     }
   });
 
