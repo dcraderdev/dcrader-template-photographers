@@ -7,81 +7,36 @@
     {
       "source": "/_astro/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
       "source": "/images/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
       "source": "/(.*)\\.(webp|avif|jpg|jpeg|png|svg|ico|woff2|woff)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "emmahayesphoto.dcrader.dev"
-        }
-      ],
-      "destination": "/v1-cinematic-quiet/$1"
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "dariavolkov.dcrader.dev"
-        }
-      ],
-      "destination": "/v2-bold-editorial/$1"
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "rubyandwilder.dcrader.dev"
-        }
-      ],
-      "destination": "/v3-bohemian-warm/$1"
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "lenaschultz.dcrader.dev"
-        }
-      ],
-      "destination": "/v4-modern-minimal/$1"
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "popandbloomphoto.dcrader.dev"
-        }
-      ],
-      "destination": "/v5-vibrant-joyful/$1"
-    }
+    { "source": "/", "has": [{ "type": "host", "value": "emmahayesphoto.dcrader.dev" }], "destination": "/v1-cinematic-quiet/index.html" },
+    { "source": "/(.+)", "has": [{ "type": "host", "value": "emmahayesphoto.dcrader.dev" }], "destination": "/v1-cinematic-quiet/$1" },
+
+    { "source": "/", "has": [{ "type": "host", "value": "dariavolkov.dcrader.dev" }], "destination": "/v2-bold-editorial/index.html" },
+    { "source": "/(.+)", "has": [{ "type": "host", "value": "dariavolkov.dcrader.dev" }], "destination": "/v2-bold-editorial/$1" },
+
+    { "source": "/", "has": [{ "type": "host", "value": "rubyandwilder.dcrader.dev" }], "destination": "/v3-bohemian-warm/index.html" },
+    { "source": "/(.+)", "has": [{ "type": "host", "value": "rubyandwilder.dcrader.dev" }], "destination": "/v3-bohemian-warm/$1" },
+
+    { "source": "/", "has": [{ "type": "host", "value": "lenaschultz.dcrader.dev" }], "destination": "/v4-modern-minimal/index.html" },
+    { "source": "/(.+)", "has": [{ "type": "host", "value": "lenaschultz.dcrader.dev" }], "destination": "/v4-modern-minimal/$1" },
+
+    { "source": "/", "has": [{ "type": "host", "value": "popandbloomphoto.dcrader.dev" }], "destination": "/v5-vibrant-joyful/index.html" },
+    { "source": "/(.+)", "has": [{ "type": "host", "value": "popandbloomphoto.dcrader.dev" }], "destination": "/v5-vibrant-joyful/$1" }
   ]
 }
