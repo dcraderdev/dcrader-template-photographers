@@ -1,7 +1,9 @@
 ---
 // Native <picture> with AVIF source + WebP/JPG fallback <img>.
-// Derives the .avif sibling from a .webp/.jpg/.jpeg/.png `src`.
-// Use for any pre-generated /images/*.{webp,avif} pair in public/.
+// Reads intrinsic dimensions from disk at build time and emits a
+// width-based srcset across every available variant so each viewport
+// downloads the smallest sufficient file.
+import { getImageMeta, buildSrcset } from './imageMeta';
 
 interface Props {
   src: string;
@@ -13,6 +15,7 @@ interface Props {
   decoding?: 'async' | 'sync' | 'auto';
   width?: number | string;
   height?: number | string;
+  sizes?: string;
   id?: string;
   [key: string]: any;
 }
@@ -27,15 +30,34 @@ const {
   decoding = 'async',
   width,
   height,
+  sizes,
   id,
   ...rest
 } = Astro.props;
 
+const meta = await getImageMeta(src);
+
+// Strip the -<width>.ext suffix to get the base path so we can build a srcset.
+const srcMatch = src.match(/^\/images\/(.+)-(\d+)\.(webp|jpg|jpeg|png)$/i);
+const base = srcMatch ? srcMatch[1] : null;
+const fallbackExt = srcMatch ? srcMatch[3].toLowerCase() : 'webp';
+
 const avifSrc = src.replace(/\.(webp|jpg|jpeg|png)$/i, '.avif');
-const hasAvif = avifSrc !== src;
+const hasAvif = meta?.hasAvif ?? avifSrc !== src;
+
+const widths = meta?.widths ?? [];
+const avifSrcset = base && hasAvif && widths.length ? buildSrcset(base, widths, 'avif') : null;
+const fallbackSrcset = base && widths.length ? buildSrcset(base, widths, fallbackExt) : null;
+
+// Caller-provided dims win; otherwise fall back to intrinsic.
+const finalWidth = width ?? meta?.width;
+const finalHeight = height ?? meta?.height;
+const finalSizes = sizes ?? '100vw';
 ---
 <picture>
-  {hasAvif && <source srcset={avifSrc} type="image/avif" />}
+  {hasAvif && avifSrcset && <source srcset={avifSrcset} sizes={finalSizes} type="image/avif" />}
+  {hasAvif && !avifSrcset && <source srcset={avifSrc} type="image/avif" />}
+  {fallbackSrcset && <source srcset={fallbackSrcset} sizes={finalSizes} type={`image/${fallbackExt === 'jpg' ? 'jpeg' : fallbackExt}`} />}
   <img
     src={src}
     alt={alt}
@@ -44,8 +66,8 @@ const hasAvif = avifSrc !== src;
     loading={loading}
     fetchpriority={fetchpriority}
     decoding={decoding}
-    width={width}
-    height={height}
+    width={finalWidth}
+    height={finalHeight}
     id={id}
     {...rest}
   />

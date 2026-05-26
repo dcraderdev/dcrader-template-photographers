@@ -2,6 +2,7 @@
 // V1 Signature Frame Showcase
 // One stunning image, presented like a gallery wall print.
 // Minimal type, generous margins, designed to feel "cinematic quiet".
+import ResponsiveImage from '../shared/ResponsiveImage.astro';
 ---
 
 <section
@@ -29,17 +30,15 @@
       <!-- Large print -->
       <figure class="lg:col-span-9 fade-hidden">
         <div class="relative overflow-hidden" style="aspect-ratio:4/5">
-          <picture>
-            <source srcset="/images/1606800052052-a08af7148866-1400.avif" type="image/avif" />
-            <img
-              src="/images/1606800052052-a08af7148866-1400.webp"
-              alt="A first look — bride and groom alone in a Sonoma vineyard at first light, the moment before anyone else has arrived."
-              class="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              style="filter:contrast(0.97) saturate(0.92)"
-            />
-          </picture>
+          <ResponsiveImage
+            src="/images/1606800052052-a08af7148866-1400.webp"
+            alt="A first look — bride and groom alone in a Sonoma vineyard at first light, the moment before anyone else has arrived."
+            class="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            style="filter:contrast(0.97) saturate(0.92)"
+            sizes="(min-width:1024px) 75vw, 100vw"
+          />
           <!-- Soft inner border to suggest a print -->
           <div
             class="absolute inset-3 pointer-events-none"
